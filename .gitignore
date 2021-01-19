@@ -4,3 +4,5 @@ fittedmodels/*
 prob_table.RDS
 bpcs-appendix.Rproj
 _bookdown_files/*
+.DS_store
+.Rhistory
