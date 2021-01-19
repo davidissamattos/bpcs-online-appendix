@@ -1,0 +1,204 @@
+# Re-analysis 1 {#studyI}
+
+This reanalysis is based on the paper:
+
+> Iwasa, Kazunori, et al. "Visual perception of moisture is a pathogen detection mechanism of the behavioral immune system." Frontiers in Psychology 11 (2020): 170.
+
+The data of this paper can be obtained from the repository: https://osf.io/5quj9/
+
+```{r warning=F, message=F}
+library(bpcs)
+library(tidyverse)
+options(mc.cores = parallel::detectCores())
+rstan::rstan_options(auto_write = TRUE)
+set.seed(99)
+```
+
+## Importing the data
+
+First let's read the data:
+
+```{r warning=F, message=F}
+d <- readxl::read_xlsx('data/moisture.xlsx', sheet = 'Exp02_BTmodel')
+```
+
+Below we show a sample of how the original data looks like:
+```{r}
+sample_n(d, size = 5) %>% 
+  kable(caption = 'Sample of the original data')
+```
+
+The data is in the aggregated format. So let's expand it to the long format 
+```{r cache=T}
+d_moisture <- expand_aggregated_data(d, player0 = 'player1', player1='player2', wins0 = 'win1', wins1='win2')
+```
+
+Now the data looks like this:
+
+```{r} 
+sample_n(d_moisture, size = 20) %>% 
+  kable(caption = 'The data in the long format')
+```
+
+
+## Analysis with the Bradley-Terry model and the order effect model
+
+Although this is multiple judgment case, the dataset in the aggregated format does not provide information of how each individual voted, therefore we cannot compensate this effect. Therefore, we will create an analysis with only the Bradley-Terry model and the Bradley-Terry model with order effect
+
+First, let's sample the Bradley-Terry model
+
+```{r eval=F}
+m_moisture <-
+  bpc(
+    d_moisture,
+    player0 = 'player0',
+    player1 = 'player1',
+    result_column = 'y',
+    model_type = 'bt',
+    iter = 3000
+  )
+save_bpc_model(m_moisture,'m_moisture','fittedmodels')
+```
+
+Low let's sample the model with order effect.
+
+Although the authors said that the order of the images was inverted to compensate order effect, we can still estimate if there is an order effect or not in the choice.
+
+But first we need to create a column indicating if there was order effect for that case or not. In this problem, we just indicate with a column of ones that all instances could have an order effect. Not that the package marks the order effect relative to player1. So if the values should be interpret as such.
+
+```{r }
+d_moisture <- d_moisture %>% 
+  dplyr::mutate(z1 = 1)
+```
+
+```{r eval=F}
+m_moisture_order <-
+  bpc(
+    d_moisture,
+    player0 = 'player0',
+    player1 = 'player1',
+    result_column = 'y',
+    z_player1 = 'z1',
+    model_type = 'bt-ordereffect',
+    iter = 3000
+  )
+save_bpc_model(m_moisture_order,'m_moisture_order','fittedmodels')
+```
+
+```{r echo=FALSE}
+m_moisture <- load_bpc_model('fittedmodels/m_moisture.RDS')
+m_moisture_order <- load_bpc_model('fittedmodels/m_moisture_order.RDS')
+```
+
+
+## Diagnostics
+
+Checking convergence of the models
+
+```{r eval=FALSE}
+launch_shinystan(m_moisture)
+```
+
+```{r eval=FALSE}
+launch_shinystan(m_moisture_order)
+```
+
+### Tables and plots
+
+First, lets get a table for the parameters (to export it to Latex just utilize the format option)
+
+```{r}
+get_parameters_table(m_moisture, format = 'html', caption = 'Parameters estimates for the simple Bradley-Terry model')
+```
+
+
+```{r}
+get_parameters_table(
+  m_moisture_order,
+  params = c('lambda', 'gm'),
+  format = 'html',
+  caption = 'Parameters estimates for the Bradley-Terry model with order effect'
+)
+```
+
+We can see from the table of the order effect that the gamma parameter is very close to zero, indicating that there is no order effect
+
+```{r echo=F, eval=F, results='hide'}
+get_parameters_table(
+  m_moisture,
+  format = 'latex',
+  caption = 'Parameters estimates for the simple Bradley-Terry model'
+)
+
+get_parameters_table(
+  m_moisture_order,
+  params = c('lambda', 'gm'),
+  format = 'latex',
+  caption = 'Parameters estimates for the Bradley-Terry model with order effect'
+)
+```
+
+
+Now lets compute the posterior ranks of the images based on the first BT model
+
+```{r cache=T}
+r <- get_rank_of_players_df(m_moisture) 
+```
+
+```{r echo=F, eval=F, results='hide'}
+get_rank_of_players_table(m_moisture, format = 'latex', digits=2, caption = 'Rank of the images based on moisture content')
+```
+
+Generating a table with the images
+```{r}
+r %>% 
+  mutate(Image = c("data/moisture/Stimuli/image08.jpg",
+                   "data/moisture/Stimuli/image07.jpg",
+                   "data/moisture/Stimuli/image06.jpg",
+                   "data/moisture/Stimuli/image05.jpg",
+                   "data/moisture/Stimuli/image04.jpg",
+                   "data/moisture/Stimuli/image03.jpg",
+                   "data/moisture/Stimuli/image02.jpg",
+                   "data/moisture/Stimuli/image01.jpg") %>% pander::pandoc.image.return()) %>% 
+  knitr::kable(caption = "Rank of the images based on moisture content", format='html', booktabs=T)
+```
+
+
+Now lets get a caterpillar style plot 
+```{r}
+get_parameters_plot(
+  m_moisture,
+  HPDI = T,
+  title = 'Estimates of the moisture content',
+  xaxis = 'Images',
+  yaxis = 'Ability',
+  rotate_x_labels = F,
+  APA = F
+) + scale_x_discrete(
+  labels = c(
+    "image1",
+    "image2",
+    "image3",
+    "image4",
+    "image5",
+    "image6",
+    "image7",
+    "image8"
+  )
+) + theme_bw()
+```
+
+
+### WAIC
+
+Calculating the WAIC of both models
+```{r cache=T}
+get_waic(m_moisture)
+```
+
+```{r cache=T}
+get_waic(m_moisture_order)
+```
+
+
+We can see that the WAIC of the models are quite similar and that the model without the order effect has a slightly smaller WAIC and less parameters. Therefore we will select it.

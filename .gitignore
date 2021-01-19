@@ -1,0 +1,6 @@
+data/*
+fittedmodels/*
+.Rproj.user
+prob_table.RDS
+bpcs-appendix.Rproj
+_bookdown_files/*

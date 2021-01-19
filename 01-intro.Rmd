@@ -1,0 +1,133 @@
+# Basic functionality {#basics}
+
+Although a large overview of the functionality of the `bpcs` is available in the official documentation (https://davidissamattos.github.io/bpcs) we provide here a short example based on the paper:
+
+> Luckett, Curtis R., Sara L. Burns, and Lindsay Jenkinson. "Estimates of relative acceptability from paired preference tests." Journal of Sensory Studies 35.5 (2020): e12593.
+
+
+```{r message=FALSE, warning=FALSE}
+library(bpcs)
+library(tidyverse)
+library(knitr)
+options(mc.cores = parallel::detectCores())
+rstan::rstan_options(auto_write = TRUE)
+set.seed(99)
+```
+
+## Reading and preparing the data
+
+This paper analyzes food preferences using paired comparisons (and compare different methods). The original data was made available in the paper and it can be found in the link: 
+
+```{r}
+d <- readxl::read_xlsx(path='data/PREF_DATA.xlsx', sheet = 'Pizza')
+```
+
+Below we see a fragment of how the dataset looks like:
+```{r}
+sample_n(d, size=5) %>% 
+  kable(caption="Example of the pizza data frame") %>% 
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+```
+
+
+This data is in a aggregated format. That is each row contains more than one observation. For example, the first row shows that Tombstone was voted 16 times against Red Barron and Red Barron was voted 21 times against Tombstone
+
+To use with the bpcs package, we need to expand it to a single contest per row, in a long format. We can use the function `expand_aggregated_data` of the bpcs package exactly for this purpose.
+
+This leads to a data frame with 380 rows (same number of wins for 1 and 2). This function adds an id column to the data, so each row is uniquely represented (important if you will do some transformations later). Below we examplify how the expanded data looks like
+
+```{r}
+dpizza <- expand_aggregated_data(d = d, player0 = 'Prod1', player1 = 'Prod2', wins0 = 'Win1', wins1 = 'Win2', keep=NULL)
+# renaming the columns
+colnames(dpizza) <- c('Prod0','Prod1', 'y', 'contest_id')
+# creating a short table to exemplify
+sample_n(dpizza, size = 10) %>% 
+  kable(caption = 'Sample of the expanded pizza data set') %>% 
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+```
+
+## The Bayesian Bradley-Terry analysis
+
+Now that we have the data in the correct format we can use bpcs package to model the Bayesian Bradley-Terry Model. It is a good practice to save the result fitted model in a file right after sampling. Some models might take several minutes to fit and you probably don't want to keep re-fitting the model always. After saving you can just read the model and continue your analysis instead of re-fitting. The `save_bpc_model` is a wrapper function around the `saveRDS` function with a few smaller checks. Few free to use any. To read you can use the `load_bpc_model` or the `readRDS` functions.
+
+Let's run the simplest Bayesian Bradley-Terry model:
+
+```{r eval=F}
+m <- bpc(data = dpizza,
+         player0 = 'Prod0',
+         player1 = 'Prod1',
+         result_column = 'y',
+         solve_ties = 'none',
+         model_type = 'bt',
+         iter=3000)
+save_bpc_model(m, 'pizza','fittedmodels')
+```
+
+To load:
+```{r}
+m <- load_bpc_model('fittedmodels/pizza.RDS')
+```
+
+### Diagnostics
+
+After sampling, we can investigate the convergence of the model and the predictive posterior with shinystan. 
+Convergence checks are already available in the fitted model, but for the posterior checks we need to first calculate the posterior predictive values with the `posterior_predictive` function. This function returns a list with two values, the `y` (original fitted values) and the `y_pred` (posterior predictve). Both are in the correct format to use with shinystan.
+
+We save them to the global environment and then we load it in shinystan directly (through the GUI).
+
+```{r}
+#posterior predictive check 
+y_pp <- posterior_predictive(m)
+y <- y_pp$y
+y_pred <- y_pp$y_pred
+```
+
+```{r eval=FALSE}
+launch_shinystan(m)
+```
+
+Since everything looks fine we can proceed with the analysis.
+
+### Summary information
+
+The `summary` function in the command line provides some tables that help understand the model, such as the summary of the parameters, the probability of winning, and the ranking table.
+
+```{r}
+summary(m)
+```
+
+The presented tables can also be obtained individually as data frame. Additionally, for all of them it is possible to obtain the posterior distribution.
+
+The package has some publication-ready functions to create plots and tables. The format option can set it to latex, html, pandoc etc.
+
+Parameters with HPDI
+```{r}
+get_parameters_table(m, format='html', caption = 'Parameter estimates with HPDI', digits = 3)
+```
+
+
+Probabilities
+```{r}
+get_probabilities_table(m, format='html', caption='Probability of selectiig a brand of pizza over the other')
+```
+
+Rank
+```{r}
+get_rank_of_players_table(m, caption='Rank of Pizza', format='html')
+```
+
+Plot
+```{r}
+plot(m, rotate_x_labels=T)
+```
+
+
+We can also obtain information criteria to compare different models that fit the same data.
+
+Below we show how to obtain the WAIC
+```{r}
+get_waic(m)
+```
+
+This chapter show some basic functionality of the package. The next chapters will show how to apply these functions to solve more interesting and complex problems. We also recommend checking the package documentation at: https://davidissamattos.github.io/bpcs/index.html 
+

@@ -1,0 +1,383 @@
+# Re-analysis III {#studyIII}
+
+This re-analysis is from the study
+
+> Marton, Giulia, et al. "Patients’ health locus of control and preferences about the role that they want to play in the medical decision-making process." Psychology, Health & Medicine (2020): 1-7
+
+
+```{r warning=F, message=F}
+library(bpcs)
+library(tidyverse)
+library(knitr)
+library(loo)
+options(mc.cores = parallel::detectCores())
+rstan::rstan_options(auto_write = TRUE)
+set.seed(99)
+```
+
+## Importing the data
+
+The data from this paper was made available upon request and below we exemplify a few rows of how the original dataset looks like.
+Let's starting importing the data.
+
+```{r}
+d<-read.table("data/MHLC.txt", sep="\t", header=T)
+d<-as.data.frame(d)
+sample_n(d, size=5) %>% 
+  kable(caption = 'Sample of rows from the original data') %>% 
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+```
+
+
+As we can see, the data is in a wide format. Before we pivot it to longer let's add a column that indicates the subject ID.
+
+```{r}
+d <- d %>% mutate(SubjectID = row_number())
+```
+
+Now let's pivot it to the longer format
+```{r}
+cols_to_pivot<-colnames(d)[1:10]
+d_longer<-tidyr::pivot_longer(d, cols=all_of(cols_to_pivot), names_to='comparison', values_to='y')
+```
+
+Now let's divide the comparison into two vectors (choice0 and choice1). So it fits the bpcs format
+
+```{r}
+comp_cols <- str_split_fixed(d_longer$comparison, "", 2)
+d_longer$choice0 <- comp_cols[,1]
+d_longer$choice1 <- comp_cols[,2]
+```
+
+The data frame now looks like this:
+```{r}
+dplyr::sample_n(d_longer, size=10) %>% 
+  kable() %>% 
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+```
+
+Now that we have setup the data frame correctly for the bpcs package, we can use it to model the problem.
+
+Let's just rename a few values so it is easier to understand.
+
+```{r}
+#choice0
+d_longer$choice0 <- recode(d_longer$choice0, 'A'='Active') 
+d_longer$choice0 <- recode(d_longer$choice0, 'B'='Active-Collaborative') 
+d_longer$choice0 <- recode(d_longer$choice0, 'C'='Collaborative') 
+d_longer$choice0 <- recode(d_longer$choice0, 'D'='Passive-Collaborative') 
+d_longer$choice0 <- recode(d_longer$choice0, 'E'='Passive') 
+#choice1
+d_longer$choice1 <- recode(d_longer$choice1, 'A'='Active') 
+d_longer$choice1 <- recode(d_longer$choice1, 'B'='Active-Collaborative') 
+d_longer$choice1 <- recode(d_longer$choice1, 'C'='Collaborative') 
+d_longer$choice1 <- recode(d_longer$choice1, 'D'='Passive-Collaborative') 
+d_longer$choice1 <- recode(d_longer$choice1, 'E'='Passive')
+```
+
+
+Our final step in the preparation of the dataset is to standardize the values of the MHLOC scales. The values provided in the dataset correspond to the sum of the values of the scale and ranges from 3-18 or from 6-36. Therefore we will scale them accordingly for more stable inference
+
+```{r}
+d_longer <- d_longer %>% 
+  mutate(Internal = scale(MHLC_INTERNAL),
+         Chance = scale(MHLC_CHANCE),
+         Doctors = scale(MHLC_DOCTORS),
+         OtherPeople = scale(MHLC_OTHER_PEOPLE))
+```
+
+
+The final modified dataset looks like:
+```{r}
+sample_n(d_longer, size=10) %>% 
+  kable() %>% 
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+```
+
+Now we can proceed with the analysis.
+
+## Simple Bradley-Terry models
+
+Let's start with a simple BT without considering any subject predictors. Just to evaluate the average probability of people being Active, Active-Collaborative, Collaborative, Passive-Collaborative or Passive.
+
+```{r eval=F}
+m1 <-
+  bpc(
+    d_longer,
+    player0 = 'choice0',
+    player1 = 'choice1',
+    result_column = 'y',
+    model_type = 'bt',
+    priors = list(prior_lambda_std = 1.0),
+    iter = 3000
+  )
+save_bpc_model(m1, 'm_hloc', 'fittedmodels')
+```
+
+```{r echo=F}
+m1 <- load_bpc_model('fittedmodels/m_mhloc.RDS')
+```
+
+Let's investigate model convergence with shinystan. Everything seems fine.
+
+```{r eval=F}
+launch_shinystan(m1)
+```
+
+Now let's get the waic
+
+```{r cache=T}
+m1_waic <- get_waic(m1)
+m1_waic
+```
+
+## Subject predictors model
+
+We have different HLC that can be used as predictors for the response. Let's create a single model with all the predictors.
+
+```{r}
+m2 <-
+  bpc(
+    d_longer,
+    player0 = 'choice0',
+    player1 = 'choice1',
+    result_column = 'y',
+    subject_predictors = c('Internal', 'Chance', 'Doctors', 'OtherPeople'),
+    model_type = 'bt-subjectpredictors',
+    priors = list(prior_lambda_std = 1.0,
+                  prior_S_std = 1.0),
+    iter = 3000
+  )
+save_bpc_model(m2, 'm_mhloc_subjectpred', 'fittedmodels')
+```
+
+
+```{r echo=F}
+m2 <- load_bpc_model('fittedmodels/m_mhloc_subjectpred.RDS')
+```
+
+Diagnostics
+```{r eval=F}
+launch_shinystan(m2)
+```
+
+
+```{r cache=T}
+m2_waic <- get_waic(m2)
+```
+
+## Subject predictors and random effects
+
+Now let's create a third model that also compensate for multiple judgment with a random effects variable.
+
+This model adds 153*4 variables, so sampling will take longer and be a bit more complex.
+
+```{r eval=F}
+m3 <-
+  bpc(
+    d_longer,
+    player0 = 'choice0',
+    player1 = 'choice1',
+    result_column = 'y',
+    subject_predictors = c('Internal', 'Chance', 'Doctors', 'OtherPeople'),
+    cluster = c('SubjectID'),
+    model_type = 'bt-subjectpredictors-U',
+    priors = list(prior_lambda_std = 1.0,
+                  prior_S_std = 1.0,
+                  prior_U1_std = 1.0),
+    iter = 3000
+  )
+save_bpc_model(m3, 'm_mhloc_subjectpred_U', 'fittedmodels')
+```
+
+```{r echo=F}
+m3 <- load_bpc_model('fittedmodels/m_mhloc_subjectpred_U.RDS')
+```
+
+Diagnostics
+```{r eval=F}
+launch_shinystan(m3)
+```
+
+
+```{r cache=T, message=F, warning=F}
+m3_waic <- get_waic(m3)
+```
+
+## Comparing the WAIC
+
+Let's compare the WAIC of the three models
+```{r}
+loo::loo_compare(m1_waic,m2_waic, m3_waic)
+```
+
+
+## Plots and tables
+
+Now that we see that all models have proper convergence and that the model m3 has a better fit we will generate some plots and tables to help understand the problem
+
+```{r cache=T}
+lambda <- get_parameters(m3, params = 'lambda', n_eff = F)
+Spar <- get_parameters(m3, params = 'S', n_eff = F)
+U_std <- get_parameters(m3, params = 'U1_std', n_eff = F)
+```
+
+Let's create a custom table based on these parameters. But first we will rename the parameters a bit so the table reads a bit better. We are here removing the S and the lambda from the parameter
+```{r}
+lambda$Parameter <-  stringr::str_sub(lambda$Parameter,start = 8, end=-2)
+Spar$Parameter <- stringr::str_sub(Spar$Parameter,start = 3, end=-2)
+```
+
+### Table lambda and U
+
+Now we can create the table
+```{r}
+#merge the datasets
+df_table <- rbind(lambda, U_std) 
+#creating the table
+df_table %>% 
+  kable(caption = 'Lambda parameters of the model and the random effects standard deviation', 
+        digits = 2,
+        col.names = c('Parameter', 'Mean','HPD lower', 'HPD lower')) %>% 
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+```
+
+```{r echo=F, eval=F}
+df_table %>% 
+  kable(format='latex',
+        caption = 'Lambda parameters of the model and the random effects standard deviation', 
+        digits = 2,
+        col.names = c('Parameter', 'Mean','HPD lower', 'HPD lower'),
+        booktabs=T) %>% 
+  kableExtra::kable_styling()
+```
+
+### Subject predictors table
+
+```{r}
+S <- Spar %>% tidyr::separate(Parameter,c('Role','MHLOC'), sep=",")
+S$MHLOC <- recode(S$MHLOC, 'OtherPeople'= 'Other people')
+```
+
+
+```{r}
+S %>% 
+  dplyr::arrange(Role) %>% 
+  select(-Role) %>% 
+  kable(format='html',
+        caption = 'Subject predictors parameters by role', 
+        digits = 2,
+        col.names = c('Parameter', 'Mean','HPD lower', 'HPD lower'),
+        booktabs=T) %>% 
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>% 
+  kableExtra::pack_rows("Active", 1, 4) %>% 
+  kableExtra::pack_rows("Active-Collaborative", 5, 8) %>% 
+  kableExtra::pack_rows("Collaborative", 9, 12) %>%
+  kableExtra::pack_rows("Passive-Collaborative", 13, 16) %>% 
+  kableExtra::pack_rows("Passive", 17, 20)
+```
+
+```{r echo=F, eval=F}
+S %>% 
+  dplyr::arrange(Role) %>% 
+  select(-Role) %>% 
+  kable(format='latex',
+        caption = 'Subject predictors parameters by role', 
+        digits = 2,
+        col.names = c('Parameter', 'Mean','HPD lower', 'HPD lower'),
+        booktabs=T) %>% 
+  kableExtra::kable_styling() %>% 
+  kableExtra::pack_rows("Active", 1, 4) %>% 
+  kableExtra::pack_rows("Active-Collaborative", 5, 8) %>% 
+  kableExtra::pack_rows("Collaborative", 9, 12) %>%
+  kableExtra::pack_rows("Passive-Collaborative", 13, 16) %>% 
+  kableExtra::pack_rows("Passive", 17, 20)
+```
+
+
+### Plot
+
+```{r}
+S$Role <- factor(S$Role, levels = c('Active', 'Active-Collaborative', 'Collaborative', 'Passive-Collaborative', 'Passive'))
+ggplot(S, aes(x=MHLOC))+
+  geom_pointrange(aes(
+        ymin = HPD_lower,
+        ymax = HPD_higher,
+        y = Mean,
+        group=MHLOC))+ 
+  facet_wrap(~Role, nrow = 3) + #Dividing the plot into three by species
+  labs(title = 'Subject predictors estimates with uncertainty (HPD) interval',
+       y = 'Estimate',
+        x = 'HLOC dimension')+
+  theme_bw()+ # A black and white theme
+  # scale_x_discrete(guide = guide_axis(n.dodge = 2)) +
+  theme(legend.position="bottom") #small adjustments to the theme
+```
+
+
+### Probability tables
+
+First let's create a data frame with the cases we want to investigate. We will utilize the model_type option in the probabilities table so we can average out the values of the random effects in the subjects. In this table, we will only investigate a few of the conditions, but of course it is possible to do a much more expansive analysis
+
+Let's create a new data frame with the conditions we want to investigate.
+Mainly we are just investigating:
+* Between the choice of Active and Passive how does going from -2 to 2 standard deviations over the mean influences the probability in the Internal and the Doctors
+* Between the choice of Active-Collaborative and Collaborative how does going from -2 to 2 standard deviations over the mean influences the probability in the Internal and the Doctors
+* Between the choice of Collaborative and Passive-Collaborative how does going from -2 to 2 standard deviations over the mean influences the probability in the Internal and the Doctors
+
+```{r}
+newdata <- tibble::tribble(~choice0, ~choice1, ~Internal, ~Chance, ~Doctors, ~OtherPeople,
+                           "Active", "Passive", 0, 0, 0, 0,
+                           "Active", "Passive", -2, 0, 0, 0,
+                           "Active", "Passive", 2, 0, 0, 0,
+                           "Active", "Passive", 0, 0, -2, 0,
+                           "Active", "Passive", 0, 0, 2, 0,
+                           "Active-Collaborative", "Collaborative", 0, 0, 0, 0,
+                           "Active-Collaborative", "Collaborative", -2, 0, 0, 0,
+                           "Active-Collaborative", "Collaborative", 2, 0, 0, 0,
+                           "Active-Collaborative", "Collaborative", 0, 0, -2, 0,
+                           "Active-Collaborative", "Collaborative", 0, 0, 2, 0,
+                           "Collaborative", "Passive-Collaborative", 0, 0, 0, 0,
+                           "Collaborative", "Passive-Collaborative", 0, -2, 0, 0,
+                           "Collaborative", "Passive-Collaborative", 0, 2, 0, 0,
+                           "Collaborative", "Passive-Collaborative", 0, 0, 0, -2,
+                           "Collaborative", "Passive-Collaborative", 0, 0, 0, 2
+                           )
+
+#Now we can calculate the probabilities
+prob_hloc <-
+  get_probabilities_df(
+    m3, 
+    newdata = newdata,
+    model_type = 'bt-subjectpredictors') #here we are assuming zero for the random effects
+```
+
+```{r}
+prob_hloc %>% 
+  select(-j_beats_i) %>% 
+  rename(Probability=i_beats_j) %>% 
+  kable(caption = "Probabilities of selecting role i instead of j based on changes of the values of the HLOC dimensions",
+      digits = 2,
+      booktabs = T) %>% 
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>% 
+  kableExtra::add_header_above(c("Roles" = 2, "HLOC dimensions" = 4, " "=1))
+```
+
+```{r eval=F, echo=F}
+#Recoding to make it a bit shorter
+prob_hloc$i <- recode(prob_hloc$i, 'Active-Collaborative'='Act.-Collab.') 
+prob_hloc$i <- recode(prob_hloc$i, 'Collaborative'='Collab.') 
+prob_hloc$j <- recode(prob_hloc$j, 'Collaborative'='Collab.') 
+prob_hloc$j <- recode(prob_hloc$j, 'Passive-Collaborative'='Pass.-Collab.') 
+prob_hloc %>% 
+  select(-j_beats_i) %>% 
+  rename(Probability=i_beats_j) %>% 
+  kable(
+    format='latex',
+    caption = "Probabilities of selecting role i instead of j based on changes of the values of the HLOC dimensions",
+      digits = 2,
+      booktabs = T) %>% 
+  kableExtra::add_header_above(c("Roles" = 2, "HLOC dimensions" = 4, " "=1))
+```
+
+

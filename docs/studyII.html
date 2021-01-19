@@ -1,0 +1,3240 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Re-analysis 2 | Online appendix for the paper: “Bayesian Paired-Comparison with the bpcs package”</title>
+  <meta name="description" content="This is the online appendix for the paper: “Bayesian Paired-Comparison with the bpcs package.”" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Re-analysis 2 | Online appendix for the paper: “Bayesian Paired-Comparison with the bpcs package”" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is the online appendix for the paper: “Bayesian Paired-Comparison with the bpcs package.”" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Re-analysis 2 | Online appendix for the paper: “Bayesian Paired-Comparison with the bpcs package”" />
+  
+  <meta name="twitter:description" content="This is the online appendix for the paper: “Bayesian Paired-Comparison with the bpcs package.”" />
+  
+
+<meta name="author" content="David Issa Mattos and Érika Martins Silva Ramos" />
+
+
+<meta name="date" content="2021-01-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="studyI.html"/>
+<link rel="next" href="studyIII.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Appendix</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Foreword</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#installation-of-the-bpcs-package"><i class="fa fa-check"></i><b>1.1</b> Installation of the bpcs package</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#session-info"><i class="fa fa-check"></i><b>1.2</b> Session info</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>2</b> Basic functionality</a><ul>
+<li class="chapter" data-level="2.1" data-path="basics.html"><a href="basics.html#reading-and-preparing-the-data"><i class="fa fa-check"></i><b>2.1</b> Reading and preparing the data</a></li>
+<li class="chapter" data-level="2.2" data-path="basics.html"><a href="basics.html#the-bayesian-bradley-terry-analysis"><i class="fa fa-check"></i><b>2.2</b> The Bayesian Bradley-Terry analysis</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="basics.html"><a href="basics.html#diagnostics"><i class="fa fa-check"></i><b>2.2.1</b> Diagnostics</a></li>
+<li class="chapter" data-level="2.2.2" data-path="basics.html"><a href="basics.html#summary-information"><i class="fa fa-check"></i><b>2.2.2</b> Summary information</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="studyI.html"><a href="studyI.html"><i class="fa fa-check"></i><b>3</b> Re-analysis 1</a><ul>
+<li class="chapter" data-level="3.1" data-path="studyI.html"><a href="studyI.html#importing-the-data"><i class="fa fa-check"></i><b>3.1</b> Importing the data</a></li>
+<li class="chapter" data-level="3.2" data-path="studyI.html"><a href="studyI.html#analysis-with-the-bradley-terry-model-and-the-order-effect-model"><i class="fa fa-check"></i><b>3.2</b> Analysis with the Bradley-Terry model and the order effect model</a></li>
+<li class="chapter" data-level="3.3" data-path="studyI.html"><a href="studyI.html#diagnostics-1"><i class="fa fa-check"></i><b>3.3</b> Diagnostics</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="studyI.html"><a href="studyI.html#tables-and-plots"><i class="fa fa-check"></i><b>3.3.1</b> Tables and plots</a></li>
+<li class="chapter" data-level="3.3.2" data-path="studyI.html"><a href="studyI.html#waic"><i class="fa fa-check"></i><b>3.3.2</b> WAIC</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="studyII.html"><a href="studyII.html"><i class="fa fa-check"></i><b>4</b> Re-analysis 2</a><ul>
+<li class="chapter" data-level="4.1" data-path="studyII.html"><a href="studyII.html#importing-the-data-1"><i class="fa fa-check"></i><b>4.1</b> Importing the data</a></li>
+<li class="chapter" data-level="4.2" data-path="studyII.html"><a href="studyII.html#simple-bradley-terry-model"><i class="fa fa-check"></i><b>4.2</b> Simple Bradley-Terry model</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="studyII.html"><a href="studyII.html#assessing-the-fitness-of-the-model"><i class="fa fa-check"></i><b>4.2.1</b> Assessing the fitness of the model</a></li>
+<li class="chapter" data-level="4.2.2" data-path="studyII.html"><a href="studyII.html#getting-the-waic"><i class="fa fa-check"></i><b>4.2.2</b> Getting the WAIC</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="studyII.html"><a href="studyII.html#bradley-terry-model-with-random-effects-for-individuals"><i class="fa fa-check"></i><b>4.3</b> Bradley-Terry model with random effects for individuals</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="studyII.html"><a href="studyII.html#getting-the-waic-1"><i class="fa fa-check"></i><b>4.3.1</b> Getting the WAIC</a></li>
+<li class="chapter" data-level="4.3.2" data-path="studyII.html"><a href="studyII.html#parameter-tables-and-plots"><i class="fa fa-check"></i><b>4.3.2</b> Parameter tables and plots</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="studyIII.html"><a href="studyIII.html"><i class="fa fa-check"></i><b>5</b> Re-analysis III</a><ul>
+<li class="chapter" data-level="5.1" data-path="studyIII.html"><a href="studyIII.html#importing-the-data-2"><i class="fa fa-check"></i><b>5.1</b> Importing the data</a></li>
+<li class="chapter" data-level="5.2" data-path="studyIII.html"><a href="studyIII.html#simple-bradley-terry-models"><i class="fa fa-check"></i><b>5.2</b> Simple Bradley-Terry models</a></li>
+<li class="chapter" data-level="5.3" data-path="studyIII.html"><a href="studyIII.html#subject-predictors-model"><i class="fa fa-check"></i><b>5.3</b> Subject predictors model</a></li>
+<li class="chapter" data-level="5.4" data-path="studyIII.html"><a href="studyIII.html#subject-predictors-and-random-effects"><i class="fa fa-check"></i><b>5.4</b> Subject predictors and random effects</a></li>
+<li class="chapter" data-level="5.5" data-path="studyIII.html"><a href="studyIII.html#comparing-the-waic"><i class="fa fa-check"></i><b>5.5</b> Comparing the WAIC</a></li>
+<li class="chapter" data-level="5.6" data-path="studyIII.html"><a href="studyIII.html#plots-and-tables"><i class="fa fa-check"></i><b>5.6</b> Plots and tables</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="studyIII.html"><a href="studyIII.html#table-lambda-and-u"><i class="fa fa-check"></i><b>5.6.1</b> Table lambda and U</a></li>
+<li class="chapter" data-level="5.6.2" data-path="studyIII.html"><a href="studyIII.html#subject-predictors-table"><i class="fa fa-check"></i><b>5.6.2</b> Subject predictors table</a></li>
+<li class="chapter" data-level="5.6.3" data-path="studyIII.html"><a href="studyIII.html#plot-1"><i class="fa fa-check"></i><b>5.6.3</b> Plot</a></li>
+<li class="chapter" data-level="5.6.4" data-path="studyIII.html"><a href="studyIII.html#probability-tables"><i class="fa fa-check"></i><b>5.6.4</b> Probability tables</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Online appendix for the paper: “Bayesian Paired-Comparison with the bpcs package”</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="studyII" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Re-analysis 2</h1>
+<p>This reanalysis is based on the paper:</p>
+<blockquote>
+<p>Huskisson, S.M., Jacobson, S.L., Egelkamp, C.L. et al. Using a Touchscreen Paradigm to Evaluate Food Preferences and Response to Novel Photographic Stimuli of Food in Three Primate Species (Gorilla gorilla gorilla, Pan troglodytes, and Macaca fuscata). Int J Primatol 41, 5–23 (2020). <a href="https://doi.org/10.1007/s10764-020-00131-0" class="uri">https://doi.org/10.1007/s10764-020-00131-0</a></p>
+</blockquote>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="studyII.html#cb43-1"></a><span class="kw">library</span>(bpcs)</span>
+<span id="cb43-2"><a href="studyII.html#cb43-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb43-3"><a href="studyII.html#cb43-3"></a><span class="kw">library</span>(knitr)</span>
+<span id="cb43-4"><a href="studyII.html#cb43-4"></a><span class="kw">options</span>(<span class="dt">mc.cores =</span> parallel<span class="op">::</span><span class="kw">detectCores</span>())</span>
+<span id="cb43-5"><a href="studyII.html#cb43-5"></a>rstan<span class="op">::</span><span class="kw">rstan_options</span>(<span class="dt">auto_write =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb43-6"><a href="studyII.html#cb43-6"></a><span class="kw">set.seed</span>(<span class="dv">99</span>)</span></code></pre></div>
+<div id="importing-the-data-1" class="section level2">
+<h2><span class="header-section-number">4.1</span> Importing the data</h2>
+<p>The data from this paper was made available upon request and below we exemplify a few rows of how the original dataset looks like</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="studyII.html#cb44-1"></a>d &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(<span class="st">&#39;data/touchscreen.csv&#39;</span>)</span></code></pre></div>
+<p>Previewing how the data looks like</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="studyII.html#cb45-1"></a>dplyr<span class="op">::</span><span class="kw">sample_n</span>(d, <span class="dt">size =</span> <span class="dv">10</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb45-2"><a href="studyII.html#cb45-2"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">caption=</span><span class="st">&#39;Sample of how the dataset looks like&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb45-3"><a href="studyII.html#cb45-3"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>))</span></code></pre></div>
+<table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-41">Table 4.1: </span>Sample of how the dataset looks like
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+date
+</th>
+<th style="text-align:left;">
+species_type
+</th>
+<th style="text-align:left;">
+SubjectCode
+</th>
+<th style="text-align:left;">
+Sex
+</th>
+<th style="text-align:right;">
+Trial
+</th>
+<th style="text-align:left;">
+image1
+</th>
+<th style="text-align:left;">
+image2
+</th>
+<th style="text-align:left;">
+image_chosen
+</th>
+<th style="text-align:left;">
+concat_test_name
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+10/12/17
+</td>
+<td style="text-align:left;">
+Gorilla
+</td>
+<td style="text-align:left;">
+Gorilla1
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+Ap
+</td>
+<td style="text-align:left;">
+Cu
+</td>
+<td style="text-align:left;">
+Ap
+</td>
+<td style="text-align:left;">
+ApCu
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+8/31/17
+</td>
+<td style="text-align:left;">
+Gorilla
+</td>
+<td style="text-align:left;">
+Gorilla3
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:left;">
+Ca
+</td>
+<td style="text-align:left;">
+To
+</td>
+<td style="text-align:left;">
+To
+</td>
+<td style="text-align:left;">
+CaTo
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+8/16/17
+</td>
+<td style="text-align:left;">
+Gorilla
+</td>
+<td style="text-align:left;">
+Gorilla5
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:left;">
+Cu
+</td>
+<td style="text-align:left;">
+Gr
+</td>
+<td style="text-align:left;">
+Cu
+</td>
+<td style="text-align:left;">
+CuGr
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+11/13/17
+</td>
+<td style="text-align:left;">
+Chimpanzee
+</td>
+<td style="text-align:left;">
+Chimpanzee3
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Ap
+</td>
+<td style="text-align:left;">
+Ca
+</td>
+<td style="text-align:left;">
+Ca
+</td>
+<td style="text-align:left;">
+ApCa
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4/11/17
+</td>
+<td style="text-align:left;">
+Gorilla
+</td>
+<td style="text-align:left;">
+Gorilla3
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:left;">
+Ca
+</td>
+<td style="text-align:left;">
+Cu
+</td>
+<td style="text-align:left;">
+Ca
+</td>
+<td style="text-align:left;">
+CaCu
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1/22/18
+</td>
+<td style="text-align:left;">
+Macaque
+</td>
+<td style="text-align:left;">
+Macaque7
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Ca
+</td>
+<td style="text-align:left;">
+Pe
+</td>
+<td style="text-align:left;">
+Pe
+</td>
+<td style="text-align:left;">
+CaPe
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1/5/17
+</td>
+<td style="text-align:left;">
+Gorilla
+</td>
+<td style="text-align:left;">
+Gorilla4
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:left;">
+Ca
+</td>
+<td style="text-align:left;">
+Tu
+</td>
+<td style="text-align:left;">
+Tu
+</td>
+<td style="text-align:left;">
+CaTu
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3/3/17
+</td>
+<td style="text-align:left;">
+Chimpanzee
+</td>
+<td style="text-align:left;">
+Chimpanzee1
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:left;">
+Cu
+</td>
+<td style="text-align:left;">
+Gr
+</td>
+<td style="text-align:left;">
+Gr
+</td>
+<td style="text-align:left;">
+CuGr
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12/4/17
+</td>
+<td style="text-align:left;">
+Chimpanzee
+</td>
+<td style="text-align:left;">
+Chimpanzee1
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:left;">
+Ap
+</td>
+<td style="text-align:left;">
+Tu
+</td>
+<td style="text-align:left;">
+Tu
+</td>
+<td style="text-align:left;">
+ApTu
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5/1/17
+</td>
+<td style="text-align:left;">
+Gorilla
+</td>
+<td style="text-align:left;">
+Gorilla6
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Ca
+</td>
+<td style="text-align:left;">
+Tu
+</td>
+<td style="text-align:left;">
+Ca
+</td>
+<td style="text-align:left;">
+CaTu
+</td>
+</tr>
+</tbody>
+</table>
+<p>Now we need to modify a bit the data frame to create a column with the results as 0 and 1.</p>
+<p>Creating a numerical result vector with 0 for image1 and 1 for image2</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="studyII.html#cb46-1"></a>d &lt;-<span class="st"> </span>d <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb46-2"><a href="studyII.html#cb46-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">y =</span><span class="kw">ifelse</span>(image_chosen<span class="op">==</span>image1, <span class="dv">0</span>, <span class="dv">1</span>))</span></code></pre></div>
+<p>Adding names to the abbreviations</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="studyII.html#cb47-1"></a><span class="co">#image1</span></span>
+<span id="cb47-2"><a href="studyII.html#cb47-2"></a>d<span class="op">$</span>image1 &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(d<span class="op">$</span>image1, <span class="st">&quot;Ca&quot;</span> =<span class="st"> &#39;Carrot&#39;</span>)</span>
+<span id="cb47-3"><a href="studyII.html#cb47-3"></a>d<span class="op">$</span>image1 &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(d<span class="op">$</span>image1, <span class="st">&quot;Cu&quot;</span> =<span class="st"> &#39;Cucumber&#39;</span>)</span>
+<span id="cb47-4"><a href="studyII.html#cb47-4"></a>d<span class="op">$</span>image1 &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(d<span class="op">$</span>image1, <span class="st">&quot;Tu&quot;</span> =<span class="st"> &#39;Turnip&#39;</span>)</span>
+<span id="cb47-5"><a href="studyII.html#cb47-5"></a>d<span class="op">$</span>image1 &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(d<span class="op">$</span>image1, <span class="st">&quot;Gr&quot;</span> =<span class="st"> &#39;Grape&#39;</span>)</span>
+<span id="cb47-6"><a href="studyII.html#cb47-6"></a>d<span class="op">$</span>image1 &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(d<span class="op">$</span>image1, <span class="st">&quot;To&quot;</span> =<span class="st"> &#39;Tomato&#39;</span>)</span>
+<span id="cb47-7"><a href="studyII.html#cb47-7"></a>d<span class="op">$</span>image1 &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(d<span class="op">$</span>image1, <span class="st">&quot;Ap&quot;</span> =<span class="st"> &#39;Apple&#39;</span>)</span>
+<span id="cb47-8"><a href="studyII.html#cb47-8"></a>d<span class="op">$</span>image1 &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(d<span class="op">$</span>image1, <span class="st">&quot;Jp&quot;</span> =<span class="st"> &#39;Jungle Pellet&#39;</span>)</span>
+<span id="cb47-9"><a href="studyII.html#cb47-9"></a>d<span class="op">$</span>image1 &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(d<span class="op">$</span>image1, <span class="st">&quot;Ce&quot;</span> =<span class="st"> &#39;Celery&#39;</span>)</span>
+<span id="cb47-10"><a href="studyII.html#cb47-10"></a>d<span class="op">$</span>image1 &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(d<span class="op">$</span>image1, <span class="st">&quot;Gb&quot;</span> =<span class="st"> &#39;Green Beans&#39;</span>)</span>
+<span id="cb47-11"><a href="studyII.html#cb47-11"></a>d<span class="op">$</span>image1 &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(d<span class="op">$</span>image1, <span class="st">&quot;Oa&quot;</span> =<span class="st"> &#39;Oats&#39;</span>)</span>
+<span id="cb47-12"><a href="studyII.html#cb47-12"></a>d<span class="op">$</span>image1 &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(d<span class="op">$</span>image1, <span class="st">&quot;Pe&quot;</span> =<span class="st"> &#39;Peanuts&#39;</span>)</span>
+<span id="cb47-13"><a href="studyII.html#cb47-13"></a></span>
+<span id="cb47-14"><a href="studyII.html#cb47-14"></a><span class="co">#image2</span></span>
+<span id="cb47-15"><a href="studyII.html#cb47-15"></a>d<span class="op">$</span>image2 &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(d<span class="op">$</span>image2, <span class="st">&quot;Ca&quot;</span> =<span class="st"> &#39;Carrot&#39;</span>)</span>
+<span id="cb47-16"><a href="studyII.html#cb47-16"></a>d<span class="op">$</span>image2 &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(d<span class="op">$</span>image2, <span class="st">&quot;Cu&quot;</span> =<span class="st"> &#39;Cucumber&#39;</span>)</span>
+<span id="cb47-17"><a href="studyII.html#cb47-17"></a>d<span class="op">$</span>image2 &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(d<span class="op">$</span>image2, <span class="st">&quot;Tu&quot;</span> =<span class="st"> &#39;Turnip&#39;</span>)</span>
+<span id="cb47-18"><a href="studyII.html#cb47-18"></a>d<span class="op">$</span>image2 &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(d<span class="op">$</span>image2, <span class="st">&quot;Gr&quot;</span> =<span class="st"> &#39;Grape&#39;</span>)</span>
+<span id="cb47-19"><a href="studyII.html#cb47-19"></a>d<span class="op">$</span>image2 &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(d<span class="op">$</span>image2, <span class="st">&quot;To&quot;</span> =<span class="st"> &#39;Tomato&#39;</span>)</span>
+<span id="cb47-20"><a href="studyII.html#cb47-20"></a>d<span class="op">$</span>image2 &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(d<span class="op">$</span>image2, <span class="st">&quot;Ap&quot;</span> =<span class="st"> &#39;Apple&#39;</span>)</span>
+<span id="cb47-21"><a href="studyII.html#cb47-21"></a>d<span class="op">$</span>image2 &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(d<span class="op">$</span>image2, <span class="st">&quot;Jp&quot;</span> =<span class="st"> &#39;Jungle Pellet&#39;</span>)</span>
+<span id="cb47-22"><a href="studyII.html#cb47-22"></a>d<span class="op">$</span>image2 &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(d<span class="op">$</span>image2, <span class="st">&quot;Ce&quot;</span> =<span class="st"> &#39;Celery&#39;</span>)</span>
+<span id="cb47-23"><a href="studyII.html#cb47-23"></a>d<span class="op">$</span>image2 &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(d<span class="op">$</span>image2, <span class="st">&quot;Gb&quot;</span> =<span class="st"> &#39;Green Beans&#39;</span>)</span>
+<span id="cb47-24"><a href="studyII.html#cb47-24"></a>d<span class="op">$</span>image2 &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(d<span class="op">$</span>image2, <span class="st">&quot;Oa&quot;</span> =<span class="st"> &#39;Oats&#39;</span>)</span>
+<span id="cb47-25"><a href="studyII.html#cb47-25"></a>d<span class="op">$</span>image2 &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(d<span class="op">$</span>image2, <span class="st">&quot;Pe&quot;</span> =<span class="st"> &#39;Peanuts&#39;</span>)</span></code></pre></div>
+<p>Separating the data into three datasets. One for each species.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="studyII.html#cb48-1"></a>macaque &lt;-<span class="st"> </span>d <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb48-2"><a href="studyII.html#cb48-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(species_type<span class="op">==</span><span class="st">&#39;Macaque&#39;</span>)</span>
+<span id="cb48-3"><a href="studyII.html#cb48-3"></a></span>
+<span id="cb48-4"><a href="studyII.html#cb48-4"></a>chip &lt;-<span class="st"> </span>d <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb48-5"><a href="studyII.html#cb48-5"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(species_type<span class="op">==</span><span class="st">&#39;Chimpanzee&#39;</span>)</span>
+<span id="cb48-6"><a href="studyII.html#cb48-6"></a></span>
+<span id="cb48-7"><a href="studyII.html#cb48-7"></a>gor &lt;-<span class="st"> </span>d <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb48-8"><a href="studyII.html#cb48-8"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">filter</span>(species_type<span class="op">==</span><span class="st">&#39;Gorilla&#39;</span>)</span></code></pre></div>
+<p>Below we show a few lines of each dataset:</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="studyII.html#cb49-1"></a>dplyr<span class="op">::</span><span class="kw">sample_n</span>(gor, <span class="dt">size =</span> <span class="dv">10</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb49-2"><a href="studyII.html#cb49-2"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">caption=</span><span class="st">&#39;Sample of how the gorilla dataset looks like&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb49-3"><a href="studyII.html#cb49-3"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>))</span></code></pre></div>
+<table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-45">Table 4.2: </span>Sample of how the gorilla dataset looks like
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+date
+</th>
+<th style="text-align:left;">
+species_type
+</th>
+<th style="text-align:left;">
+SubjectCode
+</th>
+<th style="text-align:left;">
+Sex
+</th>
+<th style="text-align:right;">
+Trial
+</th>
+<th style="text-align:left;">
+image1
+</th>
+<th style="text-align:left;">
+image2
+</th>
+<th style="text-align:left;">
+image_chosen
+</th>
+<th style="text-align:left;">
+concat_test_name
+</th>
+<th style="text-align:right;">
+y
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+3/3/17
+</td>
+<td style="text-align:left;">
+Gorilla
+</td>
+<td style="text-align:left;">
+Gorilla2
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:left;">
+Cucumber
+</td>
+<td style="text-align:left;">
+Tomato
+</td>
+<td style="text-align:left;">
+To
+</td>
+<td style="text-align:left;">
+CuTo
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+11/8/17
+</td>
+<td style="text-align:left;">
+Gorilla
+</td>
+<td style="text-align:left;">
+Gorilla6
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+Tomato
+</td>
+<td style="text-align:left;">
+Turnip
+</td>
+<td style="text-align:left;">
+To
+</td>
+<td style="text-align:left;">
+ToTu
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3/20/17
+</td>
+<td style="text-align:left;">
+Gorilla
+</td>
+<td style="text-align:left;">
+Gorilla2
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+Grape
+</td>
+<td style="text-align:left;">
+Tomato
+</td>
+<td style="text-align:left;">
+To
+</td>
+<td style="text-align:left;">
+GrTo
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3/8/17
+</td>
+<td style="text-align:left;">
+Gorilla
+</td>
+<td style="text-align:left;">
+Gorilla6
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:left;">
+Carrot
+</td>
+<td style="text-align:left;">
+Grape
+</td>
+<td style="text-align:left;">
+Ca
+</td>
+<td style="text-align:left;">
+CaGr
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+8/23/17
+</td>
+<td style="text-align:left;">
+Gorilla
+</td>
+<td style="text-align:left;">
+Gorilla5
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Cucumber
+</td>
+<td style="text-align:left;">
+Grape
+</td>
+<td style="text-align:left;">
+Cu
+</td>
+<td style="text-align:left;">
+CuGr
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5/25/17
+</td>
+<td style="text-align:left;">
+Gorilla
+</td>
+<td style="text-align:left;">
+Gorilla4
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:left;">
+Carrot
+</td>
+<td style="text-align:left;">
+Cucumber
+</td>
+<td style="text-align:left;">
+Ca
+</td>
+<td style="text-align:left;">
+CaCu
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+8/3/17
+</td>
+<td style="text-align:left;">
+Gorilla
+</td>
+<td style="text-align:left;">
+Gorilla6
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Carrot
+</td>
+<td style="text-align:left;">
+Tomato
+</td>
+<td style="text-align:left;">
+To
+</td>
+<td style="text-align:left;">
+CaTo
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+8/23/17
+</td>
+<td style="text-align:left;">
+Gorilla
+</td>
+<td style="text-align:left;">
+Gorilla5
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:left;">
+Cucumber
+</td>
+<td style="text-align:left;">
+Grape
+</td>
+<td style="text-align:left;">
+Gr
+</td>
+<td style="text-align:left;">
+CuGr
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12/7/16
+</td>
+<td style="text-align:left;">
+Gorilla
+</td>
+<td style="text-align:left;">
+Gorilla2
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:left;">
+Cucumber
+</td>
+<td style="text-align:left;">
+Turnip
+</td>
+<td style="text-align:left;">
+Cu
+</td>
+<td style="text-align:left;">
+CuTu
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5/25/17
+</td>
+<td style="text-align:left;">
+Gorilla
+</td>
+<td style="text-align:left;">
+Gorilla1
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Carrot
+</td>
+<td style="text-align:left;">
+Cucumber
+</td>
+<td style="text-align:left;">
+Ca
+</td>
+<td style="text-align:left;">
+CaCu
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="studyII.html#cb50-1"></a>dplyr<span class="op">::</span><span class="kw">sample_n</span>(chip, <span class="dt">size =</span> <span class="dv">10</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb50-2"><a href="studyII.html#cb50-2"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">caption=</span><span class="st">&#39;Sample of how the chimpanzees dataset looks like&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb50-3"><a href="studyII.html#cb50-3"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>))</span></code></pre></div>
+<table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-46">Table 4.3: </span>Sample of how the chimpanzees dataset looks like
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+date
+</th>
+<th style="text-align:left;">
+species_type
+</th>
+<th style="text-align:left;">
+SubjectCode
+</th>
+<th style="text-align:left;">
+Sex
+</th>
+<th style="text-align:right;">
+Trial
+</th>
+<th style="text-align:left;">
+image1
+</th>
+<th style="text-align:left;">
+image2
+</th>
+<th style="text-align:left;">
+image_chosen
+</th>
+<th style="text-align:left;">
+concat_test_name
+</th>
+<th style="text-align:right;">
+y
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+3/1/18
+</td>
+<td style="text-align:left;">
+Chimpanzee
+</td>
+<td style="text-align:left;">
+Chimpanzee4
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+Apple
+</td>
+<td style="text-align:left;">
+Carrot
+</td>
+<td style="text-align:left;">
+Ap
+</td>
+<td style="text-align:left;">
+ApCa
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12/7/17
+</td>
+<td style="text-align:left;">
+Chimpanzee
+</td>
+<td style="text-align:left;">
+Chimpanzee1
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:left;">
+Carrot
+</td>
+<td style="text-align:left;">
+Tomato
+</td>
+<td style="text-align:left;">
+To
+</td>
+<td style="text-align:left;">
+CaTo
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4/26/17
+</td>
+<td style="text-align:left;">
+Chimpanzee
+</td>
+<td style="text-align:left;">
+Chimpanzee3
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+Cucumber
+</td>
+<td style="text-align:left;">
+Turnip
+</td>
+<td style="text-align:left;">
+Cu
+</td>
+<td style="text-align:left;">
+CuTu
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+11/1/17
+</td>
+<td style="text-align:left;">
+Chimpanzee
+</td>
+<td style="text-align:left;">
+Chimpanzee1
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:left;">
+Apple
+</td>
+<td style="text-align:left;">
+Grape
+</td>
+<td style="text-align:left;">
+Gr
+</td>
+<td style="text-align:left;">
+ApGr
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+7/26/17
+</td>
+<td style="text-align:left;">
+Chimpanzee
+</td>
+<td style="text-align:left;">
+Chimpanzee3
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:left;">
+Cucumber
+</td>
+<td style="text-align:left;">
+Grape
+</td>
+<td style="text-align:left;">
+Cu
+</td>
+<td style="text-align:left;">
+CuGr
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+10/26/17
+</td>
+<td style="text-align:left;">
+Chimpanzee
+</td>
+<td style="text-align:left;">
+Chimpanzee1
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:left;">
+Apple
+</td>
+<td style="text-align:left;">
+Grape
+</td>
+<td style="text-align:left;">
+Gr
+</td>
+<td style="text-align:left;">
+ApGr
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+9/18/17
+</td>
+<td style="text-align:left;">
+Chimpanzee
+</td>
+<td style="text-align:left;">
+Chimpanzee4
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:left;">
+Carrot
+</td>
+<td style="text-align:left;">
+Grape
+</td>
+<td style="text-align:left;">
+Gr
+</td>
+<td style="text-align:left;">
+CaGr
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12/8/16
+</td>
+<td style="text-align:left;">
+Chimpanzee
+</td>
+<td style="text-align:left;">
+Chimpanzee1
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:left;">
+Cucumber
+</td>
+<td style="text-align:left;">
+Turnip
+</td>
+<td style="text-align:left;">
+Cu
+</td>
+<td style="text-align:left;">
+CuTu
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12/14/17
+</td>
+<td style="text-align:left;">
+Chimpanzee
+</td>
+<td style="text-align:left;">
+Chimpanzee3
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Tomato
+</td>
+<td style="text-align:left;">
+Turnip
+</td>
+<td style="text-align:left;">
+To
+</td>
+<td style="text-align:left;">
+ToTu
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1/12/17
+</td>
+<td style="text-align:left;">
+Chimpanzee
+</td>
+<td style="text-align:left;">
+Chimpanzee4
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:left;">
+Cucumber
+</td>
+<td style="text-align:left;">
+Turnip
+</td>
+<td style="text-align:left;">
+Tu
+</td>
+<td style="text-align:left;">
+CuTu
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="studyII.html#cb51-1"></a>dplyr<span class="op">::</span><span class="kw">sample_n</span>(macaque, <span class="dt">size =</span> <span class="dv">10</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb51-2"><a href="studyII.html#cb51-2"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">caption=</span><span class="st">&#39;Sample of how the macaques dataset looks like&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb51-3"><a href="studyII.html#cb51-3"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>))</span></code></pre></div>
+<table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-47">Table 4.4: </span>Sample of how the macaques dataset looks like
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+date
+</th>
+<th style="text-align:left;">
+species_type
+</th>
+<th style="text-align:left;">
+SubjectCode
+</th>
+<th style="text-align:left;">
+Sex
+</th>
+<th style="text-align:right;">
+Trial
+</th>
+<th style="text-align:left;">
+image1
+</th>
+<th style="text-align:left;">
+image2
+</th>
+<th style="text-align:left;">
+image_chosen
+</th>
+<th style="text-align:left;">
+concat_test_name
+</th>
+<th style="text-align:right;">
+y
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+10/6/17
+</td>
+<td style="text-align:left;">
+Macaque
+</td>
+<td style="text-align:left;">
+Macaque6
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:left;">
+Jungle Pellet
+</td>
+<td style="text-align:left;">
+Celery
+</td>
+<td style="text-align:left;">
+Jp
+</td>
+<td style="text-align:left;">
+CeJp
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="mailto:09-06-2017@11-43" class="email">09-06-2017@11-43</a>
+</td>
+<td style="text-align:left;">
+Macaque
+</td>
+<td style="text-align:left;">
+Macaque1
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:left;">
+Carrot
+</td>
+<td style="text-align:left;">
+Celery
+</td>
+<td style="text-align:left;">
+Ca
+</td>
+<td style="text-align:left;">
+CeCa
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="mailto:04-30-2018@11-54" class="email">04-30-2018@11-54</a>
+</td>
+<td style="text-align:left;">
+Macaque
+</td>
+<td style="text-align:left;">
+Macaque1
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+Peanuts
+</td>
+<td style="text-align:left;">
+Oats
+</td>
+<td style="text-align:left;">
+Pe
+</td>
+<td style="text-align:left;">
+PeOa
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+8/7/17
+</td>
+<td style="text-align:left;">
+Macaque
+</td>
+<td style="text-align:left;">
+Macaque3
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Peanuts
+</td>
+<td style="text-align:left;">
+Celery
+</td>
+<td style="text-align:left;">
+Ce
+</td>
+<td style="text-align:left;">
+CePe
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="mailto:05-04-2018@11-27" class="email">05-04-2018@11-27</a>
+</td>
+<td style="text-align:left;">
+Macaque
+</td>
+<td style="text-align:left;">
+Macaque1
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Celery
+</td>
+<td style="text-align:left;">
+Green Beans
+</td>
+<td style="text-align:left;">
+Gb
+</td>
+<td style="text-align:left;">
+GbCe
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1/16/18
+</td>
+<td style="text-align:left;">
+Macaque
+</td>
+<td style="text-align:left;">
+Macaque7
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Carrot
+</td>
+<td style="text-align:left;">
+Peanuts
+</td>
+<td style="text-align:left;">
+Ca
+</td>
+<td style="text-align:left;">
+CaPe
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="mailto:04-02-2018@11-27" class="email">04-02-2018@11-27</a>
+</td>
+<td style="text-align:left;">
+Macaque
+</td>
+<td style="text-align:left;">
+Macaque1
+</td>
+<td style="text-align:left;">
+Male
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:left;">
+Carrot
+</td>
+<td style="text-align:left;">
+Green Beans
+</td>
+<td style="text-align:left;">
+Ca
+</td>
+<td style="text-align:left;">
+GbCa
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+9/7/17
+</td>
+<td style="text-align:left;">
+Macaque
+</td>
+<td style="text-align:left;">
+Macaque6
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+Carrot
+</td>
+<td style="text-align:left;">
+Celery
+</td>
+<td style="text-align:left;">
+Ca
+</td>
+<td style="text-align:left;">
+CeCa
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+8/14/17
+</td>
+<td style="text-align:left;">
+Macaque
+</td>
+<td style="text-align:left;">
+Macaque2
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+Carrot
+</td>
+<td style="text-align:left;">
+Peanuts
+</td>
+<td style="text-align:left;">
+Pe
+</td>
+<td style="text-align:left;">
+CaPe
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5/24/18
+</td>
+<td style="text-align:left;">
+Macaque
+</td>
+<td style="text-align:left;">
+Macaque4
+</td>
+<td style="text-align:left;">
+Female
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:left;">
+Jungle Pellet
+</td>
+<td style="text-align:left;">
+Oats
+</td>
+<td style="text-align:left;">
+Jp
+</td>
+<td style="text-align:left;">
+JpOa
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="simple-bradley-terry-model" class="section level2">
+<h2><span class="header-section-number">4.2</span> Simple Bradley-Terry model</h2>
+<p>Now that the data is ready let’s fit three simple Bayesian Bradley-Terry models</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="studyII.html#cb52-1"></a>m1_macaque &lt;-</span>
+<span id="cb52-2"><a href="studyII.html#cb52-2"></a><span class="st">  </span><span class="kw">bpc</span>(</span>
+<span id="cb52-3"><a href="studyII.html#cb52-3"></a>    macaque,</span>
+<span id="cb52-4"><a href="studyII.html#cb52-4"></a>    <span class="dt">player0 =</span> <span class="st">&#39;image1&#39;</span>,</span>
+<span id="cb52-5"><a href="studyII.html#cb52-5"></a>    <span class="dt">player1 =</span> <span class="st">&#39;image2&#39;</span>,</span>
+<span id="cb52-6"><a href="studyII.html#cb52-6"></a>    <span class="dt">result_column =</span> <span class="st">&#39;y&#39;</span>,</span>
+<span id="cb52-7"><a href="studyII.html#cb52-7"></a>    <span class="dt">model_type =</span> <span class="st">&#39;bt&#39;</span>,</span>
+<span id="cb52-8"><a href="studyII.html#cb52-8"></a>    <span class="dt">priors =</span> <span class="kw">list</span>(<span class="dt">prior_lambda_std =</span> <span class="fl">1.0</span>),</span>
+<span id="cb52-9"><a href="studyII.html#cb52-9"></a>    <span class="dt">iter =</span> <span class="dv">3000</span></span>
+<span id="cb52-10"><a href="studyII.html#cb52-10"></a>  )</span>
+<span id="cb52-11"><a href="studyII.html#cb52-11"></a><span class="kw">save_bpc_model</span>(m1_macaque, <span class="st">&#39;m1_macaque&#39;</span>, <span class="st">&#39;fittedmodels&#39;</span>)</span>
+<span id="cb52-12"><a href="studyII.html#cb52-12"></a></span>
+<span id="cb52-13"><a href="studyII.html#cb52-13"></a>m1_chip &lt;-</span>
+<span id="cb52-14"><a href="studyII.html#cb52-14"></a><span class="st">  </span><span class="kw">bpc</span>(</span>
+<span id="cb52-15"><a href="studyII.html#cb52-15"></a>    chip,</span>
+<span id="cb52-16"><a href="studyII.html#cb52-16"></a>    <span class="dt">player0 =</span> <span class="st">&#39;image1&#39;</span>,</span>
+<span id="cb52-17"><a href="studyII.html#cb52-17"></a>    <span class="dt">player1 =</span> <span class="st">&#39;image2&#39;</span>,</span>
+<span id="cb52-18"><a href="studyII.html#cb52-18"></a>    <span class="dt">result_column =</span> <span class="st">&#39;y&#39;</span>,</span>
+<span id="cb52-19"><a href="studyII.html#cb52-19"></a>    <span class="dt">model_type =</span> <span class="st">&#39;bt&#39;</span>,</span>
+<span id="cb52-20"><a href="studyII.html#cb52-20"></a>    <span class="dt">priors =</span> <span class="kw">list</span>(<span class="dt">prior_lambda_std =</span> <span class="fl">1.0</span>),</span>
+<span id="cb52-21"><a href="studyII.html#cb52-21"></a>    <span class="dt">iter =</span> <span class="dv">3000</span></span>
+<span id="cb52-22"><a href="studyII.html#cb52-22"></a>  )</span>
+<span id="cb52-23"><a href="studyII.html#cb52-23"></a><span class="kw">save_bpc_model</span>(m1_chip, <span class="st">&#39;m1_chip&#39;</span>, <span class="st">&#39;fittedmodels&#39;</span>)</span>
+<span id="cb52-24"><a href="studyII.html#cb52-24"></a></span>
+<span id="cb52-25"><a href="studyII.html#cb52-25"></a>m1_gor &lt;-</span>
+<span id="cb52-26"><a href="studyII.html#cb52-26"></a><span class="st">  </span><span class="kw">bpc</span>(</span>
+<span id="cb52-27"><a href="studyII.html#cb52-27"></a>    gor,</span>
+<span id="cb52-28"><a href="studyII.html#cb52-28"></a>    <span class="dt">player0 =</span> <span class="st">&#39;image1&#39;</span>,</span>
+<span id="cb52-29"><a href="studyII.html#cb52-29"></a>    <span class="dt">player1 =</span> <span class="st">&#39;image2&#39;</span>,</span>
+<span id="cb52-30"><a href="studyII.html#cb52-30"></a>    <span class="dt">result_column =</span> <span class="st">&#39;y&#39;</span>,</span>
+<span id="cb52-31"><a href="studyII.html#cb52-31"></a>    <span class="dt">model_type =</span> <span class="st">&#39;bt&#39;</span>,</span>
+<span id="cb52-32"><a href="studyII.html#cb52-32"></a>    <span class="dt">priors =</span> <span class="kw">list</span>(<span class="dt">prior_lambda_std =</span> <span class="fl">1.0</span>),</span>
+<span id="cb52-33"><a href="studyII.html#cb52-33"></a>    <span class="dt">iter =</span> <span class="dv">3000</span></span>
+<span id="cb52-34"><a href="studyII.html#cb52-34"></a>  )</span>
+<span id="cb52-35"><a href="studyII.html#cb52-35"></a><span class="kw">save_bpc_model</span>(m1_gor, <span class="st">&#39;m1_gor&#39;</span>, <span class="st">&#39;fittedmodels&#39;</span>)</span></code></pre></div>
+<div id="assessing-the-fitness-of-the-model" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Assessing the fitness of the model</h3>
+<p>Here we are illustrating how to conduct the diagnostic analysis for one model only. Since the shinystan app does not appear in the compiled appendix we are just representing it here once for the Chimpanzees model. Note that it is still possible to use the bayesplot package to generate static figures if needed.</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="studyII.html#cb53-1"></a><span class="co">#First we get the posterior predictive in the environment</span></span>
+<span id="cb53-2"><a href="studyII.html#cb53-2"></a>pp_m1_chip &lt;-<span class="st"> </span><span class="kw">posterior_predictive</span>(m1_chip, <span class="dt">n =</span> <span class="dv">100</span>)</span>
+<span id="cb53-3"><a href="studyII.html#cb53-3"></a>y_pp_m1_chip &lt;-<span class="st"> </span>pp_m1_chip_gor<span class="op">$</span>y</span>
+<span id="cb53-4"><a href="studyII.html#cb53-4"></a>ypred_pp_m1_chip &lt;-<span class="st"> </span>pp_m1_chip<span class="op">$</span>y_pred</span></code></pre></div>
+<p>Then we launch shinystan to assess convergence and validity of the model</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="studyII.html#cb54-1"></a><span class="kw">launch_shinystan</span>(m1_chip)</span></code></pre></div>
+</div>
+<div id="getting-the-waic" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Getting the WAIC</h3>
+<p>Before we start getting the parameters tables and etc let’s get the WAIC so we can compare with the next model (with random effects)</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="studyII.html#cb55-1"></a><span class="kw">get_waic</span>(m1_macaque)</span></code></pre></div>
+<pre><code>## 
+## Computed from 8000 by 8400 log-likelihood matrix
+## 
+##           Estimate    SE
+## elpd_waic  -3550.8  56.7
+## p_waic         5.0   0.1
+## waic        7101.6 113.4</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="studyII.html#cb57-1"></a><span class="kw">get_waic</span>(m1_chip)</span></code></pre></div>
+<pre><code>## 
+## Computed from 8000 by 5400 log-likelihood matrix
+## 
+##           Estimate   SE
+## elpd_waic  -3599.7 17.0
+## p_waic         5.1  0.0
+## waic        7199.5 33.9</code></pre>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="studyII.html#cb59-1"></a><span class="kw">get_waic</span>(m1_gor)</span></code></pre></div>
+<pre><code>## 
+## Computed from 8000 by 8100 log-likelihood matrix
+## 
+##           Estimate   SE
+## elpd_waic  -4883.7 36.0
+## p_waic         5.0  0.1
+## waic        9767.4 71.9</code></pre>
+</div>
+</div>
+<div id="bradley-terry-model-with-random-effects-for-individuals" class="section level2">
+<h2><span class="header-section-number">4.3</span> Bradley-Terry model with random effects for individuals</h2>
+<p>Let’s add the cluster SubjectCode as a random effects in our model</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="studyII.html#cb61-1"></a>m2_macaque &lt;-</span>
+<span id="cb61-2"><a href="studyII.html#cb61-2"></a><span class="st">  </span><span class="kw">bpc</span>(</span>
+<span id="cb61-3"><a href="studyII.html#cb61-3"></a>    macaque,</span>
+<span id="cb61-4"><a href="studyII.html#cb61-4"></a>    <span class="dt">player0 =</span> <span class="st">&#39;image1&#39;</span>,</span>
+<span id="cb61-5"><a href="studyII.html#cb61-5"></a>    <span class="dt">player1 =</span> <span class="st">&#39;image2&#39;</span>,</span>
+<span id="cb61-6"><a href="studyII.html#cb61-6"></a>    <span class="dt">result_column =</span> <span class="st">&#39;y&#39;</span>,</span>
+<span id="cb61-7"><a href="studyII.html#cb61-7"></a>    <span class="dt">model_type =</span> <span class="st">&#39;bt-U&#39;</span>,</span>
+<span id="cb61-8"><a href="studyII.html#cb61-8"></a>    <span class="dt">cluster =</span> <span class="kw">c</span>(<span class="st">&#39;SubjectCode&#39;</span>),</span>
+<span id="cb61-9"><a href="studyII.html#cb61-9"></a>    <span class="dt">priors =</span> <span class="kw">list</span>(</span>
+<span id="cb61-10"><a href="studyII.html#cb61-10"></a>      <span class="dt">prior_lambda_std =</span> <span class="fl">1.0</span>,</span>
+<span id="cb61-11"><a href="studyII.html#cb61-11"></a>      <span class="dt">prior_U1_std =</span> <span class="fl">1.0</span></span>
+<span id="cb61-12"><a href="studyII.html#cb61-12"></a>    ),</span>
+<span id="cb61-13"><a href="studyII.html#cb61-13"></a>    <span class="dt">iter =</span> <span class="dv">3000</span></span>
+<span id="cb61-14"><a href="studyII.html#cb61-14"></a>  )</span>
+<span id="cb61-15"><a href="studyII.html#cb61-15"></a><span class="kw">save_bpc_model</span>(m2_macaque, <span class="st">&#39;m2_macaque&#39;</span>, <span class="st">&#39;fittedmodels&#39;</span>)</span>
+<span id="cb61-16"><a href="studyII.html#cb61-16"></a></span>
+<span id="cb61-17"><a href="studyII.html#cb61-17"></a>m2_chip &lt;-</span>
+<span id="cb61-18"><a href="studyII.html#cb61-18"></a><span class="st">  </span><span class="kw">bpc</span>(</span>
+<span id="cb61-19"><a href="studyII.html#cb61-19"></a>    chip,</span>
+<span id="cb61-20"><a href="studyII.html#cb61-20"></a>    <span class="dt">player0 =</span> <span class="st">&#39;image1&#39;</span>,</span>
+<span id="cb61-21"><a href="studyII.html#cb61-21"></a>    <span class="dt">player1 =</span> <span class="st">&#39;image2&#39;</span>,</span>
+<span id="cb61-22"><a href="studyII.html#cb61-22"></a>    <span class="dt">cluster =</span> <span class="kw">c</span>(<span class="st">&#39;SubjectCode&#39;</span>),</span>
+<span id="cb61-23"><a href="studyII.html#cb61-23"></a>    <span class="dt">result_column =</span> <span class="st">&#39;y&#39;</span>,</span>
+<span id="cb61-24"><a href="studyII.html#cb61-24"></a>    <span class="dt">model_type =</span> <span class="st">&#39;bt-U&#39;</span>,</span>
+<span id="cb61-25"><a href="studyII.html#cb61-25"></a>    <span class="dt">priors =</span> <span class="kw">list</span>(</span>
+<span id="cb61-26"><a href="studyII.html#cb61-26"></a>      <span class="dt">prior_lambda_std =</span> <span class="fl">1.0</span>,</span>
+<span id="cb61-27"><a href="studyII.html#cb61-27"></a>      <span class="dt">prior_U1_std =</span> <span class="fl">1.0</span></span>
+<span id="cb61-28"><a href="studyII.html#cb61-28"></a>    ),</span>
+<span id="cb61-29"><a href="studyII.html#cb61-29"></a>    <span class="dt">iter =</span> <span class="dv">3000</span></span>
+<span id="cb61-30"><a href="studyII.html#cb61-30"></a>  )</span>
+<span id="cb61-31"><a href="studyII.html#cb61-31"></a><span class="kw">save_bpc_model</span>(m2_chip, <span class="st">&#39;m2_chip&#39;</span>, <span class="st">&#39;fittedmodels&#39;</span>)</span>
+<span id="cb61-32"><a href="studyII.html#cb61-32"></a></span>
+<span id="cb61-33"><a href="studyII.html#cb61-33"></a>m2_gor &lt;-</span>
+<span id="cb61-34"><a href="studyII.html#cb61-34"></a><span class="st">  </span><span class="kw">bpc</span>(</span>
+<span id="cb61-35"><a href="studyII.html#cb61-35"></a>    gor,</span>
+<span id="cb61-36"><a href="studyII.html#cb61-36"></a>    <span class="dt">player0 =</span> <span class="st">&#39;image1&#39;</span>,</span>
+<span id="cb61-37"><a href="studyII.html#cb61-37"></a>    <span class="dt">player1 =</span> <span class="st">&#39;image2&#39;</span>,</span>
+<span id="cb61-38"><a href="studyII.html#cb61-38"></a>    <span class="dt">cluster =</span> <span class="kw">c</span>(<span class="st">&#39;SubjectCode&#39;</span>),</span>
+<span id="cb61-39"><a href="studyII.html#cb61-39"></a>    <span class="dt">result_column =</span> <span class="st">&#39;y&#39;</span>,</span>
+<span id="cb61-40"><a href="studyII.html#cb61-40"></a>    <span class="dt">model_type =</span> <span class="st">&#39;bt-U&#39;</span>,</span>
+<span id="cb61-41"><a href="studyII.html#cb61-41"></a>    <span class="dt">priors =</span> <span class="kw">list</span>(</span>
+<span id="cb61-42"><a href="studyII.html#cb61-42"></a>      <span class="dt">prior_lambda_std =</span> <span class="fl">1.0</span>,</span>
+<span id="cb61-43"><a href="studyII.html#cb61-43"></a>      <span class="dt">prior_U1_std =</span> <span class="fl">1.0</span></span>
+<span id="cb61-44"><a href="studyII.html#cb61-44"></a>    ),</span>
+<span id="cb61-45"><a href="studyII.html#cb61-45"></a>    <span class="dt">iter =</span> <span class="dv">3000</span></span>
+<span id="cb61-46"><a href="studyII.html#cb61-46"></a>  )</span>
+<span id="cb61-47"><a href="studyII.html#cb61-47"></a><span class="kw">save_bpc_model</span>(m2_gor, <span class="st">&#39;m2_gor&#39;</span>, <span class="st">&#39;fittedmodels&#39;</span>)</span></code></pre></div>
+<p>Of course we should run diagnostic analysis on the models. For the gorillas</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="studyII.html#cb62-1"></a><span class="kw">launch_shinystan</span>(m2_gor)</span></code></pre></div>
+<div id="getting-the-waic-1" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Getting the WAIC</h3>
+<p>Before we start plotting tables let’s get the WAIC for each random effects model and compare with the first models without random effects</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="studyII.html#cb63-1"></a><span class="kw">get_waic</span>(m2_macaque)</span></code></pre></div>
+<pre><code>## 
+## Computed from 8000 by 8400 log-likelihood matrix
+## 
+##           Estimate    SE
+## elpd_waic  -3356.6  57.1
+## p_waic        33.0   0.8
+## waic        6713.2 114.2</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="studyII.html#cb65-1"></a><span class="kw">get_waic</span>(m2_chip)</span></code></pre></div>
+<pre><code>## 
+## Computed from 8000 by 5400 log-likelihood matrix
+## 
+##           Estimate   SE
+## elpd_waic  -3359.9 24.1
+## p_waic        19.6  0.3
+## waic        6719.7 48.3</code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="studyII.html#cb67-1"></a><span class="kw">get_waic</span>(m2_gor)</span></code></pre></div>
+<pre><code>## 
+## Computed from 8000 by 8100 log-likelihood matrix
+## 
+##           Estimate   SE
+## elpd_waic  -4396.1 40.1
+## p_waic        29.2  0.4
+## waic        8792.2 80.2</code></pre>
+<p>Below I just copied the result of the WAIC into a data frame to create the tables. Of course this process could be automated.</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="studyII.html#cb69-1"></a>waic_table &lt;-</span>
+<span id="cb69-2"><a href="studyII.html#cb69-2"></a><span class="st">  </span><span class="kw">data.frame</span>(</span>
+<span id="cb69-3"><a href="studyII.html#cb69-3"></a>    <span class="dt">Species =</span> <span class="kw">c</span>(<span class="st">&#39;Macaques&#39;</span>, <span class="st">&#39;Chimpanzees&#39;</span>, <span class="st">&#39;Gorillas&#39;</span>),</span>
+<span id="cb69-4"><a href="studyII.html#cb69-4"></a>    <span class="dt">BT =</span> <span class="kw">c</span>(<span class="fl">7101.6</span>, <span class="fl">7199.5</span>, <span class="fl">9767.4</span>),</span>
+<span id="cb69-5"><a href="studyII.html#cb69-5"></a>    <span class="dt">BTU =</span> <span class="kw">c</span>(<span class="fl">6713.2</span>, <span class="fl">6719.7</span>, <span class="fl">8792.2</span>)</span>
+<span id="cb69-6"><a href="studyII.html#cb69-6"></a>  )</span></code></pre></div>
+<p>The kableExtra package provides some nice tools to create tables from R directly to Latex</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="studyII.html#cb70-1"></a><span class="kw">kable</span>(</span>
+<span id="cb70-2"><a href="studyII.html#cb70-2"></a>  waic_table,  <span class="dt">booktabs=</span>T,</span>
+<span id="cb70-3"><a href="studyII.html#cb70-3"></a>  <span class="dt">caption =</span> <span class="st">&#39;Comparison of the WAIC of the Bradley-Terry model and the Bradley-Terry model with random effects on the subjects for each specie&#39;</span>,</span>
+<span id="cb70-4"><a href="studyII.html#cb70-4"></a>  <span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">&#39;Specie&#39;</span>, <span class="st">&#39;Bradley-Terry&#39;</span>, <span class="st">&#39;Bradley-Terry with random effects&#39;</span>)</span>
+<span id="cb70-5"><a href="studyII.html#cb70-5"></a>) <span class="op">%&gt;%</span></span>
+<span id="cb70-6"><a href="studyII.html#cb70-6"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">add_header_above</span>(<span class="kw">c</span>(<span class="st">&quot; &quot;</span> =<span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;WAIC&quot;</span> =<span class="st"> </span><span class="dv">2</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb70-7"><a href="studyII.html#cb70-7"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>))</span></code></pre></div>
+<table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-62">Table 4.5: </span>Comparison of the WAIC of the Bradley-Terry model and the Bradley-Terry model with random effects on the subjects for each specie
+</caption>
+<thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+WAIC
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+Specie
+</th>
+<th style="text-align:right;">
+Bradley-Terry
+</th>
+<th style="text-align:right;">
+Bradley-Terry with random effects
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Macaques
+</td>
+<td style="text-align:right;">
+7101.6
+</td>
+<td style="text-align:right;">
+6713.2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Chimpanzees
+</td>
+<td style="text-align:right;">
+7199.5
+</td>
+<td style="text-align:right;">
+6719.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gorillas
+</td>
+<td style="text-align:right;">
+9767.4
+</td>
+<td style="text-align:right;">
+8792.2
+</td>
+</tr>
+</tbody>
+</table>
+<p>We can see that the random effects model perform much better than the simple BT model by having a much lower WAIC. Therefore from now we will use only the random effects model to generate our tables and plots</p>
+</div>
+<div id="parameter-tables-and-plots" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> Parameter tables and plots</h3>
+<p>Now let’s create some plots and tables to analyze and compare the models</p>
+<div id="parameters-table" class="section level4">
+<h4><span class="header-section-number">4.3.2.1</span> Parameters table</h4>
+<p>Creating a nice table of the parameters.</p>
+<p>First let’s put all species in the same data frame</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="studyII.html#cb71-1"></a>df1 &lt;-<span class="st"> </span><span class="kw">get_parameters</span>(m2_macaque, <span class="dt">n_eff =</span> F)</span>
+<span id="cb71-2"><a href="studyII.html#cb71-2"></a>df2 &lt;-<span class="st"> </span><span class="kw">get_parameters</span>(m2_chip, <span class="dt">n_eff =</span> F)</span>
+<span id="cb71-3"><a href="studyII.html#cb71-3"></a>df3 &lt;-<span class="st"> </span><span class="kw">get_parameters</span>(m2_gor, <span class="dt">n_eff =</span> F)</span>
+<span id="cb71-4"><a href="studyII.html#cb71-4"></a></span>
+<span id="cb71-5"><a href="studyII.html#cb71-5"></a>df1 &lt;-<span class="st"> </span>df1 <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">Species=</span><span class="st">&#39;Macaque&#39;</span>)</span>
+<span id="cb71-6"><a href="studyII.html#cb71-6"></a>df2 &lt;-<span class="st"> </span>df2 <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">Species=</span><span class="st">&#39;Chimpanzees&#39;</span>)</span>
+<span id="cb71-7"><a href="studyII.html#cb71-7"></a>df3 &lt;-<span class="st"> </span>df3 <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">Species=</span><span class="st">&#39;Gorilla&#39;</span>)</span>
+<span id="cb71-8"><a href="studyII.html#cb71-8"></a></span>
+<span id="cb71-9"><a href="studyII.html#cb71-9"></a><span class="co">#appending the dataframes</span></span>
+<span id="cb71-10"><a href="studyII.html#cb71-10"></a>df &lt;-<span class="st"> </span><span class="kw">rbind</span>(df1,df2,df3)</span>
+<span id="cb71-11"><a href="studyII.html#cb71-11"></a></span>
+<span id="cb71-12"><a href="studyII.html#cb71-12"></a><span class="co">#Removing the individual random effects parameters otherwise the table will be much bigger</span></span>
+<span id="cb71-13"><a href="studyII.html#cb71-13"></a>df &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb71-14"><a href="studyII.html#cb71-14"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">startsWith</span>(Parameter,<span class="st">&#39;U1[&#39;</span>))</span>
+<span id="cb71-15"><a href="studyII.html#cb71-15"></a></span>
+<span id="cb71-16"><a href="studyII.html#cb71-16"></a><span class="co">#Re-coding the parameters (removing the lambda) so it reads nicer in the table.</span></span>
+<span id="cb71-17"><a href="studyII.html#cb71-17"></a>df<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Carrot]&#39;</span>=<span class="st">&#39;Carrot&#39;</span>)</span>
+<span id="cb71-18"><a href="studyII.html#cb71-18"></a>df<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Grape]&#39;</span>=<span class="st">&#39;Grape&#39;</span>)</span>
+<span id="cb71-19"><a href="studyII.html#cb71-19"></a>df<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Turnip]&#39;</span>=<span class="st">&#39;Turnip&#39;</span>)</span>
+<span id="cb71-20"><a href="studyII.html#cb71-20"></a>df<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Cucumber]&#39;</span>=<span class="st">&#39;Cucumber&#39;</span>)</span>
+<span id="cb71-21"><a href="studyII.html#cb71-21"></a>df<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Tomato]&#39;</span>=<span class="st">&#39;Tomato&#39;</span>)</span>
+<span id="cb71-22"><a href="studyII.html#cb71-22"></a>df<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Apple]&#39;</span>=<span class="st">&#39;Apple&#39;</span>)</span>
+<span id="cb71-23"><a href="studyII.html#cb71-23"></a>df<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Jungle Pellet]&#39;</span>=<span class="st">&#39;Jungle Pellet&#39;</span>)</span>
+<span id="cb71-24"><a href="studyII.html#cb71-24"></a>df<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Green Beans]&#39;</span>=<span class="st">&#39;Green Beans&#39;</span>)</span>
+<span id="cb71-25"><a href="studyII.html#cb71-25"></a>df<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Celery]&#39;</span>=<span class="st">&#39;Celery&#39;</span>)</span>
+<span id="cb71-26"><a href="studyII.html#cb71-26"></a>df<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Oats]&#39;</span>=<span class="st">&#39;Oats&#39;</span>)</span>
+<span id="cb71-27"><a href="studyII.html#cb71-27"></a>df<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Peanuts]&#39;</span>=<span class="st">&#39;Peanuts&#39;</span>)</span></code></pre></div>
+<p>Now let’s create the table by removing the species column and adding some row Headers for the species</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="studyII.html#cb72-1"></a>(df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>Species) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb72-2"><a href="studyII.html#cb72-2"></a><span class="kw">kable</span>( <span class="dt">caption =</span> <span class="st">&#39;Parameters of the model with random effects&#39;</span>, <span class="dt">digits =</span> <span class="dv">2</span>, <span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">&#39;Parameter&#39;</span>, <span class="st">&#39;Mean&#39;</span>, <span class="st">&#39;HPD lower&#39;</span>, <span class="st">&#39;HPD upper&#39;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb72-3"><a href="studyII.html#cb72-3"></a>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb72-4"><a href="studyII.html#cb72-4"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">pack_rows</span>(<span class="st">&quot;Macaque&quot;</span>, <span class="dv">1</span>, <span class="dv">6</span>) <span class="op">%&gt;%</span></span>
+<span id="cb72-5"><a href="studyII.html#cb72-5"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">pack_rows</span>(<span class="st">&quot;Chimpanzees&quot;</span>, <span class="dv">7</span>, <span class="dv">13</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb72-6"><a href="studyII.html#cb72-6"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">pack_rows</span>(<span class="st">&quot;Gorilla&quot;</span>, <span class="dv">14</span>, <span class="dv">20</span>)</span>
+<span id="cb72-7"><a href="studyII.html#cb72-7"></a>)</span></code></pre></div>
+<table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-65">Table 4.6: </span>Parameters of the model with random effects
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Parameter
+</th>
+<th style="text-align:right;">
+Mean
+</th>
+<th style="text-align:right;">
+HPD lower
+</th>
+<th style="text-align:right;">
+HPD upper
+</th>
+</tr>
+</thead>
+<tbody>
+<tr grouplength="6">
+<td colspan="4" style="border-bottom: 1px solid;">
+<strong>Macaque</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Carrot
+</td>
+<td style="text-align:right;">
+0.12
+</td>
+<td style="text-align:right;">
+-0.81
+</td>
+<td style="text-align:right;">
+1.02
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Celery
+</td>
+<td style="text-align:right;">
+-2.28
+</td>
+<td style="text-align:right;">
+-3.16
+</td>
+<td style="text-align:right;">
+-1.34
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Jungle Pellet
+</td>
+<td style="text-align:right;">
+1.24
+</td>
+<td style="text-align:right;">
+0.35
+</td>
+<td style="text-align:right;">
+2.14
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Oats
+</td>
+<td style="text-align:right;">
+-0.90
+</td>
+<td style="text-align:right;">
+-1.85
+</td>
+<td style="text-align:right;">
+-0.02
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Green Beans
+</td>
+<td style="text-align:right;">
+-0.17
+</td>
+<td style="text-align:right;">
+-1.04
+</td>
+<td style="text-align:right;">
+0.77
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+U1_std
+</td>
+<td style="text-align:right;">
+0.57
+</td>
+<td style="text-align:right;">
+0.42
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+</tr>
+<tr grouplength="7">
+<td colspan="4" style="border-bottom: 1px solid;">
+<strong>Chimpanzees</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Apple
+</td>
+<td style="text-align:right;">
+0.02
+</td>
+<td style="text-align:right;">
+-0.97
+</td>
+<td style="text-align:right;">
+1.06
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Tomato
+</td>
+<td style="text-align:right;">
+0.32
+</td>
+<td style="text-align:right;">
+-0.71
+</td>
+<td style="text-align:right;">
+1.30
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Carrot
+</td>
+<td style="text-align:right;">
+-0.22
+</td>
+<td style="text-align:right;">
+-1.26
+</td>
+<td style="text-align:right;">
+0.76
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Grape
+</td>
+<td style="text-align:right;">
+0.60
+</td>
+<td style="text-align:right;">
+-0.39
+</td>
+<td style="text-align:right;">
+1.59
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Cucumber
+</td>
+<td style="text-align:right;">
+-0.34
+</td>
+<td style="text-align:right;">
+-1.33
+</td>
+<td style="text-align:right;">
+0.63
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Turnip
+</td>
+<td style="text-align:right;">
+-0.44
+</td>
+<td style="text-align:right;">
+-1.44
+</td>
+<td style="text-align:right;">
+0.56
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+U1_std
+</td>
+<td style="text-align:right;">
+0.72
+</td>
+<td style="text-align:right;">
+0.48
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+</tr>
+<tr grouplength="7">
+<td colspan="4" style="border-bottom: 1px solid;">
+<strong>Gorilla</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Apple
+</td>
+<td style="text-align:right;">
+0.03
+</td>
+<td style="text-align:right;">
+-0.98
+</td>
+<td style="text-align:right;">
+0.97
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Carrot
+</td>
+<td style="text-align:right;">
+-0.11
+</td>
+<td style="text-align:right;">
+-1.12
+</td>
+<td style="text-align:right;">
+0.83
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Grape
+</td>
+<td style="text-align:right;">
+0.86
+</td>
+<td style="text-align:right;">
+-0.11
+</td>
+<td style="text-align:right;">
+1.87
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Tomato
+</td>
+<td style="text-align:right;">
+0.85
+</td>
+<td style="text-align:right;">
+-0.10
+</td>
+<td style="text-align:right;">
+1.84
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Cucumber
+</td>
+<td style="text-align:right;">
+-0.71
+</td>
+<td style="text-align:right;">
+-1.66
+</td>
+<td style="text-align:right;">
+0.33
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Turnip
+</td>
+<td style="text-align:right;">
+-0.93
+</td>
+<td style="text-align:right;">
+-1.86
+</td>
+<td style="text-align:right;">
+0.08
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+U1_std
+</td>
+<td style="text-align:right;">
+0.79
+</td>
+<td style="text-align:right;">
+0.57
+</td>
+<td style="text-align:right;">
+1.02
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="rank-table" class="section level4">
+<h4><span class="header-section-number">4.3.2.2</span> Rank table</h4>
+<p>Rank of the food preferences</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="studyII.html#cb73-1"></a>rank1 &lt;-<span class="st"> </span><span class="kw">get_rank_of_players_df</span>(m2_macaque)</span>
+<span id="cb73-2"><a href="studyII.html#cb73-2"></a>rank2 &lt;-<span class="st"> </span><span class="kw">get_rank_of_players_df</span>(m2_chip)</span>
+<span id="cb73-3"><a href="studyII.html#cb73-3"></a>rank3 &lt;-<span class="st"> </span><span class="kw">get_rank_of_players_df</span>(m2_gor)</span>
+<span id="cb73-4"><a href="studyII.html#cb73-4"></a></span>
+<span id="cb73-5"><a href="studyII.html#cb73-5"></a><span class="co">#appending the dataframes</span></span>
+<span id="cb73-6"><a href="studyII.html#cb73-6"></a>rank_all &lt;-<span class="st"> </span><span class="kw">rbind</span>(rank1,rank2,rank3)</span>
+<span id="cb73-7"><a href="studyII.html#cb73-7"></a></span>
+<span id="cb73-8"><a href="studyII.html#cb73-8"></a><span class="co">#Re-coding the parameters (removing the lambda) so it reads nicer in the table.</span></span>
+<span id="cb73-9"><a href="studyII.html#cb73-9"></a>rank_all<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(rank_all<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Carrot]&#39;</span>=<span class="st">&#39;Carrot&#39;</span>)</span>
+<span id="cb73-10"><a href="studyII.html#cb73-10"></a>rank_all<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(rank_all<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Grape]&#39;</span>=<span class="st">&#39;Grape&#39;</span>)</span>
+<span id="cb73-11"><a href="studyII.html#cb73-11"></a>rank_all<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(rank_all<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Turnip]&#39;</span>=<span class="st">&#39;Turnip&#39;</span>)</span>
+<span id="cb73-12"><a href="studyII.html#cb73-12"></a>rank_all<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(rank_all<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Cucumber]&#39;</span>=<span class="st">&#39;Cucumber&#39;</span>)</span>
+<span id="cb73-13"><a href="studyII.html#cb73-13"></a>rank_all<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(rank_all<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Tomato]&#39;</span>=<span class="st">&#39;Tomato&#39;</span>)</span>
+<span id="cb73-14"><a href="studyII.html#cb73-14"></a>rank_all<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(rank_all<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Apple]&#39;</span>=<span class="st">&#39;Apple&#39;</span>)</span>
+<span id="cb73-15"><a href="studyII.html#cb73-15"></a>rank_all<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(rank_all<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Jungle Pellet]&#39;</span>=<span class="st">&#39;Jungle Pellet&#39;</span>)</span>
+<span id="cb73-16"><a href="studyII.html#cb73-16"></a>rank_all<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(rank_all<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Green Beans]&#39;</span>=<span class="st">&#39;Green Beans&#39;</span>)</span>
+<span id="cb73-17"><a href="studyII.html#cb73-17"></a>rank_all<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(rank_all<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Celery]&#39;</span>=<span class="st">&#39;Celery&#39;</span>)</span>
+<span id="cb73-18"><a href="studyII.html#cb73-18"></a>rank_all<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(rank_all<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Oats]&#39;</span>=<span class="st">&#39;Oats&#39;</span>)</span>
+<span id="cb73-19"><a href="studyII.html#cb73-19"></a>rank_all<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(rank_all<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Peanuts]&#39;</span>=<span class="st">&#39;Peanuts&#39;</span>)</span></code></pre></div>
+<p>Now let’s create the rank table</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="studyII.html#cb74-1"></a>(rank_all <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb74-2"><a href="studyII.html#cb74-2"></a><span class="kw">kable</span>( <span class="dt">caption =</span> <span class="st">&#39;Ranking of the food preferences per specie with model with random effects&#39;</span>, <span class="dt">digits =</span> <span class="dv">2</span>, <span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">&#39;Food&#39;</span>, <span class="st">&#39;Median Rank&#39;</span>, <span class="st">&#39;Mean Rank&#39;</span>, <span class="st">&#39;Std. Rank&#39;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb74-3"><a href="studyII.html#cb74-3"></a>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb74-4"><a href="studyII.html#cb74-4"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">pack_rows</span>(<span class="st">&quot;Macaque&quot;</span>, <span class="dv">1</span>, <span class="dv">6</span>) <span class="op">%&gt;%</span></span>
+<span id="cb74-5"><a href="studyII.html#cb74-5"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">pack_rows</span>(<span class="st">&quot;Chimpanzees&quot;</span>, <span class="dv">7</span>, <span class="dv">12</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb74-6"><a href="studyII.html#cb74-6"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">pack_rows</span>(<span class="st">&quot;Gorilla&quot;</span>, <span class="dv">13</span>, <span class="dv">18</span>)</span>
+<span id="cb74-7"><a href="studyII.html#cb74-7"></a>)</span></code></pre></div>
+<table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-68">Table 4.7: </span>Ranking of the food preferences per specie with model with random effects
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Food
+</th>
+<th style="text-align:right;">
+Median Rank
+</th>
+<th style="text-align:right;">
+Mean Rank
+</th>
+<th style="text-align:right;">
+Std. Rank
+</th>
+</tr>
+</thead>
+<tbody>
+<tr grouplength="6">
+<td colspan="4" style="border-bottom: 1px solid;">
+<strong>Macaque</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Peanuts
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1.01
+</td>
+<td style="text-align:right;">
+0.10
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Jungle Pellet
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1.99
+</td>
+<td style="text-align:right;">
+0.11
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Carrot
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3.16
+</td>
+<td style="text-align:right;">
+0.37
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Green Beans
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+3.85
+</td>
+<td style="text-align:right;">
+0.38
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Oats
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+4.99
+</td>
+<td style="text-align:right;">
+0.10
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Celery
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+6.00
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+<tr grouplength="6">
+<td colspan="4" style="border-bottom: 1px solid;">
+<strong>Chimpanzees</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Grape
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1.53
+</td>
+<td style="text-align:right;">
+0.85
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Tomato
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2.27
+</td>
+<td style="text-align:right;">
+1.12
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Apple
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3.26
+</td>
+<td style="text-align:right;">
+1.25
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Carrot
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4.24
+</td>
+<td style="text-align:right;">
+1.28
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Cucumber
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+4.70
+</td>
+<td style="text-align:right;">
+1.18
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Turnip
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+5.00
+</td>
+<td style="text-align:right;">
+1.11
+</td>
+</tr>
+<tr grouplength="6">
+<td colspan="4" style="border-bottom: 1px solid;">
+<strong>Gorilla</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Grape
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1.55
+</td>
+<td style="text-align:right;">
+0.60
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Tomato
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1.57
+</td>
+<td style="text-align:right;">
+0.61
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Apple
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+3.38
+</td>
+<td style="text-align:right;">
+0.74
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Carrot
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+3.72
+</td>
+<td style="text-align:right;">
+0.72
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Cucumber
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+5.12
+</td>
+<td style="text-align:right;">
+0.70
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Turnip
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+5.66
+</td>
+<td style="text-align:right;">
+0.56
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="plot" class="section level4">
+<h4><span class="header-section-number">4.3.2.3</span> Plot</h4>
+<p>Now let’s use ggplot to create a plot comparing both types of model. The simple BT and the BT with Random effects</p>
+<p>First we need to prepare the data frames for plotting. For the simple BT model (called old)</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="studyII.html#cb75-1"></a>df1_old &lt;-<span class="st"> </span><span class="kw">get_parameters</span>(m1_macaque, <span class="dt">n_eff =</span> F)</span>
+<span id="cb75-2"><a href="studyII.html#cb75-2"></a>df2_old &lt;-<span class="st"> </span><span class="kw">get_parameters</span>(m1_chip, <span class="dt">n_eff =</span> F)</span>
+<span id="cb75-3"><a href="studyII.html#cb75-3"></a>df3_old &lt;-<span class="st"> </span><span class="kw">get_parameters</span>(m1_gor, <span class="dt">n_eff =</span> F)</span>
+<span id="cb75-4"><a href="studyII.html#cb75-4"></a></span>
+<span id="cb75-5"><a href="studyII.html#cb75-5"></a>df1_old &lt;-<span class="st"> </span>df1_old <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">Species=</span><span class="st">&#39;Macaque&#39;</span>, <span class="dt">Model=</span><span class="st">&#39;Simple&#39;</span>)</span>
+<span id="cb75-6"><a href="studyII.html#cb75-6"></a>df2_old &lt;-<span class="st"> </span>df2_old <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">Species=</span><span class="st">&#39;Chimpanzees&#39;</span>, <span class="dt">Model=</span><span class="st">&#39;Simple&#39;</span>)</span>
+<span id="cb75-7"><a href="studyII.html#cb75-7"></a>df3_old &lt;-<span class="st"> </span>df3_old <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">Species=</span><span class="st">&#39;Gorilla&#39;</span>, <span class="dt">Model=</span><span class="st">&#39;Simple&#39;</span>)</span>
+<span id="cb75-8"><a href="studyII.html#cb75-8"></a></span>
+<span id="cb75-9"><a href="studyII.html#cb75-9"></a><span class="co">#appending the dataframes</span></span>
+<span id="cb75-10"><a href="studyII.html#cb75-10"></a>df_old &lt;-<span class="st"> </span><span class="kw">rbind</span>(df1_old,df2_old,df3_old)</span>
+<span id="cb75-11"><a href="studyII.html#cb75-11"></a></span>
+<span id="cb75-12"><a href="studyII.html#cb75-12"></a><span class="co">#Removing the individual random effects parameters</span></span>
+<span id="cb75-13"><a href="studyII.html#cb75-13"></a>df_old &lt;-<span class="st"> </span>df_old <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb75-14"><a href="studyII.html#cb75-14"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">startsWith</span>(Parameter,<span class="st">&#39;U&#39;</span>))</span>
+<span id="cb75-15"><a href="studyII.html#cb75-15"></a></span>
+<span id="cb75-16"><a href="studyII.html#cb75-16"></a><span class="co">#Re-coding some parameters so it reads nicer in the figure</span></span>
+<span id="cb75-17"><a href="studyII.html#cb75-17"></a>df_old<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df_old<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Carrot]&#39;</span>=<span class="st">&#39;Carrot&#39;</span>)</span>
+<span id="cb75-18"><a href="studyII.html#cb75-18"></a>df_old<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df_old<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Grape]&#39;</span>=<span class="st">&#39;Grape&#39;</span>)</span>
+<span id="cb75-19"><a href="studyII.html#cb75-19"></a>df_old<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df_old<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Turnip]&#39;</span>=<span class="st">&#39;Turnip&#39;</span>)</span>
+<span id="cb75-20"><a href="studyII.html#cb75-20"></a>df_old<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df_old<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Cucumber]&#39;</span>=<span class="st">&#39;Cucumber&#39;</span>)</span>
+<span id="cb75-21"><a href="studyII.html#cb75-21"></a>df_old<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df_old<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Tomato]&#39;</span>=<span class="st">&#39;Tomato&#39;</span>)</span>
+<span id="cb75-22"><a href="studyII.html#cb75-22"></a>df_old<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df_old<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Apple]&#39;</span>=<span class="st">&#39;Apple&#39;</span>)</span>
+<span id="cb75-23"><a href="studyII.html#cb75-23"></a>df_old<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df_old<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Jungle Pellet]&#39;</span>=<span class="st">&#39;Jungle Pellet&#39;</span>)</span>
+<span id="cb75-24"><a href="studyII.html#cb75-24"></a>df_old<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df_old<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Green Beans]&#39;</span>=<span class="st">&#39;Green Beans&#39;</span>)</span>
+<span id="cb75-25"><a href="studyII.html#cb75-25"></a>df_old<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df_old<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Celery]&#39;</span>=<span class="st">&#39;Celery&#39;</span>)</span>
+<span id="cb75-26"><a href="studyII.html#cb75-26"></a>df_old<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df_old<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Oats]&#39;</span>=<span class="st">&#39;Oats&#39;</span>)</span>
+<span id="cb75-27"><a href="studyII.html#cb75-27"></a>df_old<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df_old<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Peanuts]&#39;</span>=<span class="st">&#39;Peanuts&#39;</span>)</span></code></pre></div>
+<p>For the BT with random effects</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="studyII.html#cb76-1"></a>df1 &lt;-<span class="st"> </span><span class="kw">get_parameters</span>(m2_macaque, <span class="dt">n_eff =</span> F)</span>
+<span id="cb76-2"><a href="studyII.html#cb76-2"></a>df2 &lt;-<span class="st"> </span><span class="kw">get_parameters</span>(m2_chip, <span class="dt">n_eff =</span> F)</span>
+<span id="cb76-3"><a href="studyII.html#cb76-3"></a>df3 &lt;-<span class="st"> </span><span class="kw">get_parameters</span>(m2_gor, <span class="dt">n_eff =</span> F)</span>
+<span id="cb76-4"><a href="studyII.html#cb76-4"></a></span>
+<span id="cb76-5"><a href="studyII.html#cb76-5"></a>df1 &lt;-<span class="st"> </span>df1 <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">Species=</span><span class="st">&#39;Macaque&#39;</span>, <span class="dt">Model=</span><span class="st">&#39;RandomEffects&#39;</span>)</span>
+<span id="cb76-6"><a href="studyII.html#cb76-6"></a>df2 &lt;-<span class="st"> </span>df2 <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">Species=</span><span class="st">&#39;Chimpanzees&#39;</span>, <span class="dt">Model=</span><span class="st">&#39;RandomEffects&#39;</span>)</span>
+<span id="cb76-7"><a href="studyII.html#cb76-7"></a>df3 &lt;-<span class="st"> </span>df3 <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">Species=</span><span class="st">&#39;Gorilla&#39;</span>, <span class="dt">Model=</span><span class="st">&#39;RandomEffects&#39;</span>)</span>
+<span id="cb76-8"><a href="studyII.html#cb76-8"></a></span>
+<span id="cb76-9"><a href="studyII.html#cb76-9"></a><span class="co">#appending the dataframes</span></span>
+<span id="cb76-10"><a href="studyII.html#cb76-10"></a>df &lt;-<span class="st"> </span><span class="kw">rbind</span>(df1,df2,df3)</span>
+<span id="cb76-11"><a href="studyII.html#cb76-11"></a></span>
+<span id="cb76-12"><a href="studyII.html#cb76-12"></a><span class="co">#Removing the individual random effects parameters</span></span>
+<span id="cb76-13"><a href="studyII.html#cb76-13"></a>df &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb76-14"><a href="studyII.html#cb76-14"></a><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">startsWith</span>(Parameter,<span class="st">&#39;U&#39;</span>))</span>
+<span id="cb76-15"><a href="studyII.html#cb76-15"></a></span>
+<span id="cb76-16"><a href="studyII.html#cb76-16"></a><span class="co">#Re-coding some parameters so it reads nicer in the figure</span></span>
+<span id="cb76-17"><a href="studyII.html#cb76-17"></a>df<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Carrot]&#39;</span>=<span class="st">&#39;Carrot&#39;</span>)</span>
+<span id="cb76-18"><a href="studyII.html#cb76-18"></a>df<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Grape]&#39;</span>=<span class="st">&#39;Grape&#39;</span>)</span>
+<span id="cb76-19"><a href="studyII.html#cb76-19"></a>df<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Turnip]&#39;</span>=<span class="st">&#39;Turnip&#39;</span>)</span>
+<span id="cb76-20"><a href="studyII.html#cb76-20"></a>df<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Cucumber]&#39;</span>=<span class="st">&#39;Cucumber&#39;</span>)</span>
+<span id="cb76-21"><a href="studyII.html#cb76-21"></a>df<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Tomato]&#39;</span>=<span class="st">&#39;Tomato&#39;</span>)</span>
+<span id="cb76-22"><a href="studyII.html#cb76-22"></a>df<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Apple]&#39;</span>=<span class="st">&#39;Apple&#39;</span>)</span>
+<span id="cb76-23"><a href="studyII.html#cb76-23"></a>df<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Jungle Pellet]&#39;</span>=<span class="st">&#39;Jungle Pellet&#39;</span>)</span>
+<span id="cb76-24"><a href="studyII.html#cb76-24"></a>df<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Green Beans]&#39;</span>=<span class="st">&#39;Green Beans&#39;</span>)</span>
+<span id="cb76-25"><a href="studyII.html#cb76-25"></a>df<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Celery]&#39;</span>=<span class="st">&#39;Celery&#39;</span>)</span>
+<span id="cb76-26"><a href="studyII.html#cb76-26"></a>df<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Oats]&#39;</span>=<span class="st">&#39;Oats&#39;</span>)</span>
+<span id="cb76-27"><a href="studyII.html#cb76-27"></a>df<span class="op">$</span>Parameter &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">recode</span>(df<span class="op">$</span>Parameter, <span class="st">&#39;lambda[Peanuts]&#39;</span>=<span class="st">&#39;Peanuts&#39;</span>)</span></code></pre></div>
+<p>Now we can merge them in a single data frame for ggplot</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="studyII.html#cb77-1"></a><span class="co">#appending the dataframes</span></span>
+<span id="cb77-2"><a href="studyII.html#cb77-2"></a>out &lt;-<span class="st"> </span><span class="kw">rbind</span>(df, df_old)</span>
+<span id="cb77-3"><a href="studyII.html#cb77-3"></a><span class="co">#To order in ggplot we need to specify the order in the levels. We want to place the first model first and the random effects second</span></span>
+<span id="cb77-4"><a href="studyII.html#cb77-4"></a>out<span class="op">$</span>Model&lt;-<span class="kw">factor</span>(out<span class="op">$</span>Model, <span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&#39;Simple&#39;</span>,<span class="st">&#39;RandomEffects&#39;</span>))</span>
+<span id="cb77-5"><a href="studyII.html#cb77-5"></a></span>
+<span id="cb77-6"><a href="studyII.html#cb77-6"></a><span class="co"># Defining a black-gray palette:</span></span>
+<span id="cb77-7"><a href="studyII.html#cb77-7"></a>cbp1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#000000&quot;</span>, <span class="st">&quot;#999999&quot;</span>)</span>
+<span id="cb77-8"><a href="studyII.html#cb77-8"></a></span>
+<span id="cb77-9"><a href="studyII.html#cb77-9"></a><span class="co">#Using the pointrange function to define the HPD intervals</span></span>
+<span id="cb77-10"><a href="studyII.html#cb77-10"></a><span class="kw">ggplot</span>(out, <span class="kw">aes</span>(<span class="dt">x=</span>Parameter))<span class="op">+</span></span>
+<span id="cb77-11"><a href="studyII.html#cb77-11"></a><span class="st">  </span><span class="kw">geom_pointrange</span>(<span class="kw">aes</span>(</span>
+<span id="cb77-12"><a href="studyII.html#cb77-12"></a>        <span class="dt">ymin =</span> HPD_lower,</span>
+<span id="cb77-13"><a href="studyII.html#cb77-13"></a>        <span class="dt">ymax =</span> HPD_higher,</span>
+<span id="cb77-14"><a href="studyII.html#cb77-14"></a>        <span class="dt">y =</span> Mean,</span>
+<span id="cb77-15"><a href="studyII.html#cb77-15"></a>        <span class="dt">group=</span>Model, </span>
+<span id="cb77-16"><a href="studyII.html#cb77-16"></a>        <span class="dt">color=</span>Model),</span>
+<span id="cb77-17"><a href="studyII.html#cb77-17"></a>           <span class="dt">position=</span><span class="kw">position_dodge</span>(<span class="dt">width=</span><span class="dv">1</span>))<span class="op">+</span><span class="st"> </span><span class="co">#separating the two models (so they are not plotted overlapping)</span></span>
+<span id="cb77-18"><a href="studyII.html#cb77-18"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&#39;Parameters estimates with uncertainty (HPD) interval&#39;</span>,</span>
+<span id="cb77-19"><a href="studyII.html#cb77-19"></a>       <span class="dt">y =</span> <span class="st">&#39;Worth value&#39;</span>,</span>
+<span id="cb77-20"><a href="studyII.html#cb77-20"></a>        <span class="dt">x =</span> <span class="st">&#39;Food&#39;</span>)<span class="op">+</span></span>
+<span id="cb77-21"><a href="studyII.html#cb77-21"></a><span class="st">  </span><span class="kw">facet_grid</span>(<span class="op">~</span>Species) <span class="op">+</span><span class="st"> </span><span class="co">#Dividing the plot into three by species</span></span>
+<span id="cb77-22"><a href="studyII.html#cb77-22"></a><span class="st">  </span><span class="kw">theme_bw</span>()<span class="op">+</span><span class="st"> </span><span class="co"># A black and white theme</span></span>
+<span id="cb77-23"><a href="studyII.html#cb77-23"></a><span class="st">  </span><span class="co"># scale_x_discrete(guide = guide_axis(n.dodge = 2)) +</span></span>
+<span id="cb77-24"><a href="studyII.html#cb77-24"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;bottom&quot;</span>)<span class="op">+</span></span>
+<span id="cb77-25"><a href="studyII.html#cb77-25"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>, <span class="dt">vjust =</span> <span class="fl">0.5</span>, <span class="dt">hjust=</span><span class="dv">1</span>))<span class="op">+</span><span class="co">#small adjustments to the theme</span></span>
+<span id="cb77-26"><a href="studyII.html#cb77-26"></a><span class="st">  </span><span class="kw">scale_colour_manual</span>(<span class="dt">values =</span> cbp1) <span class="co">#applying the color palette</span></span></code></pre></div>
+<p><img src="bpcs-appendix_files/figure-html/unnamed-chunk-72-1.png" width="672" /></p>
+</div>
+<div id="probability-of-selecting-a-novel-stimuli" class="section level4">
+<h4><span class="header-section-number">4.3.2.4</span> Probability of selecting a novel stimuli</h4>
+<p>We will create a the table of the predictions of selecting a novel stimuli (compared to the trained ones). This is replication of table II of the original paper (of course the results are not the same since we are using different models and estimation values)</p>
+<p>For that, we first create a data frame of the new predictions for each species. Since our model uses random effects and we would need to specify each random effect to make the predictions we will do something slightly different. We will consider that the random effects will be zero, that is, which is equivalent to the average value of the random effects (remember that it has a mean of zero). One way to achieve this is by using the obtained coefficients in a submodel. This can be done in the bpcs package by using the model_type option.</p>
+<p>We ask for the data frame instead of the table because we will assemble the table manually.</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="studyII.html#cb78-1"></a><span class="co"># Create a data frame with all the pairs of food that we want to calculate</span></span>
+<span id="cb78-2"><a href="studyII.html#cb78-2"></a>pairs_gor &lt;-</span>
+<span id="cb78-3"><a href="studyII.html#cb78-3"></a><span class="st">  </span><span class="kw">data.frame</span>(</span>
+<span id="cb78-4"><a href="studyII.html#cb78-4"></a>    <span class="dt">image1 =</span> <span class="kw">c</span>(</span>
+<span id="cb78-5"><a href="studyII.html#cb78-5"></a>      <span class="st">&#39;Apple&#39;</span>,</span>
+<span id="cb78-6"><a href="studyII.html#cb78-6"></a>      <span class="st">&#39;Apple&#39;</span>,</span>
+<span id="cb78-7"><a href="studyII.html#cb78-7"></a>      <span class="st">&#39;Apple&#39;</span>,</span>
+<span id="cb78-8"><a href="studyII.html#cb78-8"></a>      <span class="st">&#39;Apple&#39;</span>,</span>
+<span id="cb78-9"><a href="studyII.html#cb78-9"></a>      <span class="st">&#39;Tomato&#39;</span>,</span>
+<span id="cb78-10"><a href="studyII.html#cb78-10"></a>      <span class="st">&#39;Tomato&#39;</span>,</span>
+<span id="cb78-11"><a href="studyII.html#cb78-11"></a>      <span class="st">&#39;Tomato&#39;</span>,</span>
+<span id="cb78-12"><a href="studyII.html#cb78-12"></a>      <span class="st">&#39;Tomato&#39;</span></span>
+<span id="cb78-13"><a href="studyII.html#cb78-13"></a>    ),</span>
+<span id="cb78-14"><a href="studyII.html#cb78-14"></a>    <span class="dt">image2 =</span> <span class="kw">c</span>(</span>
+<span id="cb78-15"><a href="studyII.html#cb78-15"></a>      <span class="st">&#39;Cucumber&#39;</span>,</span>
+<span id="cb78-16"><a href="studyII.html#cb78-16"></a>      <span class="st">&#39;Grape&#39;</span>,</span>
+<span id="cb78-17"><a href="studyII.html#cb78-17"></a>      <span class="st">&#39;Turnip&#39;</span>,</span>
+<span id="cb78-18"><a href="studyII.html#cb78-18"></a>      <span class="st">&#39;Carrot&#39;</span>,</span>
+<span id="cb78-19"><a href="studyII.html#cb78-19"></a>      <span class="st">&#39;Cucumber&#39;</span>,</span>
+<span id="cb78-20"><a href="studyII.html#cb78-20"></a>      <span class="st">&#39;Grape&#39;</span>,</span>
+<span id="cb78-21"><a href="studyII.html#cb78-21"></a>      <span class="st">&#39;Turnip&#39;</span>,</span>
+<span id="cb78-22"><a href="studyII.html#cb78-22"></a>      <span class="st">&#39;Carrot&#39;</span></span>
+<span id="cb78-23"><a href="studyII.html#cb78-23"></a>    )</span>
+<span id="cb78-24"><a href="studyII.html#cb78-24"></a>  )</span>
+<span id="cb78-25"><a href="studyII.html#cb78-25"></a></span>
+<span id="cb78-26"><a href="studyII.html#cb78-26"></a>pairs_chip &lt;-</span>
+<span id="cb78-27"><a href="studyII.html#cb78-27"></a><span class="st">  </span><span class="kw">data.frame</span>(</span>
+<span id="cb78-28"><a href="studyII.html#cb78-28"></a>    <span class="dt">image1 =</span> <span class="kw">c</span>(</span>
+<span id="cb78-29"><a href="studyII.html#cb78-29"></a>      <span class="st">&#39;Apple&#39;</span>,</span>
+<span id="cb78-30"><a href="studyII.html#cb78-30"></a>      <span class="st">&#39;Apple&#39;</span>,</span>
+<span id="cb78-31"><a href="studyII.html#cb78-31"></a>      <span class="st">&#39;Apple&#39;</span>,</span>
+<span id="cb78-32"><a href="studyII.html#cb78-32"></a>      <span class="st">&#39;Apple&#39;</span>,</span>
+<span id="cb78-33"><a href="studyII.html#cb78-33"></a>      <span class="st">&#39;Tomato&#39;</span>,</span>
+<span id="cb78-34"><a href="studyII.html#cb78-34"></a>      <span class="st">&#39;Tomato&#39;</span>,</span>
+<span id="cb78-35"><a href="studyII.html#cb78-35"></a>      <span class="st">&#39;Tomato&#39;</span>,</span>
+<span id="cb78-36"><a href="studyII.html#cb78-36"></a>      <span class="st">&#39;Tomato&#39;</span></span>
+<span id="cb78-37"><a href="studyII.html#cb78-37"></a>    ),</span>
+<span id="cb78-38"><a href="studyII.html#cb78-38"></a>    <span class="dt">image2 =</span> <span class="kw">c</span>(</span>
+<span id="cb78-39"><a href="studyII.html#cb78-39"></a>      <span class="st">&#39;Cucumber&#39;</span>,</span>
+<span id="cb78-40"><a href="studyII.html#cb78-40"></a>      <span class="st">&#39;Grape&#39;</span>,</span>
+<span id="cb78-41"><a href="studyII.html#cb78-41"></a>      <span class="st">&#39;Turnip&#39;</span>,</span>
+<span id="cb78-42"><a href="studyII.html#cb78-42"></a>      <span class="st">&#39;Carrot&#39;</span>,</span>
+<span id="cb78-43"><a href="studyII.html#cb78-43"></a>      <span class="st">&#39;Cucumber&#39;</span>,</span>
+<span id="cb78-44"><a href="studyII.html#cb78-44"></a>      <span class="st">&#39;Grape&#39;</span>,</span>
+<span id="cb78-45"><a href="studyII.html#cb78-45"></a>      <span class="st">&#39;Turnip&#39;</span>,</span>
+<span id="cb78-46"><a href="studyII.html#cb78-46"></a>      <span class="st">&#39;Carrot&#39;</span></span>
+<span id="cb78-47"><a href="studyII.html#cb78-47"></a>    )</span>
+<span id="cb78-48"><a href="studyII.html#cb78-48"></a>  )</span>
+<span id="cb78-49"><a href="studyII.html#cb78-49"></a></span>
+<span id="cb78-50"><a href="studyII.html#cb78-50"></a></span>
+<span id="cb78-51"><a href="studyII.html#cb78-51"></a>pairs_macaque &lt;-</span>
+<span id="cb78-52"><a href="studyII.html#cb78-52"></a><span class="st">  </span><span class="kw">data.frame</span>(</span>
+<span id="cb78-53"><a href="studyII.html#cb78-53"></a>    <span class="dt">image1 =</span> <span class="kw">c</span>(</span>
+<span id="cb78-54"><a href="studyII.html#cb78-54"></a>      <span class="st">&#39;Oats&#39;</span>,</span>
+<span id="cb78-55"><a href="studyII.html#cb78-55"></a>      <span class="st">&#39;Oats&#39;</span>,</span>
+<span id="cb78-56"><a href="studyII.html#cb78-56"></a>      <span class="st">&#39;Oats&#39;</span>,</span>
+<span id="cb78-57"><a href="studyII.html#cb78-57"></a>      <span class="st">&#39;Oats&#39;</span>,</span>
+<span id="cb78-58"><a href="studyII.html#cb78-58"></a>      <span class="st">&#39;Green Beans&#39;</span>,</span>
+<span id="cb78-59"><a href="studyII.html#cb78-59"></a>      <span class="st">&#39;Green Beans&#39;</span>,</span>
+<span id="cb78-60"><a href="studyII.html#cb78-60"></a>      <span class="st">&#39;Green Beans&#39;</span>,</span>
+<span id="cb78-61"><a href="studyII.html#cb78-61"></a>      <span class="st">&#39;Green Beans&#39;</span></span>
+<span id="cb78-62"><a href="studyII.html#cb78-62"></a>    ),</span>
+<span id="cb78-63"><a href="studyII.html#cb78-63"></a>    <span class="dt">image2 =</span> <span class="kw">c</span>(</span>
+<span id="cb78-64"><a href="studyII.html#cb78-64"></a>      <span class="st">&#39;Celery&#39;</span>,</span>
+<span id="cb78-65"><a href="studyII.html#cb78-65"></a>      <span class="st">&#39;Jungle Pellet&#39;</span>,</span>
+<span id="cb78-66"><a href="studyII.html#cb78-66"></a>      <span class="st">&#39;Peanuts&#39;</span>,</span>
+<span id="cb78-67"><a href="studyII.html#cb78-67"></a>      <span class="st">&#39;Carrot&#39;</span>,</span>
+<span id="cb78-68"><a href="studyII.html#cb78-68"></a>      <span class="st">&#39;Celery&#39;</span>,</span>
+<span id="cb78-69"><a href="studyII.html#cb78-69"></a>      <span class="st">&#39;Jungle Pellet&#39;</span>,</span>
+<span id="cb78-70"><a href="studyII.html#cb78-70"></a>      <span class="st">&#39;Peanuts&#39;</span>,</span>
+<span id="cb78-71"><a href="studyII.html#cb78-71"></a>      <span class="st">&#39;Carrot&#39;</span></span>
+<span id="cb78-72"><a href="studyII.html#cb78-72"></a>    )</span>
+<span id="cb78-73"><a href="studyII.html#cb78-73"></a>  )</span>
+<span id="cb78-74"><a href="studyII.html#cb78-74"></a></span>
+<span id="cb78-75"><a href="studyII.html#cb78-75"></a></span>
+<span id="cb78-76"><a href="studyII.html#cb78-76"></a>prob_chip &lt;-</span>
+<span id="cb78-77"><a href="studyII.html#cb78-77"></a><span class="st">  </span><span class="kw">get_probabilities_df</span>(</span>
+<span id="cb78-78"><a href="studyII.html#cb78-78"></a>    m2_chip, </span>
+<span id="cb78-79"><a href="studyII.html#cb78-79"></a>    <span class="dt">newdata =</span> pairs_chip,</span>
+<span id="cb78-80"><a href="studyII.html#cb78-80"></a>    <span class="dt">model_type =</span> <span class="st">&#39;bt&#39;</span>) <span class="co">#here we are assuming zero for the random effects</span></span>
+<span id="cb78-81"><a href="studyII.html#cb78-81"></a></span>
+<span id="cb78-82"><a href="studyII.html#cb78-82"></a>prob_macaque &lt;-</span>
+<span id="cb78-83"><a href="studyII.html#cb78-83"></a><span class="st">  </span><span class="kw">get_probabilities_df</span>(</span>
+<span id="cb78-84"><a href="studyII.html#cb78-84"></a>    m2_macaque, </span>
+<span id="cb78-85"><a href="studyII.html#cb78-85"></a>    <span class="dt">newdata =</span> pairs_macaque, </span>
+<span id="cb78-86"><a href="studyII.html#cb78-86"></a>    <span class="dt">model_type =</span> <span class="st">&#39;bt&#39;</span>)</span>
+<span id="cb78-87"><a href="studyII.html#cb78-87"></a></span>
+<span id="cb78-88"><a href="studyII.html#cb78-88"></a>prob_gor &lt;-</span>
+<span id="cb78-89"><a href="studyII.html#cb78-89"></a><span class="st">  </span><span class="kw">get_probabilities_df</span>(</span>
+<span id="cb78-90"><a href="studyII.html#cb78-90"></a>    m2_gor, </span>
+<span id="cb78-91"><a href="studyII.html#cb78-91"></a>    <span class="dt">newdata =</span> pairs_gor, </span>
+<span id="cb78-92"><a href="studyII.html#cb78-92"></a>    <span class="dt">model_type =</span> <span class="st">&#39;bt&#39;</span>)</span>
+<span id="cb78-93"><a href="studyII.html#cb78-93"></a></span>
+<span id="cb78-94"><a href="studyII.html#cb78-94"></a><span class="co">#merging in a single df</span></span>
+<span id="cb78-95"><a href="studyII.html#cb78-95"></a>prob_table &lt;-<span class="st"> </span><span class="kw">rbind</span>(prob_gor, prob_chip, prob_macaque)</span>
+<span id="cb78-96"><a href="studyII.html#cb78-96"></a></span>
+<span id="cb78-97"><a href="studyII.html#cb78-97"></a><span class="co">#since this is  a time consuming table to make let&#39;s also save it</span></span>
+<span id="cb78-98"><a href="studyII.html#cb78-98"></a><span class="kw">saveRDS</span>(prob_table, <span class="st">&#39;prob_table.RDS&#39;</span>)</span></code></pre></div>
+<p>Now we can create the table</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="studyII.html#cb79-1"></a>prob_table &lt;-<span class="st"> </span>prob_table <span class="op">%&gt;%</span></span>
+<span id="cb79-2"><a href="studyII.html#cb79-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Probability =</span> i_beats_j,</span>
+<span id="cb79-3"><a href="studyII.html#cb79-3"></a>    <span class="dt">OddsRatio =</span> Probability<span class="op">/</span>(<span class="dv">1</span><span class="op">-</span>Probability))</span>
+<span id="cb79-4"><a href="studyII.html#cb79-4"></a></span>
+<span id="cb79-5"><a href="studyII.html#cb79-5"></a>prob_table <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb79-6"><a href="studyII.html#cb79-6"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(i,j,Probability,OddsRatio) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb79-7"><a href="studyII.html#cb79-7"></a><span class="st">  </span><span class="kw">kable</span>(<span class="dt">caption=</span><span class="st">&#39;Posterior probabilities of the novel stimuli i being selected over the trained stimuli j&#39;</span>,</span>
+<span id="cb79-8"><a href="studyII.html#cb79-8"></a>        <span class="dt">booktabs=</span>T,</span>
+<span id="cb79-9"><a href="studyII.html#cb79-9"></a>        <span class="dt">digits=</span><span class="dv">2</span>,</span>
+<span id="cb79-10"><a href="studyII.html#cb79-10"></a>        <span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">&#39;Item i&#39;</span>, <span class="st">&#39;Item j&#39;</span>, <span class="st">&#39;Probability&#39;</span>, <span class="st">&#39;Odds Ratio&#39;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb79-11"><a href="studyII.html#cb79-11"></a><span class="st">    </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb79-12"><a href="studyII.html#cb79-12"></a><span class="st">    </span>kableExtra<span class="op">::</span><span class="kw">pack_rows</span>(<span class="st">&quot;Gorilla&quot;</span>, <span class="dv">1</span>, <span class="dv">8</span>) <span class="op">%&gt;%</span></span>
+<span id="cb79-13"><a href="studyII.html#cb79-13"></a><span class="st">    </span>kableExtra<span class="op">::</span><span class="kw">pack_rows</span>(<span class="st">&quot;Chimpanzee&quot;</span>, <span class="dv">9</span>, <span class="dv">16</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb79-14"><a href="studyII.html#cb79-14"></a><span class="st">    </span>kableExtra<span class="op">::</span><span class="kw">pack_rows</span>(<span class="st">&quot;Macaque&quot;</span>, <span class="dv">17</span>, <span class="dv">24</span>)</span></code></pre></div>
+<table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-75">Table 4.8: </span>Posterior probabilities of the novel stimuli i being selected over the trained stimuli j
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Item i
+</th>
+<th style="text-align:left;">
+Item j
+</th>
+<th style="text-align:right;">
+Probability
+</th>
+<th style="text-align:right;">
+Odds Ratio
+</th>
+</tr>
+</thead>
+<tbody>
+<tr grouplength="8">
+<td colspan="4" style="border-bottom: 1px solid;">
+<strong>Gorilla</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Apple
+</td>
+<td style="text-align:left;">
+Cucumber
+</td>
+<td style="text-align:right;">
+0.78
+</td>
+<td style="text-align:right;">
+3.55
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Apple
+</td>
+<td style="text-align:left;">
+Grape
+</td>
+<td style="text-align:right;">
+0.35
+</td>
+<td style="text-align:right;">
+0.54
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Apple
+</td>
+<td style="text-align:left;">
+Turnip
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+<td style="text-align:right;">
+3.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Apple
+</td>
+<td style="text-align:left;">
+Carrot
+</td>
+<td style="text-align:right;">
+0.57
+</td>
+<td style="text-align:right;">
+1.33
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Tomato
+</td>
+<td style="text-align:left;">
+Cucumber
+</td>
+<td style="text-align:right;">
+0.80
+</td>
+<td style="text-align:right;">
+4.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Tomato
+</td>
+<td style="text-align:left;">
+Grape
+</td>
+<td style="text-align:right;">
+0.48
+</td>
+<td style="text-align:right;">
+0.92
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Tomato
+</td>
+<td style="text-align:left;">
+Turnip
+</td>
+<td style="text-align:right;">
+0.79
+</td>
+<td style="text-align:right;">
+3.76
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Tomato
+</td>
+<td style="text-align:left;">
+Carrot
+</td>
+<td style="text-align:right;">
+0.69
+</td>
+<td style="text-align:right;">
+2.23
+</td>
+</tr>
+<tr grouplength="8">
+<td colspan="4" style="border-bottom: 1px solid;">
+<strong>Chimpanzee</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Apple
+</td>
+<td style="text-align:left;">
+Cucumber
+</td>
+<td style="text-align:right;">
+0.64
+</td>
+<td style="text-align:right;">
+1.78
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Apple
+</td>
+<td style="text-align:left;">
+Grape
+</td>
+<td style="text-align:right;">
+0.42
+</td>
+<td style="text-align:right;">
+0.72
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Apple
+</td>
+<td style="text-align:left;">
+Turnip
+</td>
+<td style="text-align:right;">
+0.55
+</td>
+<td style="text-align:right;">
+1.22
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Apple
+</td>
+<td style="text-align:left;">
+Carrot
+</td>
+<td style="text-align:right;">
+0.51
+</td>
+<td style="text-align:right;">
+1.04
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Tomato
+</td>
+<td style="text-align:left;">
+Cucumber
+</td>
+<td style="text-align:right;">
+0.54
+</td>
+<td style="text-align:right;">
+1.17
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Tomato
+</td>
+<td style="text-align:left;">
+Grape
+</td>
+<td style="text-align:right;">
+0.37
+</td>
+<td style="text-align:right;">
+0.59
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Tomato
+</td>
+<td style="text-align:left;">
+Turnip
+</td>
+<td style="text-align:right;">
+0.69
+</td>
+<td style="text-align:right;">
+2.23
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Tomato
+</td>
+<td style="text-align:left;">
+Carrot
+</td>
+<td style="text-align:right;">
+0.64
+</td>
+<td style="text-align:right;">
+1.78
+</td>
+</tr>
+<tr grouplength="8">
+<td colspan="4" style="border-bottom: 1px solid;">
+<strong>Macaque</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Oats
+</td>
+<td style="text-align:left;">
+Celery
+</td>
+<td style="text-align:right;">
+0.76
+</td>
+<td style="text-align:right;">
+3.17
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Oats
+</td>
+<td style="text-align:left;">
+Jungle Pellet
+</td>
+<td style="text-align:right;">
+0.11
+</td>
+<td style="text-align:right;">
+0.12
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Oats
+</td>
+<td style="text-align:left;">
+Peanuts
+</td>
+<td style="text-align:right;">
+0.06
+</td>
+<td style="text-align:right;">
+0.06
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Oats
+</td>
+<td style="text-align:left;">
+Carrot
+</td>
+<td style="text-align:right;">
+0.23
+</td>
+<td style="text-align:right;">
+0.30
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Green Beans
+</td>
+<td style="text-align:left;">
+Celery
+</td>
+<td style="text-align:right;">
+0.88
+</td>
+<td style="text-align:right;">
+7.33
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Green Beans
+</td>
+<td style="text-align:left;">
+Jungle Pellet
+</td>
+<td style="text-align:right;">
+0.26
+</td>
+<td style="text-align:right;">
+0.35
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Green Beans
+</td>
+<td style="text-align:left;">
+Peanuts
+</td>
+<td style="text-align:right;">
+0.10
+</td>
+<td style="text-align:right;">
+0.11
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Green Beans
+</td>
+<td style="text-align:left;">
+Carrot
+</td>
+<td style="text-align:right;">
+0.45
+</td>
+<td style="text-align:right;">
+0.82
+</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="studyI.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="studyIII.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bpcs-appendix.pdf", "bpcs-appendix.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

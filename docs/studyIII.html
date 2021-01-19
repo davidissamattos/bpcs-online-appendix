@@ -1,0 +1,2548 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Re-analysis III | Online appendix for the paper: “Bayesian Paired-Comparison with the bpcs package”</title>
+  <meta name="description" content="This is the online appendix for the paper: “Bayesian Paired-Comparison with the bpcs package.”" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Re-analysis III | Online appendix for the paper: “Bayesian Paired-Comparison with the bpcs package”" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is the online appendix for the paper: “Bayesian Paired-Comparison with the bpcs package.”" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Re-analysis III | Online appendix for the paper: “Bayesian Paired-Comparison with the bpcs package”" />
+  
+  <meta name="twitter:description" content="This is the online appendix for the paper: “Bayesian Paired-Comparison with the bpcs package.”" />
+  
+
+<meta name="author" content="David Issa Mattos and Érika Martins Silva Ramos" />
+
+
+<meta name="date" content="2021-01-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="studyII.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Appendix</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Foreword</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#installation-of-the-bpcs-package"><i class="fa fa-check"></i><b>1.1</b> Installation of the bpcs package</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#session-info"><i class="fa fa-check"></i><b>1.2</b> Session info</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>2</b> Basic functionality</a><ul>
+<li class="chapter" data-level="2.1" data-path="basics.html"><a href="basics.html#reading-and-preparing-the-data"><i class="fa fa-check"></i><b>2.1</b> Reading and preparing the data</a></li>
+<li class="chapter" data-level="2.2" data-path="basics.html"><a href="basics.html#the-bayesian-bradley-terry-analysis"><i class="fa fa-check"></i><b>2.2</b> The Bayesian Bradley-Terry analysis</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="basics.html"><a href="basics.html#diagnostics"><i class="fa fa-check"></i><b>2.2.1</b> Diagnostics</a></li>
+<li class="chapter" data-level="2.2.2" data-path="basics.html"><a href="basics.html#summary-information"><i class="fa fa-check"></i><b>2.2.2</b> Summary information</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="studyI.html"><a href="studyI.html"><i class="fa fa-check"></i><b>3</b> Re-analysis 1</a><ul>
+<li class="chapter" data-level="3.1" data-path="studyI.html"><a href="studyI.html#importing-the-data"><i class="fa fa-check"></i><b>3.1</b> Importing the data</a></li>
+<li class="chapter" data-level="3.2" data-path="studyI.html"><a href="studyI.html#analysis-with-the-bradley-terry-model-and-the-order-effect-model"><i class="fa fa-check"></i><b>3.2</b> Analysis with the Bradley-Terry model and the order effect model</a></li>
+<li class="chapter" data-level="3.3" data-path="studyI.html"><a href="studyI.html#diagnostics-1"><i class="fa fa-check"></i><b>3.3</b> Diagnostics</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="studyI.html"><a href="studyI.html#tables-and-plots"><i class="fa fa-check"></i><b>3.3.1</b> Tables and plots</a></li>
+<li class="chapter" data-level="3.3.2" data-path="studyI.html"><a href="studyI.html#waic"><i class="fa fa-check"></i><b>3.3.2</b> WAIC</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="studyII.html"><a href="studyII.html"><i class="fa fa-check"></i><b>4</b> Re-analysis 2</a><ul>
+<li class="chapter" data-level="4.1" data-path="studyII.html"><a href="studyII.html#importing-the-data-1"><i class="fa fa-check"></i><b>4.1</b> Importing the data</a></li>
+<li class="chapter" data-level="4.2" data-path="studyII.html"><a href="studyII.html#simple-bradley-terry-model"><i class="fa fa-check"></i><b>4.2</b> Simple Bradley-Terry model</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="studyII.html"><a href="studyII.html#assessing-the-fitness-of-the-model"><i class="fa fa-check"></i><b>4.2.1</b> Assessing the fitness of the model</a></li>
+<li class="chapter" data-level="4.2.2" data-path="studyII.html"><a href="studyII.html#getting-the-waic"><i class="fa fa-check"></i><b>4.2.2</b> Getting the WAIC</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="studyII.html"><a href="studyII.html#bradley-terry-model-with-random-effects-for-individuals"><i class="fa fa-check"></i><b>4.3</b> Bradley-Terry model with random effects for individuals</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="studyII.html"><a href="studyII.html#getting-the-waic-1"><i class="fa fa-check"></i><b>4.3.1</b> Getting the WAIC</a></li>
+<li class="chapter" data-level="4.3.2" data-path="studyII.html"><a href="studyII.html#parameter-tables-and-plots"><i class="fa fa-check"></i><b>4.3.2</b> Parameter tables and plots</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="studyIII.html"><a href="studyIII.html"><i class="fa fa-check"></i><b>5</b> Re-analysis III</a><ul>
+<li class="chapter" data-level="5.1" data-path="studyIII.html"><a href="studyIII.html#importing-the-data-2"><i class="fa fa-check"></i><b>5.1</b> Importing the data</a></li>
+<li class="chapter" data-level="5.2" data-path="studyIII.html"><a href="studyIII.html#simple-bradley-terry-models"><i class="fa fa-check"></i><b>5.2</b> Simple Bradley-Terry models</a></li>
+<li class="chapter" data-level="5.3" data-path="studyIII.html"><a href="studyIII.html#subject-predictors-model"><i class="fa fa-check"></i><b>5.3</b> Subject predictors model</a></li>
+<li class="chapter" data-level="5.4" data-path="studyIII.html"><a href="studyIII.html#subject-predictors-and-random-effects"><i class="fa fa-check"></i><b>5.4</b> Subject predictors and random effects</a></li>
+<li class="chapter" data-level="5.5" data-path="studyIII.html"><a href="studyIII.html#comparing-the-waic"><i class="fa fa-check"></i><b>5.5</b> Comparing the WAIC</a></li>
+<li class="chapter" data-level="5.6" data-path="studyIII.html"><a href="studyIII.html#plots-and-tables"><i class="fa fa-check"></i><b>5.6</b> Plots and tables</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="studyIII.html"><a href="studyIII.html#table-lambda-and-u"><i class="fa fa-check"></i><b>5.6.1</b> Table lambda and U</a></li>
+<li class="chapter" data-level="5.6.2" data-path="studyIII.html"><a href="studyIII.html#subject-predictors-table"><i class="fa fa-check"></i><b>5.6.2</b> Subject predictors table</a></li>
+<li class="chapter" data-level="5.6.3" data-path="studyIII.html"><a href="studyIII.html#plot-1"><i class="fa fa-check"></i><b>5.6.3</b> Plot</a></li>
+<li class="chapter" data-level="5.6.4" data-path="studyIII.html"><a href="studyIII.html#probability-tables"><i class="fa fa-check"></i><b>5.6.4</b> Probability tables</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Online appendix for the paper: “Bayesian Paired-Comparison with the bpcs package”</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="studyIII" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Re-analysis III</h1>
+<p>This re-analysis is from the study</p>
+<blockquote>
+<p>Marton, Giulia, et al. “Patients’ health locus of control and preferences about the role that they want to play in the medical decision-making process.” Psychology, Health &amp; Medicine (2020): 1-7</p>
+</blockquote>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="studyIII.html#cb80-1"></a><span class="kw">library</span>(bpcs)</span>
+<span id="cb80-2"><a href="studyIII.html#cb80-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb80-3"><a href="studyIII.html#cb80-3"></a><span class="kw">library</span>(knitr)</span>
+<span id="cb80-4"><a href="studyIII.html#cb80-4"></a><span class="kw">library</span>(loo)</span>
+<span id="cb80-5"><a href="studyIII.html#cb80-5"></a><span class="kw">options</span>(<span class="dt">mc.cores =</span> parallel<span class="op">::</span><span class="kw">detectCores</span>())</span>
+<span id="cb80-6"><a href="studyIII.html#cb80-6"></a>rstan<span class="op">::</span><span class="kw">rstan_options</span>(<span class="dt">auto_write =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb80-7"><a href="studyIII.html#cb80-7"></a><span class="kw">set.seed</span>(<span class="dv">99</span>)</span></code></pre></div>
+<div id="importing-the-data-2" class="section level2">
+<h2><span class="header-section-number">5.1</span> Importing the data</h2>
+<p>The data from this paper was made available upon request and below we exemplify a few rows of how the original dataset looks like.
+Let’s starting importing the data.</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="studyIII.html#cb81-1"></a>d&lt;-<span class="kw">read.table</span>(<span class="st">&quot;data/MHLC.txt&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">header=</span>T)</span>
+<span id="cb81-2"><a href="studyIII.html#cb81-2"></a>d&lt;-<span class="kw">as.data.frame</span>(d)</span>
+<span id="cb81-3"><a href="studyIII.html#cb81-3"></a><span class="kw">sample_n</span>(d, <span class="dt">size=</span><span class="dv">5</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb81-4"><a href="studyIII.html#cb81-4"></a><span class="st">  </span><span class="kw">kable</span>(<span class="dt">caption =</span> <span class="st">&#39;Sample of rows from the original data&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb81-5"><a href="studyIII.html#cb81-5"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>))</span></code></pre></div>
+<table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-78">Table 5.1: </span>Sample of rows from the original data
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+AB
+</th>
+<th style="text-align:right;">
+AC
+</th>
+<th style="text-align:right;">
+BC
+</th>
+<th style="text-align:right;">
+AD
+</th>
+<th style="text-align:right;">
+BD
+</th>
+<th style="text-align:right;">
+CD
+</th>
+<th style="text-align:right;">
+AE
+</th>
+<th style="text-align:right;">
+BE
+</th>
+<th style="text-align:right;">
+CE
+</th>
+<th style="text-align:right;">
+DE
+</th>
+<th style="text-align:right;">
+GENDER
+</th>
+<th style="text-align:right;">
+MHLC_INTERNAL
+</th>
+<th style="text-align:right;">
+MHLC_CHANCE
+</th>
+<th style="text-align:right;">
+MHLC_DOCTORS
+</th>
+<th style="text-align:right;">
+MHLC_OTHER_PEOPLE
+</th>
+<th style="text-align:right;">
+Age
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+56
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+53
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+58
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+27
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+28
+</td>
+</tr>
+</tbody>
+</table>
+<p>As we can see, the data is in a wide format. Before we pivot it to longer let’s add a column that indicates the subject ID.</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="studyIII.html#cb82-1"></a>d &lt;-<span class="st"> </span>d <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">SubjectID =</span> <span class="kw">row_number</span>())</span></code></pre></div>
+<p>Now let’s pivot it to the longer format</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="studyIII.html#cb83-1"></a>cols_to_pivot&lt;-<span class="kw">colnames</span>(d)[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</span>
+<span id="cb83-2"><a href="studyIII.html#cb83-2"></a>d_longer&lt;-tidyr<span class="op">::</span><span class="kw">pivot_longer</span>(d, <span class="dt">cols=</span><span class="kw">all_of</span>(cols_to_pivot), <span class="dt">names_to=</span><span class="st">&#39;comparison&#39;</span>, <span class="dt">values_to=</span><span class="st">&#39;y&#39;</span>)</span></code></pre></div>
+<p>Now let’s divide the comparison into two vectors (choice0 and choice1). So it fits the bpcs format</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="studyIII.html#cb84-1"></a>comp_cols &lt;-<span class="st"> </span><span class="kw">str_split_fixed</span>(d_longer<span class="op">$</span>comparison, <span class="st">&quot;&quot;</span>, <span class="dv">2</span>)</span>
+<span id="cb84-2"><a href="studyIII.html#cb84-2"></a>d_longer<span class="op">$</span>choice0 &lt;-<span class="st"> </span>comp_cols[,<span class="dv">1</span>]</span>
+<span id="cb84-3"><a href="studyIII.html#cb84-3"></a>d_longer<span class="op">$</span>choice1 &lt;-<span class="st"> </span>comp_cols[,<span class="dv">2</span>]</span></code></pre></div>
+<p>The data frame now looks like this:</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="studyIII.html#cb85-1"></a>dplyr<span class="op">::</span><span class="kw">sample_n</span>(d_longer, <span class="dt">size=</span><span class="dv">10</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb85-2"><a href="studyIII.html#cb85-2"></a><span class="st">  </span><span class="kw">kable</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb85-3"><a href="studyIII.html#cb85-3"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>))</span></code></pre></div>
+<table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+GENDER
+</th>
+<th style="text-align:right;">
+MHLC_INTERNAL
+</th>
+<th style="text-align:right;">
+MHLC_CHANCE
+</th>
+<th style="text-align:right;">
+MHLC_DOCTORS
+</th>
+<th style="text-align:right;">
+MHLC_OTHER_PEOPLE
+</th>
+<th style="text-align:right;">
+Age
+</th>
+<th style="text-align:right;">
+SubjectID
+</th>
+<th style="text-align:left;">
+comparison
+</th>
+<th style="text-align:right;">
+y
+</th>
+<th style="text-align:left;">
+choice0
+</th>
+<th style="text-align:left;">
+choice1
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+96
+</td>
+<td style="text-align:left;">
+BE
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+B
+</td>
+<td style="text-align:left;">
+E
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+125
+</td>
+<td style="text-align:left;">
+DE
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+D
+</td>
+<td style="text-align:left;">
+E
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+116
+</td>
+<td style="text-align:left;">
+AC
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+C
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+55
+</td>
+<td style="text-align:right;">
+36
+</td>
+<td style="text-align:left;">
+BE
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+B
+</td>
+<td style="text-align:left;">
+E
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+53
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:left;">
+CD
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+D
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+79
+</td>
+<td style="text-align:left;">
+AB
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+B
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+78
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+DE
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+D
+</td>
+<td style="text-align:left;">
+E
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:left;">
+CD
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+C
+</td>
+<td style="text-align:left;">
+D
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:right;">
+93
+</td>
+<td style="text-align:left;">
+AE
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+A
+</td>
+<td style="text-align:left;">
+E
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+58
+</td>
+<td style="text-align:left;">
+DE
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+D
+</td>
+<td style="text-align:left;">
+E
+</td>
+</tr>
+</tbody>
+</table>
+<p>Now that we have setup the data frame correctly for the bpcs package, we can use it to model the problem.</p>
+<p>Let’s just rename a few values so it is easier to understand.</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="studyIII.html#cb86-1"></a><span class="co">#choice0</span></span>
+<span id="cb86-2"><a href="studyIII.html#cb86-2"></a>d_longer<span class="op">$</span>choice0 &lt;-<span class="st"> </span><span class="kw">recode</span>(d_longer<span class="op">$</span>choice0, <span class="st">&#39;A&#39;</span>=<span class="st">&#39;Active&#39;</span>) </span>
+<span id="cb86-3"><a href="studyIII.html#cb86-3"></a>d_longer<span class="op">$</span>choice0 &lt;-<span class="st"> </span><span class="kw">recode</span>(d_longer<span class="op">$</span>choice0, <span class="st">&#39;B&#39;</span>=<span class="st">&#39;Active-Collaborative&#39;</span>) </span>
+<span id="cb86-4"><a href="studyIII.html#cb86-4"></a>d_longer<span class="op">$</span>choice0 &lt;-<span class="st"> </span><span class="kw">recode</span>(d_longer<span class="op">$</span>choice0, <span class="st">&#39;C&#39;</span>=<span class="st">&#39;Collaborative&#39;</span>) </span>
+<span id="cb86-5"><a href="studyIII.html#cb86-5"></a>d_longer<span class="op">$</span>choice0 &lt;-<span class="st"> </span><span class="kw">recode</span>(d_longer<span class="op">$</span>choice0, <span class="st">&#39;D&#39;</span>=<span class="st">&#39;Passive-Collaborative&#39;</span>) </span>
+<span id="cb86-6"><a href="studyIII.html#cb86-6"></a>d_longer<span class="op">$</span>choice0 &lt;-<span class="st"> </span><span class="kw">recode</span>(d_longer<span class="op">$</span>choice0, <span class="st">&#39;E&#39;</span>=<span class="st">&#39;Passive&#39;</span>) </span>
+<span id="cb86-7"><a href="studyIII.html#cb86-7"></a><span class="co">#choice1</span></span>
+<span id="cb86-8"><a href="studyIII.html#cb86-8"></a>d_longer<span class="op">$</span>choice1 &lt;-<span class="st"> </span><span class="kw">recode</span>(d_longer<span class="op">$</span>choice1, <span class="st">&#39;A&#39;</span>=<span class="st">&#39;Active&#39;</span>) </span>
+<span id="cb86-9"><a href="studyIII.html#cb86-9"></a>d_longer<span class="op">$</span>choice1 &lt;-<span class="st"> </span><span class="kw">recode</span>(d_longer<span class="op">$</span>choice1, <span class="st">&#39;B&#39;</span>=<span class="st">&#39;Active-Collaborative&#39;</span>) </span>
+<span id="cb86-10"><a href="studyIII.html#cb86-10"></a>d_longer<span class="op">$</span>choice1 &lt;-<span class="st"> </span><span class="kw">recode</span>(d_longer<span class="op">$</span>choice1, <span class="st">&#39;C&#39;</span>=<span class="st">&#39;Collaborative&#39;</span>) </span>
+<span id="cb86-11"><a href="studyIII.html#cb86-11"></a>d_longer<span class="op">$</span>choice1 &lt;-<span class="st"> </span><span class="kw">recode</span>(d_longer<span class="op">$</span>choice1, <span class="st">&#39;D&#39;</span>=<span class="st">&#39;Passive-Collaborative&#39;</span>) </span>
+<span id="cb86-12"><a href="studyIII.html#cb86-12"></a>d_longer<span class="op">$</span>choice1 &lt;-<span class="st"> </span><span class="kw">recode</span>(d_longer<span class="op">$</span>choice1, <span class="st">&#39;E&#39;</span>=<span class="st">&#39;Passive&#39;</span>)</span></code></pre></div>
+<p>Our final step in the preparation of the dataset is to standardize the values of the MHLOC scales. The values provided in the dataset correspond to the sum of the values of the scale and ranges from 3-18 or from 6-36. Therefore we will scale them accordingly for more stable inference</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="studyIII.html#cb87-1"></a>d_longer &lt;-<span class="st"> </span>d_longer <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb87-2"><a href="studyIII.html#cb87-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Internal =</span> <span class="kw">scale</span>(MHLC_INTERNAL),</span>
+<span id="cb87-3"><a href="studyIII.html#cb87-3"></a>         <span class="dt">Chance =</span> <span class="kw">scale</span>(MHLC_CHANCE),</span>
+<span id="cb87-4"><a href="studyIII.html#cb87-4"></a>         <span class="dt">Doctors =</span> <span class="kw">scale</span>(MHLC_DOCTORS),</span>
+<span id="cb87-5"><a href="studyIII.html#cb87-5"></a>         <span class="dt">OtherPeople =</span> <span class="kw">scale</span>(MHLC_OTHER_PEOPLE))</span></code></pre></div>
+<p>The final modified dataset looks like:</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="studyIII.html#cb88-1"></a><span class="kw">sample_n</span>(d_longer, <span class="dt">size=</span><span class="dv">10</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb88-2"><a href="studyIII.html#cb88-2"></a><span class="st">  </span><span class="kw">kable</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb88-3"><a href="studyIII.html#cb88-3"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>))</span></code></pre></div>
+<table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+GENDER
+</th>
+<th style="text-align:right;">
+MHLC_INTERNAL
+</th>
+<th style="text-align:right;">
+MHLC_CHANCE
+</th>
+<th style="text-align:right;">
+MHLC_DOCTORS
+</th>
+<th style="text-align:right;">
+MHLC_OTHER_PEOPLE
+</th>
+<th style="text-align:right;">
+Age
+</th>
+<th style="text-align:right;">
+SubjectID
+</th>
+<th style="text-align:left;">
+comparison
+</th>
+<th style="text-align:right;">
+y
+</th>
+<th style="text-align:left;">
+choice0
+</th>
+<th style="text-align:left;">
+choice1
+</th>
+<th style="text-align:right;">
+Internal
+</th>
+<th style="text-align:right;">
+Chance
+</th>
+<th style="text-align:right;">
+Doctors
+</th>
+<th style="text-align:right;">
+OtherPeople
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+57
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:left;">
+BD
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Active-Collaborative
+</td>
+<td style="text-align:left;">
+Passive-Collaborative
+</td>
+<td style="text-align:right;">
+-0.4347094
+</td>
+<td style="text-align:right;">
+-0.61218263
+</td>
+<td style="text-align:right;">
+-0.76052743
+</td>
+<td style="text-align:right;">
+-0.4611581
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+44
+</td>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:left;">
+DE
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+Passive-Collaborative
+</td>
+<td style="text-align:left;">
+Passive
+</td>
+<td style="text-align:right;">
+-0.4347094
+</td>
+<td style="text-align:right;">
+2.96961250
+</td>
+<td style="text-align:right;">
+1.23422737
+</td>
+<td style="text-align:right;">
+-0.1135857
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+119
+</td>
+<td style="text-align:left;">
+AC
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Active
+</td>
+<td style="text-align:left;">
+Collaborative
+</td>
+<td style="text-align:right;">
+-1.0563033
+</td>
+<td style="text-align:right;">
+0.46235591
+</td>
+<td style="text-align:right;">
+1.23422737
+</td>
+<td style="text-align:right;">
+0.2339866
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+44
+</td>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:left;">
+BE
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+Active-Collaborative
+</td>
+<td style="text-align:left;">
+Passive
+</td>
+<td style="text-align:right;">
+-0.4347094
+</td>
+<td style="text-align:right;">
+2.96961250
+</td>
+<td style="text-align:right;">
+1.23422737
+</td>
+<td style="text-align:right;">
+-0.1135857
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+53
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:left;">
+CD
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+Collaborative
+</td>
+<td style="text-align:left;">
+Passive-Collaborative
+</td>
+<td style="text-align:right;">
+0.6012804
+</td>
+<td style="text-align:right;">
+0.64144566
+</td>
+<td style="text-align:right;">
+0.56930911
+</td>
+<td style="text-align:right;">
+0.9291313
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+53
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:left;">
+BE
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+Active-Collaborative
+</td>
+<td style="text-align:left;">
+Passive
+</td>
+<td style="text-align:right;">
+0.1868844
+</td>
+<td style="text-align:right;">
+-0.25400312
+</td>
+<td style="text-align:right;">
+-0.09560916
+</td>
+<td style="text-align:right;">
+-0.4611581
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+61
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:left;">
+AC
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Active
+</td>
+<td style="text-align:left;">
+Collaborative
+</td>
+<td style="text-align:right;">
+1.0156763
+</td>
+<td style="text-align:right;">
+-0.07491336
+</td>
+<td style="text-align:right;">
+0.90176824
+</td>
+<td style="text-align:right;">
+0.5815589
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+63
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:left;">
+BE
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+Active-Collaborative
+</td>
+<td style="text-align:left;">
+Passive
+</td>
+<td style="text-align:right;">
+2.0516661
+</td>
+<td style="text-align:right;">
+-0.07491336
+</td>
+<td style="text-align:right;">
+-0.42806830
+</td>
+<td style="text-align:right;">
+0.2339866
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+36
+</td>
+<td style="text-align:right;">
+87
+</td>
+<td style="text-align:left;">
+BD
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Active-Collaborative
+</td>
+<td style="text-align:left;">
+Passive-Collaborative
+</td>
+<td style="text-align:right;">
+-1.0563033
+</td>
+<td style="text-align:right;">
+0.10417639
+</td>
+<td style="text-align:right;">
+0.23684997
+</td>
+<td style="text-align:right;">
+-0.1135857
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+AE
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+Active
+</td>
+<td style="text-align:left;">
+Passive
+</td>
+<td style="text-align:right;">
+-1.0563033
+</td>
+<td style="text-align:right;">
+-0.07491336
+</td>
+<td style="text-align:right;">
+-0.76052743
+</td>
+<td style="text-align:right;">
+-0.8087304
+</td>
+</tr>
+</tbody>
+</table>
+<p>Now we can proceed with the analysis.</p>
+</div>
+<div id="simple-bradley-terry-models" class="section level2">
+<h2><span class="header-section-number">5.2</span> Simple Bradley-Terry models</h2>
+<p>Let’s start with a simple BT without considering any subject predictors. Just to evaluate the average probability of people being Active, Active-Collaborative, Collaborative, Passive-Collaborative or Passive.</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="studyIII.html#cb89-1"></a>m1 &lt;-</span>
+<span id="cb89-2"><a href="studyIII.html#cb89-2"></a><span class="st">  </span><span class="kw">bpc</span>(</span>
+<span id="cb89-3"><a href="studyIII.html#cb89-3"></a>    d_longer,</span>
+<span id="cb89-4"><a href="studyIII.html#cb89-4"></a>    <span class="dt">player0 =</span> <span class="st">&#39;choice0&#39;</span>,</span>
+<span id="cb89-5"><a href="studyIII.html#cb89-5"></a>    <span class="dt">player1 =</span> <span class="st">&#39;choice1&#39;</span>,</span>
+<span id="cb89-6"><a href="studyIII.html#cb89-6"></a>    <span class="dt">result_column =</span> <span class="st">&#39;y&#39;</span>,</span>
+<span id="cb89-7"><a href="studyIII.html#cb89-7"></a>    <span class="dt">model_type =</span> <span class="st">&#39;bt&#39;</span>,</span>
+<span id="cb89-8"><a href="studyIII.html#cb89-8"></a>    <span class="dt">priors =</span> <span class="kw">list</span>(<span class="dt">prior_lambda_std =</span> <span class="fl">1.0</span>),</span>
+<span id="cb89-9"><a href="studyIII.html#cb89-9"></a>    <span class="dt">iter =</span> <span class="dv">3000</span></span>
+<span id="cb89-10"><a href="studyIII.html#cb89-10"></a>  )</span>
+<span id="cb89-11"><a href="studyIII.html#cb89-11"></a><span class="kw">save_bpc_model</span>(m1, <span class="st">&#39;m_hloc&#39;</span>, <span class="st">&#39;fittedmodels&#39;</span>)</span></code></pre></div>
+<p>Let’s investigate model convergence with shinystan. Everything seems fine.</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="studyIII.html#cb90-1"></a><span class="kw">launch_shinystan</span>(m1)</span></code></pre></div>
+<p>Now let’s get the waic</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="studyIII.html#cb91-1"></a>m1_waic &lt;-<span class="st"> </span><span class="kw">get_waic</span>(m1)</span>
+<span id="cb91-2"><a href="studyIII.html#cb91-2"></a>m1_waic</span></code></pre></div>
+<pre><code>## 
+## Computed from 8000 by 1530 log-likelihood matrix
+## 
+##           Estimate   SE
+## elpd_waic   -711.2 21.9
+## p_waic         3.9  0.2
+## waic        1422.4 43.9</code></pre>
+</div>
+<div id="subject-predictors-model" class="section level2">
+<h2><span class="header-section-number">5.3</span> Subject predictors model</h2>
+<p>We have different HLC that can be used as predictors for the response. Let’s create a single model with all the predictors.</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="studyIII.html#cb93-1"></a>m2 &lt;-</span>
+<span id="cb93-2"><a href="studyIII.html#cb93-2"></a><span class="st">  </span><span class="kw">bpc</span>(</span>
+<span id="cb93-3"><a href="studyIII.html#cb93-3"></a>    d_longer,</span>
+<span id="cb93-4"><a href="studyIII.html#cb93-4"></a>    <span class="dt">player0 =</span> <span class="st">&#39;choice0&#39;</span>,</span>
+<span id="cb93-5"><a href="studyIII.html#cb93-5"></a>    <span class="dt">player1 =</span> <span class="st">&#39;choice1&#39;</span>,</span>
+<span id="cb93-6"><a href="studyIII.html#cb93-6"></a>    <span class="dt">result_column =</span> <span class="st">&#39;y&#39;</span>,</span>
+<span id="cb93-7"><a href="studyIII.html#cb93-7"></a>    <span class="dt">subject_predictors =</span> <span class="kw">c</span>(<span class="st">&#39;Internal&#39;</span>, <span class="st">&#39;Chance&#39;</span>, <span class="st">&#39;Doctors&#39;</span>, <span class="st">&#39;OtherPeople&#39;</span>),</span>
+<span id="cb93-8"><a href="studyIII.html#cb93-8"></a>    <span class="dt">model_type =</span> <span class="st">&#39;bt-subjectpredictors&#39;</span>,</span>
+<span id="cb93-9"><a href="studyIII.html#cb93-9"></a>    <span class="dt">priors =</span> <span class="kw">list</span>(<span class="dt">prior_lambda_std =</span> <span class="fl">1.0</span>,</span>
+<span id="cb93-10"><a href="studyIII.html#cb93-10"></a>                  <span class="dt">prior_S_std =</span> <span class="fl">1.0</span>),</span>
+<span id="cb93-11"><a href="studyIII.html#cb93-11"></a>    <span class="dt">iter =</span> <span class="dv">3000</span></span>
+<span id="cb93-12"><a href="studyIII.html#cb93-12"></a>  )</span>
+<span id="cb93-13"><a href="studyIII.html#cb93-13"></a><span class="kw">save_bpc_model</span>(m2, <span class="st">&#39;m_mhloc_subjectpred&#39;</span>, <span class="st">&#39;fittedmodels&#39;</span>)</span></code></pre></div>
+<p>Diagnostics</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="studyIII.html#cb94-1"></a><span class="kw">launch_shinystan</span>(m2)</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="studyIII.html#cb95-1"></a>m2_waic &lt;-<span class="st"> </span><span class="kw">get_waic</span>(m2)</span></code></pre></div>
+</div>
+<div id="subject-predictors-and-random-effects" class="section level2">
+<h2><span class="header-section-number">5.4</span> Subject predictors and random effects</h2>
+<p>Now let’s create a third model that also compensate for multiple judgment with a random effects variable.</p>
+<p>This model adds 153*4 variables, so sampling will take longer and be a bit more complex.</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="studyIII.html#cb96-1"></a>m3 &lt;-</span>
+<span id="cb96-2"><a href="studyIII.html#cb96-2"></a><span class="st">  </span><span class="kw">bpc</span>(</span>
+<span id="cb96-3"><a href="studyIII.html#cb96-3"></a>    d_longer,</span>
+<span id="cb96-4"><a href="studyIII.html#cb96-4"></a>    <span class="dt">player0 =</span> <span class="st">&#39;choice0&#39;</span>,</span>
+<span id="cb96-5"><a href="studyIII.html#cb96-5"></a>    <span class="dt">player1 =</span> <span class="st">&#39;choice1&#39;</span>,</span>
+<span id="cb96-6"><a href="studyIII.html#cb96-6"></a>    <span class="dt">result_column =</span> <span class="st">&#39;y&#39;</span>,</span>
+<span id="cb96-7"><a href="studyIII.html#cb96-7"></a>    <span class="dt">subject_predictors =</span> <span class="kw">c</span>(<span class="st">&#39;Internal&#39;</span>, <span class="st">&#39;Chance&#39;</span>, <span class="st">&#39;Doctors&#39;</span>, <span class="st">&#39;OtherPeople&#39;</span>),</span>
+<span id="cb96-8"><a href="studyIII.html#cb96-8"></a>    <span class="dt">cluster =</span> <span class="kw">c</span>(<span class="st">&#39;SubjectID&#39;</span>),</span>
+<span id="cb96-9"><a href="studyIII.html#cb96-9"></a>    <span class="dt">model_type =</span> <span class="st">&#39;bt-subjectpredictors-U&#39;</span>,</span>
+<span id="cb96-10"><a href="studyIII.html#cb96-10"></a>    <span class="dt">priors =</span> <span class="kw">list</span>(<span class="dt">prior_lambda_std =</span> <span class="fl">1.0</span>,</span>
+<span id="cb96-11"><a href="studyIII.html#cb96-11"></a>                  <span class="dt">prior_S_std =</span> <span class="fl">1.0</span>,</span>
+<span id="cb96-12"><a href="studyIII.html#cb96-12"></a>                  <span class="dt">prior_U1_std =</span> <span class="fl">1.0</span>),</span>
+<span id="cb96-13"><a href="studyIII.html#cb96-13"></a>    <span class="dt">iter =</span> <span class="dv">3000</span></span>
+<span id="cb96-14"><a href="studyIII.html#cb96-14"></a>  )</span>
+<span id="cb96-15"><a href="studyIII.html#cb96-15"></a><span class="kw">save_bpc_model</span>(m3, <span class="st">&#39;m_mhloc_subjectpred_U&#39;</span>, <span class="st">&#39;fittedmodels&#39;</span>)</span></code></pre></div>
+<p>Diagnostics</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="studyIII.html#cb97-1"></a><span class="kw">launch_shinystan</span>(m3)</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="studyIII.html#cb98-1"></a>m3_waic &lt;-<span class="st"> </span><span class="kw">get_waic</span>(m3)</span></code></pre></div>
+</div>
+<div id="comparing-the-waic" class="section level2">
+<h2><span class="header-section-number">5.5</span> Comparing the WAIC</h2>
+<p>Let’s compare the WAIC of the three models</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="studyIII.html#cb99-1"></a>loo<span class="op">::</span><span class="kw">loo_compare</span>(m1_waic,m2_waic, m3_waic)</span></code></pre></div>
+<pre><code>##        elpd_diff se_diff
+## model3    0.0       0.0 
+## model2 -226.7      14.8 
+## model1 -248.8      16.1</code></pre>
+</div>
+<div id="plots-and-tables" class="section level2">
+<h2><span class="header-section-number">5.6</span> Plots and tables</h2>
+<p>Now that we see that all models have proper convergence and that the model m3 has a better fit we will generate some plots and tables to help understand the problem</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="studyIII.html#cb101-1"></a>lambda &lt;-<span class="st"> </span><span class="kw">get_parameters</span>(m3, <span class="dt">params =</span> <span class="st">&#39;lambda&#39;</span>, <span class="dt">n_eff =</span> F)</span>
+<span id="cb101-2"><a href="studyIII.html#cb101-2"></a>Spar &lt;-<span class="st"> </span><span class="kw">get_parameters</span>(m3, <span class="dt">params =</span> <span class="st">&#39;S&#39;</span>, <span class="dt">n_eff =</span> F)</span>
+<span id="cb101-3"><a href="studyIII.html#cb101-3"></a>U_std &lt;-<span class="st"> </span><span class="kw">get_parameters</span>(m3, <span class="dt">params =</span> <span class="st">&#39;U1_std&#39;</span>, <span class="dt">n_eff =</span> F)</span></code></pre></div>
+<p>Let’s create a custom table based on these parameters. But first we will rename the parameters a bit so the table reads a bit better. We are here removing the S and the lambda from the parameter</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="studyIII.html#cb102-1"></a>lambda<span class="op">$</span>Parameter &lt;-<span class="st">  </span>stringr<span class="op">::</span><span class="kw">str_sub</span>(lambda<span class="op">$</span>Parameter,<span class="dt">start =</span> <span class="dv">8</span>, <span class="dt">end=</span><span class="op">-</span><span class="dv">2</span>)</span>
+<span id="cb102-2"><a href="studyIII.html#cb102-2"></a>Spar<span class="op">$</span>Parameter &lt;-<span class="st"> </span>stringr<span class="op">::</span><span class="kw">str_sub</span>(Spar<span class="op">$</span>Parameter,<span class="dt">start =</span> <span class="dv">3</span>, <span class="dt">end=</span><span class="op">-</span><span class="dv">2</span>)</span></code></pre></div>
+<div id="table-lambda-and-u" class="section level3">
+<h3><span class="header-section-number">5.6.1</span> Table lambda and U</h3>
+<p>Now we can create the table</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="studyIII.html#cb103-1"></a><span class="co">#merge the datasets</span></span>
+<span id="cb103-2"><a href="studyIII.html#cb103-2"></a>df_table &lt;-<span class="st"> </span><span class="kw">rbind</span>(lambda, U_std) </span>
+<span id="cb103-3"><a href="studyIII.html#cb103-3"></a><span class="co">#creating the table</span></span>
+<span id="cb103-4"><a href="studyIII.html#cb103-4"></a>df_table <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb103-5"><a href="studyIII.html#cb103-5"></a><span class="st">  </span><span class="kw">kable</span>(<span class="dt">caption =</span> <span class="st">&#39;Lambda parameters of the model and the random effects standard deviation&#39;</span>, </span>
+<span id="cb103-6"><a href="studyIII.html#cb103-6"></a>        <span class="dt">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb103-7"><a href="studyIII.html#cb103-7"></a>        <span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">&#39;Parameter&#39;</span>, <span class="st">&#39;Mean&#39;</span>,<span class="st">&#39;HPD lower&#39;</span>, <span class="st">&#39;HPD lower&#39;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb103-8"><a href="studyIII.html#cb103-8"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>))</span></code></pre></div>
+<table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-101">Table 5.2: </span>Lambda parameters of the model and the random effects standard deviation
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Parameter
+</th>
+<th style="text-align:right;">
+Mean
+</th>
+<th style="text-align:right;">
+HPD lower
+</th>
+<th style="text-align:right;">
+HPD lower
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Active
+</td>
+<td style="text-align:right;">
+-2.11
+</td>
+<td style="text-align:right;">
+-3.04
+</td>
+<td style="text-align:right;">
+-1.08
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Active-Collaborative
+</td>
+<td style="text-align:right;">
+1.40
+</td>
+<td style="text-align:right;">
+0.44
+</td>
+<td style="text-align:right;">
+2.38
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Collaborative
+</td>
+<td style="text-align:right;">
+3.21
+</td>
+<td style="text-align:right;">
+2.08
+</td>
+<td style="text-align:right;">
+4.21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Passive-Collaborative
+</td>
+<td style="text-align:right;">
+0.85
+</td>
+<td style="text-align:right;">
+-0.07
+</td>
+<td style="text-align:right;">
+1.84
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Passive
+</td>
+<td style="text-align:right;">
+-3.32
+</td>
+<td style="text-align:right;">
+-4.43
+</td>
+<td style="text-align:right;">
+-2.34
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+U1_std
+</td>
+<td style="text-align:right;">
+2.32
+</td>
+<td style="text-align:right;">
+1.89
+</td>
+<td style="text-align:right;">
+2.78
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="subject-predictors-table" class="section level3">
+<h3><span class="header-section-number">5.6.2</span> Subject predictors table</h3>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="studyIII.html#cb104-1"></a>S &lt;-<span class="st"> </span>Spar <span class="op">%&gt;%</span><span class="st"> </span>tidyr<span class="op">::</span><span class="kw">separate</span>(Parameter,<span class="kw">c</span>(<span class="st">&#39;Role&#39;</span>,<span class="st">&#39;MHLOC&#39;</span>), <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>)</span>
+<span id="cb104-2"><a href="studyIII.html#cb104-2"></a>S<span class="op">$</span>MHLOC &lt;-<span class="st"> </span><span class="kw">recode</span>(S<span class="op">$</span>MHLOC, <span class="st">&#39;OtherPeople&#39;</span>=<span class="st"> &#39;Other people&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="studyIII.html#cb105-1"></a>S <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb105-2"><a href="studyIII.html#cb105-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">arrange</span>(Role) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb105-3"><a href="studyIII.html#cb105-3"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>Role) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb105-4"><a href="studyIII.html#cb105-4"></a><span class="st">  </span><span class="kw">kable</span>(<span class="dt">format=</span><span class="st">&#39;html&#39;</span>,</span>
+<span id="cb105-5"><a href="studyIII.html#cb105-5"></a>        <span class="dt">caption =</span> <span class="st">&#39;Subject predictors parameters by role&#39;</span>, </span>
+<span id="cb105-6"><a href="studyIII.html#cb105-6"></a>        <span class="dt">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb105-7"><a href="studyIII.html#cb105-7"></a>        <span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">&#39;Parameter&#39;</span>, <span class="st">&#39;Mean&#39;</span>,<span class="st">&#39;HPD lower&#39;</span>, <span class="st">&#39;HPD lower&#39;</span>),</span>
+<span id="cb105-8"><a href="studyIII.html#cb105-8"></a>        <span class="dt">booktabs=</span>T) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb105-9"><a href="studyIII.html#cb105-9"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb105-10"><a href="studyIII.html#cb105-10"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">pack_rows</span>(<span class="st">&quot;Active&quot;</span>, <span class="dv">1</span>, <span class="dv">4</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb105-11"><a href="studyIII.html#cb105-11"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">pack_rows</span>(<span class="st">&quot;Active-Collaborative&quot;</span>, <span class="dv">5</span>, <span class="dv">8</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb105-12"><a href="studyIII.html#cb105-12"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">pack_rows</span>(<span class="st">&quot;Collaborative&quot;</span>, <span class="dv">9</span>, <span class="dv">12</span>) <span class="op">%&gt;%</span></span>
+<span id="cb105-13"><a href="studyIII.html#cb105-13"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">pack_rows</span>(<span class="st">&quot;Passive-Collaborative&quot;</span>, <span class="dv">13</span>, <span class="dv">16</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb105-14"><a href="studyIII.html#cb105-14"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">pack_rows</span>(<span class="st">&quot;Passive&quot;</span>, <span class="dv">17</span>, <span class="dv">20</span>)</span></code></pre></div>
+<table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-104">Table 5.3: </span>Subject predictors parameters by role
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Parameter
+</th>
+<th style="text-align:right;">
+Mean
+</th>
+<th style="text-align:right;">
+HPD lower
+</th>
+<th style="text-align:right;">
+HPD lower
+</th>
+</tr>
+</thead>
+<tbody>
+<tr grouplength="4">
+<td colspan="4" style="border-bottom: 1px solid;">
+<strong>Active</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Internal
+</td>
+<td style="text-align:right;">
+-0.09
+</td>
+<td style="text-align:right;">
+-1.11
+</td>
+<td style="text-align:right;">
+0.85
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Chance
+</td>
+<td style="text-align:right;">
+-0.11
+</td>
+<td style="text-align:right;">
+-1.14
+</td>
+<td style="text-align:right;">
+0.86
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Doctors
+</td>
+<td style="text-align:right;">
+0.17
+</td>
+<td style="text-align:right;">
+-1.50
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Other people
+</td>
+<td style="text-align:right;">
+0.57
+</td>
+<td style="text-align:right;">
+-1.19
+</td>
+<td style="text-align:right;">
+0.80
+</td>
+</tr>
+<tr grouplength="4">
+<td colspan="4" style="border-bottom: 1px solid;">
+<strong>Active-Collaborative</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Internal
+</td>
+<td style="text-align:right;">
+-0.07
+</td>
+<td style="text-align:right;">
+-0.97
+</td>
+<td style="text-align:right;">
+0.98
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Chance
+</td>
+<td style="text-align:right;">
+-0.48
+</td>
+<td style="text-align:right;">
+-1.10
+</td>
+<td style="text-align:right;">
+0.86
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Doctors
+</td>
+<td style="text-align:right;">
+-0.74
+</td>
+<td style="text-align:right;">
+-1.44
+</td>
+<td style="text-align:right;">
+0.48
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Other people
+</td>
+<td style="text-align:right;">
+0.10
+</td>
+<td style="text-align:right;">
+-1.30
+</td>
+<td style="text-align:right;">
+0.71
+</td>
+</tr>
+<tr grouplength="4">
+<td colspan="4" style="border-bottom: 1px solid;">
+<strong>Collaborative</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Internal
+</td>
+<td style="text-align:right;">
+-0.51
+</td>
+<td style="text-align:right;">
+-1.03
+</td>
+<td style="text-align:right;">
+0.93
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Chance
+</td>
+<td style="text-align:right;">
+-0.31
+</td>
+<td style="text-align:right;">
+-0.90
+</td>
+<td style="text-align:right;">
+1.09
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Doctors
+</td>
+<td style="text-align:right;">
+0.03
+</td>
+<td style="text-align:right;">
+-0.78
+</td>
+<td style="text-align:right;">
+1.19
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Other people
+</td>
+<td style="text-align:right;">
+0.14
+</td>
+<td style="text-align:right;">
+-1.76
+</td>
+<td style="text-align:right;">
+0.33
+</td>
+</tr>
+<tr grouplength="4">
+<td colspan="4" style="border-bottom: 1px solid;">
+<strong>Passive-Collaborative</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Internal
+</td>
+<td style="text-align:right;">
+-0.01
+</td>
+<td style="text-align:right;">
+-0.88
+</td>
+<td style="text-align:right;">
+1.14
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Chance
+</td>
+<td style="text-align:right;">
+0.11
+</td>
+<td style="text-align:right;">
+-0.84
+</td>
+<td style="text-align:right;">
+1.15
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Doctors
+</td>
+<td style="text-align:right;">
+0.27
+</td>
+<td style="text-align:right;">
+-0.51
+</td>
+<td style="text-align:right;">
+1.48
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Other people
+</td>
+<td style="text-align:right;">
+0.69
+</td>
+<td style="text-align:right;">
+-0.35
+</td>
+<td style="text-align:right;">
+1.72
+</td>
+</tr>
+<tr grouplength="4">
+<td colspan="4" style="border-bottom: 1px solid;">
+<strong>Passive</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Internal
+</td>
+<td style="text-align:right;">
+-0.18
+</td>
+<td style="text-align:right;">
+-0.97
+</td>
+<td style="text-align:right;">
+0.97
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Chance
+</td>
+<td style="text-align:right;">
+-0.05
+</td>
+<td style="text-align:right;">
+-1.07
+</td>
+<td style="text-align:right;">
+0.88
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Doctors
+</td>
+<td style="text-align:right;">
+-0.06
+</td>
+<td style="text-align:right;">
+-0.72
+</td>
+<td style="text-align:right;">
+1.23
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Other people
+</td>
+<td style="text-align:right;">
+0.49
+</td>
+<td style="text-align:right;">
+-0.39
+</td>
+<td style="text-align:right;">
+1.59
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="plot-1" class="section level3">
+<h3><span class="header-section-number">5.6.3</span> Plot</h3>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="studyIII.html#cb106-1"></a>S<span class="op">$</span>Role &lt;-<span class="st"> </span><span class="kw">factor</span>(S<span class="op">$</span>Role, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&#39;Active&#39;</span>, <span class="st">&#39;Active-Collaborative&#39;</span>, <span class="st">&#39;Collaborative&#39;</span>, <span class="st">&#39;Passive-Collaborative&#39;</span>, <span class="st">&#39;Passive&#39;</span>))</span>
+<span id="cb106-2"><a href="studyIII.html#cb106-2"></a><span class="kw">ggplot</span>(S, <span class="kw">aes</span>(<span class="dt">x=</span>MHLOC))<span class="op">+</span></span>
+<span id="cb106-3"><a href="studyIII.html#cb106-3"></a><span class="st">  </span><span class="kw">geom_pointrange</span>(<span class="kw">aes</span>(</span>
+<span id="cb106-4"><a href="studyIII.html#cb106-4"></a>        <span class="dt">ymin =</span> HPD_lower,</span>
+<span id="cb106-5"><a href="studyIII.html#cb106-5"></a>        <span class="dt">ymax =</span> HPD_higher,</span>
+<span id="cb106-6"><a href="studyIII.html#cb106-6"></a>        <span class="dt">y =</span> Mean,</span>
+<span id="cb106-7"><a href="studyIII.html#cb106-7"></a>        <span class="dt">group=</span>MHLOC))<span class="op">+</span><span class="st"> </span></span>
+<span id="cb106-8"><a href="studyIII.html#cb106-8"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Role, <span class="dt">nrow =</span> <span class="dv">3</span>) <span class="op">+</span><span class="st"> </span><span class="co">#Dividing the plot into three by species</span></span>
+<span id="cb106-9"><a href="studyIII.html#cb106-9"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&#39;Subject predictors estimates with uncertainty (HPD) interval&#39;</span>,</span>
+<span id="cb106-10"><a href="studyIII.html#cb106-10"></a>       <span class="dt">y =</span> <span class="st">&#39;Estimate&#39;</span>,</span>
+<span id="cb106-11"><a href="studyIII.html#cb106-11"></a>        <span class="dt">x =</span> <span class="st">&#39;HLOC dimension&#39;</span>)<span class="op">+</span></span>
+<span id="cb106-12"><a href="studyIII.html#cb106-12"></a><span class="st">  </span><span class="kw">theme_bw</span>()<span class="op">+</span><span class="st"> </span><span class="co"># A black and white theme</span></span>
+<span id="cb106-13"><a href="studyIII.html#cb106-13"></a><span class="st">  </span><span class="co"># scale_x_discrete(guide = guide_axis(n.dodge = 2)) +</span></span>
+<span id="cb106-14"><a href="studyIII.html#cb106-14"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;bottom&quot;</span>) <span class="co">#small adjustments to the theme</span></span></code></pre></div>
+<p><img src="bpcs-appendix_files/figure-html/unnamed-chunk-106-1.png" width="672" /></p>
+</div>
+<div id="probability-tables" class="section level3">
+<h3><span class="header-section-number">5.6.4</span> Probability tables</h3>
+<p>First let’s create a data frame with the cases we want to investigate. We will utilize the model_type option in the probabilities table so we can average out the values of the random effects in the subjects. In this table, we will only investigate a few of the conditions, but of course it is possible to do a much more expansive analysis</p>
+<p>Let’s create a new data frame with the conditions we want to investigate.
+Mainly we are just investigating:
+* Between the choice of Active and Passive how does going from -2 to 2 standard deviations over the mean influences the probability in the Internal and the Doctors
+* Between the choice of Active-Collaborative and Collaborative how does going from -2 to 2 standard deviations over the mean influences the probability in the Internal and the Doctors
+* Between the choice of Collaborative and Passive-Collaborative how does going from -2 to 2 standard deviations over the mean influences the probability in the Internal and the Doctors</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="studyIII.html#cb107-1"></a>newdata &lt;-<span class="st"> </span>tibble<span class="op">::</span><span class="kw">tribble</span>(<span class="op">~</span>choice0, <span class="op">~</span>choice1, <span class="op">~</span>Internal, <span class="op">~</span>Chance, <span class="op">~</span>Doctors, <span class="op">~</span>OtherPeople,</span>
+<span id="cb107-2"><a href="studyIII.html#cb107-2"></a>                           <span class="st">&quot;Active&quot;</span>, <span class="st">&quot;Passive&quot;</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,</span>
+<span id="cb107-3"><a href="studyIII.html#cb107-3"></a>                           <span class="st">&quot;Active&quot;</span>, <span class="st">&quot;Passive&quot;</span>, <span class="dv">-2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,</span>
+<span id="cb107-4"><a href="studyIII.html#cb107-4"></a>                           <span class="st">&quot;Active&quot;</span>, <span class="st">&quot;Passive&quot;</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,</span>
+<span id="cb107-5"><a href="studyIII.html#cb107-5"></a>                           <span class="st">&quot;Active&quot;</span>, <span class="st">&quot;Passive&quot;</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">-2</span>, <span class="dv">0</span>,</span>
+<span id="cb107-6"><a href="studyIII.html#cb107-6"></a>                           <span class="st">&quot;Active&quot;</span>, <span class="st">&quot;Passive&quot;</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">0</span>,</span>
+<span id="cb107-7"><a href="studyIII.html#cb107-7"></a>                           <span class="st">&quot;Active-Collaborative&quot;</span>, <span class="st">&quot;Collaborative&quot;</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,</span>
+<span id="cb107-8"><a href="studyIII.html#cb107-8"></a>                           <span class="st">&quot;Active-Collaborative&quot;</span>, <span class="st">&quot;Collaborative&quot;</span>, <span class="dv">-2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,</span>
+<span id="cb107-9"><a href="studyIII.html#cb107-9"></a>                           <span class="st">&quot;Active-Collaborative&quot;</span>, <span class="st">&quot;Collaborative&quot;</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,</span>
+<span id="cb107-10"><a href="studyIII.html#cb107-10"></a>                           <span class="st">&quot;Active-Collaborative&quot;</span>, <span class="st">&quot;Collaborative&quot;</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">-2</span>, <span class="dv">0</span>,</span>
+<span id="cb107-11"><a href="studyIII.html#cb107-11"></a>                           <span class="st">&quot;Active-Collaborative&quot;</span>, <span class="st">&quot;Collaborative&quot;</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">0</span>,</span>
+<span id="cb107-12"><a href="studyIII.html#cb107-12"></a>                           <span class="st">&quot;Collaborative&quot;</span>, <span class="st">&quot;Passive-Collaborative&quot;</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,</span>
+<span id="cb107-13"><a href="studyIII.html#cb107-13"></a>                           <span class="st">&quot;Collaborative&quot;</span>, <span class="st">&quot;Passive-Collaborative&quot;</span>, <span class="dv">0</span>, <span class="dv">-2</span>, <span class="dv">0</span>, <span class="dv">0</span>,</span>
+<span id="cb107-14"><a href="studyIII.html#cb107-14"></a>                           <span class="st">&quot;Collaborative&quot;</span>, <span class="st">&quot;Passive-Collaborative&quot;</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">0</span>,</span>
+<span id="cb107-15"><a href="studyIII.html#cb107-15"></a>                           <span class="st">&quot;Collaborative&quot;</span>, <span class="st">&quot;Passive-Collaborative&quot;</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">-2</span>,</span>
+<span id="cb107-16"><a href="studyIII.html#cb107-16"></a>                           <span class="st">&quot;Collaborative&quot;</span>, <span class="st">&quot;Passive-Collaborative&quot;</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span></span>
+<span id="cb107-17"><a href="studyIII.html#cb107-17"></a>                           )</span>
+<span id="cb107-18"><a href="studyIII.html#cb107-18"></a></span>
+<span id="cb107-19"><a href="studyIII.html#cb107-19"></a><span class="co">#Now we can calculate the probabilities</span></span>
+<span id="cb107-20"><a href="studyIII.html#cb107-20"></a>prob_hloc &lt;-</span>
+<span id="cb107-21"><a href="studyIII.html#cb107-21"></a><span class="st">  </span><span class="kw">get_probabilities_df</span>(</span>
+<span id="cb107-22"><a href="studyIII.html#cb107-22"></a>    m3, </span>
+<span id="cb107-23"><a href="studyIII.html#cb107-23"></a>    <span class="dt">newdata =</span> newdata,</span>
+<span id="cb107-24"><a href="studyIII.html#cb107-24"></a>    <span class="dt">model_type =</span> <span class="st">&#39;bt-subjectpredictors&#39;</span>) <span class="co">#here we are assuming zero for the random effects</span></span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="studyIII.html#cb108-1"></a>prob_hloc <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb108-2"><a href="studyIII.html#cb108-2"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>j_beats_i) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb108-3"><a href="studyIII.html#cb108-3"></a><span class="st">  </span><span class="kw">rename</span>(<span class="dt">Probability=</span>i_beats_j) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb108-4"><a href="studyIII.html#cb108-4"></a><span class="st">  </span><span class="kw">kable</span>(<span class="dt">caption =</span> <span class="st">&quot;Probabilities of selecting role i instead of j based on changes of the values of the HLOC dimensions&quot;</span>,</span>
+<span id="cb108-5"><a href="studyIII.html#cb108-5"></a>      <span class="dt">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb108-6"><a href="studyIII.html#cb108-6"></a>      <span class="dt">booktabs =</span> T) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb108-7"><a href="studyIII.html#cb108-7"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb108-8"><a href="studyIII.html#cb108-8"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">add_header_above</span>(<span class="kw">c</span>(<span class="st">&quot;Roles&quot;</span> =<span class="st"> </span><span class="dv">2</span>, <span class="st">&quot;HLOC dimensions&quot;</span> =<span class="st"> </span><span class="dv">4</span>, <span class="st">&quot; &quot;</span>=<span class="dv">1</span>))</span></code></pre></div>
+<table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-108">Table 5.4: </span>Probabilities of selecting role i instead of j based on changes of the values of the HLOC dimensions
+</caption>
+<thead>
+<tr>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Roles
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="4">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+HLOC dimensions
+</div>
+</th>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+i
+</th>
+<th style="text-align:left;">
+j
+</th>
+<th style="text-align:right;">
+Internal
+</th>
+<th style="text-align:right;">
+Chance
+</th>
+<th style="text-align:right;">
+Doctors
+</th>
+<th style="text-align:right;">
+OtherPeople
+</th>
+<th style="text-align:right;">
+Probability
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Active
+</td>
+<td style="text-align:left;">
+Passive
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.85
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Active
+</td>
+<td style="text-align:left;">
+Passive
+</td>
+<td style="text-align:right;">
+-2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.80
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Active
+</td>
+<td style="text-align:left;">
+Passive
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.71
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Active
+</td>
+<td style="text-align:left;">
+Passive
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+-2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.96
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Active
+</td>
+<td style="text-align:left;">
+Passive
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.31
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Active-Collaborative
+</td>
+<td style="text-align:left;">
+Collaborative
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.14
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Active-Collaborative
+</td>
+<td style="text-align:left;">
+Collaborative
+</td>
+<td style="text-align:right;">
+-2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Active-Collaborative
+</td>
+<td style="text-align:left;">
+Collaborative
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Active-Collaborative
+</td>
+<td style="text-align:left;">
+Collaborative
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+-2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.39
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Active-Collaborative
+</td>
+<td style="text-align:left;">
+Collaborative
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Collaborative
+</td>
+<td style="text-align:left;">
+Passive-Collaborative
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.86
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Collaborative
+</td>
+<td style="text-align:left;">
+Passive-Collaborative
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+-2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.84
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Collaborative
+</td>
+<td style="text-align:left;">
+Passive-Collaborative
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.94
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Collaborative
+</td>
+<td style="text-align:left;">
+Passive-Collaborative
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+-2
+</td>
+<td style="text-align:right;">
+0.99
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Collaborative
+</td>
+<td style="text-align:left;">
+Passive-Collaborative
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0.43
+</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="studyII.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bpcs-appendix.pdf", "bpcs-appendix.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

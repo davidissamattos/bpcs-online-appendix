@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Basic functionality | Online appendix for the paper: “Bayesian Paired-Comparison with the bpcs package”</title>
+  <meta name="description" content="This is the online appendix for the paper: “Bayesian Paired-Comparison with the bpcs package.”" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Basic functionality | Online appendix for the paper: “Bayesian Paired-Comparison with the bpcs package”" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is the online appendix for the paper: “Bayesian Paired-Comparison with the bpcs package.”" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Basic functionality | Online appendix for the paper: “Bayesian Paired-Comparison with the bpcs package”" />
+  
+  <meta name="twitter:description" content="This is the online appendix for the paper: “Bayesian Paired-Comparison with the bpcs package.”" />
+  
+
+<meta name="author" content="David Issa Mattos and Érika Martins Silva Ramos" />
+
+
+<meta name="date" content="2021-01-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="studyI.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Appendix</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Foreword</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#installation-of-the-bpcs-package"><i class="fa fa-check"></i><b>1.1</b> Installation of the bpcs package</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#session-info"><i class="fa fa-check"></i><b>1.2</b> Session info</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>2</b> Basic functionality</a><ul>
+<li class="chapter" data-level="2.1" data-path="basics.html"><a href="basics.html#reading-and-preparing-the-data"><i class="fa fa-check"></i><b>2.1</b> Reading and preparing the data</a></li>
+<li class="chapter" data-level="2.2" data-path="basics.html"><a href="basics.html#the-bayesian-bradley-terry-analysis"><i class="fa fa-check"></i><b>2.2</b> The Bayesian Bradley-Terry analysis</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="basics.html"><a href="basics.html#diagnostics"><i class="fa fa-check"></i><b>2.2.1</b> Diagnostics</a></li>
+<li class="chapter" data-level="2.2.2" data-path="basics.html"><a href="basics.html#summary-information"><i class="fa fa-check"></i><b>2.2.2</b> Summary information</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="studyI.html"><a href="studyI.html"><i class="fa fa-check"></i><b>3</b> Re-analysis 1</a><ul>
+<li class="chapter" data-level="3.1" data-path="studyI.html"><a href="studyI.html#importing-the-data"><i class="fa fa-check"></i><b>3.1</b> Importing the data</a></li>
+<li class="chapter" data-level="3.2" data-path="studyI.html"><a href="studyI.html#analysis-with-the-bradley-terry-model-and-the-order-effect-model"><i class="fa fa-check"></i><b>3.2</b> Analysis with the Bradley-Terry model and the order effect model</a></li>
+<li class="chapter" data-level="3.3" data-path="studyI.html"><a href="studyI.html#diagnostics-1"><i class="fa fa-check"></i><b>3.3</b> Diagnostics</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="studyI.html"><a href="studyI.html#tables-and-plots"><i class="fa fa-check"></i><b>3.3.1</b> Tables and plots</a></li>
+<li class="chapter" data-level="3.3.2" data-path="studyI.html"><a href="studyI.html#waic"><i class="fa fa-check"></i><b>3.3.2</b> WAIC</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="studyII.html"><a href="studyII.html"><i class="fa fa-check"></i><b>4</b> Re-analysis 2</a><ul>
+<li class="chapter" data-level="4.1" data-path="studyII.html"><a href="studyII.html#importing-the-data-1"><i class="fa fa-check"></i><b>4.1</b> Importing the data</a></li>
+<li class="chapter" data-level="4.2" data-path="studyII.html"><a href="studyII.html#simple-bradley-terry-model"><i class="fa fa-check"></i><b>4.2</b> Simple Bradley-Terry model</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="studyII.html"><a href="studyII.html#assessing-the-fitness-of-the-model"><i class="fa fa-check"></i><b>4.2.1</b> Assessing the fitness of the model</a></li>
+<li class="chapter" data-level="4.2.2" data-path="studyII.html"><a href="studyII.html#getting-the-waic"><i class="fa fa-check"></i><b>4.2.2</b> Getting the WAIC</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="studyII.html"><a href="studyII.html#bradley-terry-model-with-random-effects-for-individuals"><i class="fa fa-check"></i><b>4.3</b> Bradley-Terry model with random effects for individuals</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="studyII.html"><a href="studyII.html#getting-the-waic-1"><i class="fa fa-check"></i><b>4.3.1</b> Getting the WAIC</a></li>
+<li class="chapter" data-level="4.3.2" data-path="studyII.html"><a href="studyII.html#parameter-tables-and-plots"><i class="fa fa-check"></i><b>4.3.2</b> Parameter tables and plots</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="studyIII.html"><a href="studyIII.html"><i class="fa fa-check"></i><b>5</b> Re-analysis III</a><ul>
+<li class="chapter" data-level="5.1" data-path="studyIII.html"><a href="studyIII.html#importing-the-data-2"><i class="fa fa-check"></i><b>5.1</b> Importing the data</a></li>
+<li class="chapter" data-level="5.2" data-path="studyIII.html"><a href="studyIII.html#simple-bradley-terry-models"><i class="fa fa-check"></i><b>5.2</b> Simple Bradley-Terry models</a></li>
+<li class="chapter" data-level="5.3" data-path="studyIII.html"><a href="studyIII.html#subject-predictors-model"><i class="fa fa-check"></i><b>5.3</b> Subject predictors model</a></li>
+<li class="chapter" data-level="5.4" data-path="studyIII.html"><a href="studyIII.html#subject-predictors-and-random-effects"><i class="fa fa-check"></i><b>5.4</b> Subject predictors and random effects</a></li>
+<li class="chapter" data-level="5.5" data-path="studyIII.html"><a href="studyIII.html#comparing-the-waic"><i class="fa fa-check"></i><b>5.5</b> Comparing the WAIC</a></li>
+<li class="chapter" data-level="5.6" data-path="studyIII.html"><a href="studyIII.html#plots-and-tables"><i class="fa fa-check"></i><b>5.6</b> Plots and tables</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="studyIII.html"><a href="studyIII.html#table-lambda-and-u"><i class="fa fa-check"></i><b>5.6.1</b> Table lambda and U</a></li>
+<li class="chapter" data-level="5.6.2" data-path="studyIII.html"><a href="studyIII.html#subject-predictors-table"><i class="fa fa-check"></i><b>5.6.2</b> Subject predictors table</a></li>
+<li class="chapter" data-level="5.6.3" data-path="studyIII.html"><a href="studyIII.html#plot-1"><i class="fa fa-check"></i><b>5.6.3</b> Plot</a></li>
+<li class="chapter" data-level="5.6.4" data-path="studyIII.html"><a href="studyIII.html#probability-tables"><i class="fa fa-check"></i><b>5.6.4</b> Probability tables</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Online appendix for the paper: “Bayesian Paired-Comparison with the bpcs package”</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="basics" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Basic functionality</h1>
+<p>Although a large overview of the functionality of the <code>bpcs</code> is available in the official documentation (<a href="https://davidissamattos.github.io/bpcs" class="uri">https://davidissamattos.github.io/bpcs</a>) we provide here a short example based on the paper:</p>
+<blockquote>
+<p>Luckett, Curtis R., Sara L. Burns, and Lindsay Jenkinson. “Estimates of relative acceptability from paired preference tests.” Journal of Sensory Studies 35.5 (2020): e12593.</p>
+</blockquote>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="basics.html#cb5-1"></a><span class="kw">library</span>(bpcs)</span>
+<span id="cb5-2"><a href="basics.html#cb5-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb5-3"><a href="basics.html#cb5-3"></a><span class="kw">library</span>(knitr)</span>
+<span id="cb5-4"><a href="basics.html#cb5-4"></a><span class="kw">options</span>(<span class="dt">mc.cores =</span> parallel<span class="op">::</span><span class="kw">detectCores</span>())</span>
+<span id="cb5-5"><a href="basics.html#cb5-5"></a>rstan<span class="op">::</span><span class="kw">rstan_options</span>(<span class="dt">auto_write =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb5-6"><a href="basics.html#cb5-6"></a><span class="kw">set.seed</span>(<span class="dv">99</span>)</span></code></pre></div>
+<div id="reading-and-preparing-the-data" class="section level2">
+<h2><span class="header-section-number">2.1</span> Reading and preparing the data</h2>
+<p>This paper analyzes food preferences using paired comparisons (and compare different methods). The original data was made available in the paper and it can be found in the link:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="basics.html#cb6-1"></a>d &lt;-<span class="st"> </span>readxl<span class="op">::</span><span class="kw">read_xlsx</span>(<span class="dt">path=</span><span class="st">&#39;data/PREF_DATA.xlsx&#39;</span>, <span class="dt">sheet =</span> <span class="st">&#39;Pizza&#39;</span>)</span></code></pre></div>
+<p>Below we see a fragment of how the dataset looks like:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="basics.html#cb7-1"></a><span class="kw">sample_n</span>(d, <span class="dt">size=</span><span class="dv">5</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb7-2"><a href="basics.html#cb7-2"></a><span class="st">  </span><span class="kw">kable</span>(<span class="dt">caption=</span><span class="st">&quot;Example of the pizza data frame&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb7-3"><a href="basics.html#cb7-3"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>))</span></code></pre></div>
+<table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-7">Table 2.1: </span>Example of the pizza data frame
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Prod1
+</th>
+<th style="text-align:left;">
+Prod2
+</th>
+<th style="text-align:right;">
+Win1
+</th>
+<th style="text-align:right;">
+Win2
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Tombstone
+</td>
+<td style="text-align:left;">
+Red Barron
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Freschetta
+</td>
+<td style="text-align:left;">
+DiGiorno
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+aKroger
+</td>
+<td style="text-align:left;">
+Tombstone
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Freschetta
+</td>
+<td style="text-align:left;">
+Tombstone
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DiGiorno
+</td>
+<td style="text-align:left;">
+aKroger
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+</tbody>
+</table>
+<p>This data is in a aggregated format. That is each row contains more than one observation. For example, the first row shows that Tombstone was voted 16 times against Red Barron and Red Barron was voted 21 times against Tombstone</p>
+<p>To use with the bpcs package, we need to expand it to a single contest per row, in a long format. We can use the function <code>expand_aggregated_data</code> of the bpcs package exactly for this purpose.</p>
+<p>This leads to a data frame with 380 rows (same number of wins for 1 and 2). This function adds an id column to the data, so each row is uniquely represented (important if you will do some transformations later). Below we examplify how the expanded data looks like</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="basics.html#cb8-1"></a>dpizza &lt;-<span class="st"> </span><span class="kw">expand_aggregated_data</span>(<span class="dt">d =</span> d, <span class="dt">player0 =</span> <span class="st">&#39;Prod1&#39;</span>, <span class="dt">player1 =</span> <span class="st">&#39;Prod2&#39;</span>, <span class="dt">wins0 =</span> <span class="st">&#39;Win1&#39;</span>, <span class="dt">wins1 =</span> <span class="st">&#39;Win2&#39;</span>, <span class="dt">keep=</span><span class="ot">NULL</span>)</span></code></pre></div>
+<pre><code>##        player0    player1 y rowid
+## 1    Tombstone Red Barron 0     1
+## 2    Tombstone Red Barron 0     2
+## 3    Tombstone Red Barron 0     3
+## 4    Tombstone Red Barron 0     4
+## 5    Tombstone Red Barron 0     5
+## 6    Tombstone Red Barron 0     6
+## 7    Tombstone Red Barron 0     7
+## 8    Tombstone Red Barron 0     8
+## 9    Tombstone Red Barron 0     9
+## 10   Tombstone Red Barron 0    10
+## 11   Tombstone Red Barron 0    11
+## 12   Tombstone Red Barron 0    12
+## 13   Tombstone Red Barron 0    13
+## 14   Tombstone Red Barron 0    14
+## 15   Tombstone Red Barron 0    15
+## 16   Tombstone Red Barron 0    16
+## 17   Tombstone Red Barron 1    17
+## 18   Tombstone Red Barron 1    18
+## 19   Tombstone Red Barron 1    19
+## 20   Tombstone Red Barron 1    20
+## 21   Tombstone Red Barron 1    21
+## 22   Tombstone Red Barron 1    22
+## 23   Tombstone Red Barron 1    23
+## 24   Tombstone Red Barron 1    24
+## 25   Tombstone Red Barron 1    25
+## 26   Tombstone Red Barron 1    26
+## 27   Tombstone Red Barron 1    27
+## 28   Tombstone Red Barron 1    28
+## 29   Tombstone Red Barron 1    29
+## 30   Tombstone Red Barron 1    30
+## 31   Tombstone Red Barron 1    31
+## 32   Tombstone Red Barron 1    32
+## 33   Tombstone Red Barron 1    33
+## 34   Tombstone Red Barron 1    34
+## 35   Tombstone Red Barron 1    35
+## 36   Tombstone Red Barron 1    36
+## 37   Tombstone Red Barron 1    37
+## 38    DiGiorno  Tombstone 0    38
+## 39    DiGiorno  Tombstone 0    39
+## 40    DiGiorno  Tombstone 0    40
+## 41    DiGiorno  Tombstone 0    41
+## 42    DiGiorno  Tombstone 0    42
+## 43    DiGiorno  Tombstone 0    43
+## 44    DiGiorno  Tombstone 0    44
+## 45    DiGiorno  Tombstone 0    45
+## 46    DiGiorno  Tombstone 0    46
+## 47    DiGiorno  Tombstone 0    47
+## 48    DiGiorno  Tombstone 0    48
+## 49    DiGiorno  Tombstone 0    49
+## 50    DiGiorno  Tombstone 0    50
+## 51    DiGiorno  Tombstone 0    51
+## 52    DiGiorno  Tombstone 0    52
+## 53    DiGiorno  Tombstone 0    53
+## 54    DiGiorno  Tombstone 0    54
+## 55    DiGiorno  Tombstone 0    55
+## 56    DiGiorno  Tombstone 0    56
+## 57    DiGiorno  Tombstone 0    57
+## 58    DiGiorno  Tombstone 0    58
+## 59    DiGiorno  Tombstone 0    59
+## 60    DiGiorno  Tombstone 0    60
+## 61    DiGiorno  Tombstone 0    61
+## 62    DiGiorno  Tombstone 0    62
+## 63    DiGiorno  Tombstone 0    63
+## 64    DiGiorno  Tombstone 1    64
+## 65    DiGiorno  Tombstone 1    65
+## 66    DiGiorno  Tombstone 1    66
+## 67    DiGiorno  Tombstone 1    67
+## 68    DiGiorno  Tombstone 1    68
+## 69    DiGiorno  Tombstone 1    69
+## 70    DiGiorno  Tombstone 1    70
+## 71    DiGiorno  Tombstone 1    71
+## 72    DiGiorno  Tombstone 1    72
+## 73    DiGiorno  Tombstone 1    73
+## 74    DiGiorno  Tombstone 1    74
+## 75    DiGiorno  Tombstone 1    75
+## 76    DiGiorno  Tombstone 1    76
+## 77    DiGiorno    aKroger 0    77
+## 78    DiGiorno    aKroger 0    78
+## 79    DiGiorno    aKroger 0    79
+## 80    DiGiorno    aKroger 0    80
+## 81    DiGiorno    aKroger 0    81
+## 82    DiGiorno    aKroger 0    82
+## 83    DiGiorno    aKroger 0    83
+## 84    DiGiorno    aKroger 0    84
+## 85    DiGiorno    aKroger 0    85
+## 86    DiGiorno    aKroger 0    86
+## 87    DiGiorno    aKroger 0    87
+## 88    DiGiorno    aKroger 0    88
+## 89    DiGiorno    aKroger 0    89
+## 90    DiGiorno    aKroger 0    90
+## 91    DiGiorno    aKroger 0    91
+## 92    DiGiorno    aKroger 0    92
+## 93    DiGiorno    aKroger 0    93
+## 94    DiGiorno    aKroger 0    94
+## 95    DiGiorno    aKroger 0    95
+## 96    DiGiorno    aKroger 0    96
+## 97    DiGiorno    aKroger 0    97
+## 98    DiGiorno    aKroger 0    98
+## 99    DiGiorno    aKroger 0    99
+## 100   DiGiorno    aKroger 0   100
+## 101   DiGiorno    aKroger 0   101
+## 102   DiGiorno    aKroger 0   102
+## 103   DiGiorno    aKroger 1   103
+## 104   DiGiorno    aKroger 1   104
+## 105   DiGiorno    aKroger 1   105
+## 106   DiGiorno    aKroger 1   106
+## 107   DiGiorno    aKroger 1   107
+## 108   DiGiorno    aKroger 1   108
+## 109   DiGiorno    aKroger 1   109
+## 110   DiGiorno    aKroger 1   110
+## 111   DiGiorno    aKroger 1   111
+## 112   DiGiorno    aKroger 1   112
+## 113   DiGiorno    aKroger 1   113
+## 114   DiGiorno    aKroger 1   114
+## 115   DiGiorno    aKroger 1   115
+## 116   DiGiorno Red Barron 0   116
+## 117   DiGiorno Red Barron 0   117
+## 118   DiGiorno Red Barron 0   118
+## 119   DiGiorno Red Barron 0   119
+## 120   DiGiorno Red Barron 0   120
+## 121   DiGiorno Red Barron 0   121
+## 122   DiGiorno Red Barron 0   122
+## 123   DiGiorno Red Barron 0   123
+## 124   DiGiorno Red Barron 0   124
+## 125   DiGiorno Red Barron 0   125
+## 126   DiGiorno Red Barron 0   126
+## 127   DiGiorno Red Barron 0   127
+## 128   DiGiorno Red Barron 0   128
+## 129   DiGiorno Red Barron 0   129
+## 130   DiGiorno Red Barron 0   130
+## 131   DiGiorno Red Barron 0   131
+## 132   DiGiorno Red Barron 0   132
+## 133   DiGiorno Red Barron 0   133
+## 134   DiGiorno Red Barron 0   134
+## 135   DiGiorno Red Barron 1   135
+## 136   DiGiorno Red Barron 1   136
+## 137   DiGiorno Red Barron 1   137
+## 138   DiGiorno Red Barron 1   138
+## 139   DiGiorno Red Barron 1   139
+## 140   DiGiorno Red Barron 1   140
+## 141   DiGiorno Red Barron 1   141
+## 142   DiGiorno Red Barron 1   142
+## 143   DiGiorno Red Barron 1   143
+## 144   DiGiorno Red Barron 1   144
+## 145   DiGiorno Red Barron 1   145
+## 146   DiGiorno Red Barron 1   146
+## 147   DiGiorno Red Barron 1   147
+## 148   DiGiorno Red Barron 1   148
+## 149   DiGiorno Red Barron 1   149
+## 150   DiGiorno Red Barron 1   150
+## 151   DiGiorno Red Barron 1   151
+## 152   DiGiorno Red Barron 1   152
+## 153 Freschetta  Tombstone 0   153
+## 154 Freschetta  Tombstone 0   154
+## 155 Freschetta  Tombstone 0   155
+## 156 Freschetta  Tombstone 0   156
+## 157 Freschetta  Tombstone 0   157
+## 158 Freschetta  Tombstone 0   158
+## 159 Freschetta  Tombstone 0   159
+## 160 Freschetta  Tombstone 0   160
+## 161 Freschetta  Tombstone 0   161
+## 162 Freschetta  Tombstone 0   162
+## 163 Freschetta  Tombstone 0   163
+## 164 Freschetta  Tombstone 0   164
+## 165 Freschetta  Tombstone 0   165
+## 166 Freschetta  Tombstone 0   166
+## 167 Freschetta  Tombstone 0   167
+## 168 Freschetta  Tombstone 0   168
+## 169 Freschetta  Tombstone 0   169
+## 170 Freschetta  Tombstone 0   170
+## 171 Freschetta  Tombstone 0   171
+## 172 Freschetta  Tombstone 0   172
+## 173 Freschetta  Tombstone 0   173
+## 174 Freschetta  Tombstone 0   174
+## 175 Freschetta  Tombstone 1   175
+## 176 Freschetta  Tombstone 1   176
+## 177 Freschetta  Tombstone 1   177
+## 178 Freschetta  Tombstone 1   178
+## 179 Freschetta  Tombstone 1   179
+## 180 Freschetta  Tombstone 1   180
+## 181 Freschetta  Tombstone 1   181
+## 182 Freschetta  Tombstone 1   182
+## 183 Freschetta  Tombstone 1   183
+## 184 Freschetta  Tombstone 1   184
+## 185 Freschetta  Tombstone 1   185
+## 186 Freschetta  Tombstone 1   186
+## 187 Freschetta  Tombstone 1   187
+## 188 Freschetta  Tombstone 1   188
+## 189 Freschetta  Tombstone 1   189
+## 190 Freschetta  Tombstone 1   190
+## 191 Freschetta   DiGiorno 0   191
+## 192 Freschetta   DiGiorno 0   192
+## 193 Freschetta   DiGiorno 0   193
+## 194 Freschetta   DiGiorno 0   194
+## 195 Freschetta   DiGiorno 0   195
+## 196 Freschetta   DiGiorno 0   196
+## 197 Freschetta   DiGiorno 0   197
+## 198 Freschetta   DiGiorno 0   198
+## 199 Freschetta   DiGiorno 0   199
+## 200 Freschetta   DiGiorno 0   200
+## 201 Freschetta   DiGiorno 0   201
+## 202 Freschetta   DiGiorno 0   202
+## 203 Freschetta   DiGiorno 0   203
+## 204 Freschetta   DiGiorno 0   204
+## 205 Freschetta   DiGiorno 0   205
+## 206 Freschetta   DiGiorno 0   206
+## 207 Freschetta   DiGiorno 0   207
+## 208 Freschetta   DiGiorno 0   208
+## 209 Freschetta   DiGiorno 0   209
+## 210 Freschetta   DiGiorno 0   210
+## 211 Freschetta   DiGiorno 1   211
+## 212 Freschetta   DiGiorno 1   212
+## 213 Freschetta   DiGiorno 1   213
+## 214 Freschetta   DiGiorno 1   214
+## 215 Freschetta   DiGiorno 1   215
+## 216 Freschetta   DiGiorno 1   216
+## 217 Freschetta   DiGiorno 1   217
+## 218 Freschetta   DiGiorno 1   218
+## 219 Freschetta   DiGiorno 1   219
+## 220 Freschetta   DiGiorno 1   220
+## 221 Freschetta   DiGiorno 1   221
+## 222 Freschetta   DiGiorno 1   222
+## 223 Freschetta   DiGiorno 1   223
+## 224 Freschetta   DiGiorno 1   224
+## 225 Freschetta   DiGiorno 1   225
+## 226 Freschetta   DiGiorno 1   226
+## 227 Freschetta   DiGiorno 1   227
+## 228 Freschetta   DiGiorno 1   228
+## 229 Freschetta    aKroger 0   229
+## 230 Freschetta    aKroger 0   230
+## 231 Freschetta    aKroger 0   231
+## 232 Freschetta    aKroger 0   232
+## 233 Freschetta    aKroger 0   233
+## 234 Freschetta    aKroger 0   234
+## 235 Freschetta    aKroger 0   235
+## 236 Freschetta    aKroger 0   236
+## 237 Freschetta    aKroger 0   237
+## 238 Freschetta    aKroger 0   238
+## 239 Freschetta    aKroger 0   239
+## 240 Freschetta    aKroger 0   240
+## 241 Freschetta    aKroger 0   241
+## 242 Freschetta    aKroger 0   242
+## 243 Freschetta    aKroger 0   243
+## 244 Freschetta    aKroger 0   244
+## 245 Freschetta    aKroger 0   245
+## 246 Freschetta    aKroger 0   246
+## 247 Freschetta    aKroger 0   247
+## 248 Freschetta    aKroger 0   248
+## 249 Freschetta    aKroger 0   249
+## 250 Freschetta    aKroger 0   250
+## 251 Freschetta    aKroger 0   251
+## 252 Freschetta    aKroger 0   252
+## 253 Freschetta    aKroger 1   253
+## 254 Freschetta    aKroger 1   254
+## 255 Freschetta    aKroger 1   255
+## 256 Freschetta    aKroger 1   256
+## 257 Freschetta    aKroger 1   257
+## 258 Freschetta    aKroger 1   258
+## 259 Freschetta    aKroger 1   259
+## 260 Freschetta    aKroger 1   260
+## 261 Freschetta    aKroger 1   261
+## 262 Freschetta    aKroger 1   262
+## 263 Freschetta    aKroger 1   263
+## 264 Freschetta    aKroger 1   264
+## 265 Freschetta    aKroger 1   265
+## 266 Freschetta    aKroger 1   266
+## 267 Red Barron Freschetta 0   267
+## 268 Red Barron Freschetta 0   268
+## 269 Red Barron Freschetta 0   269
+## 270 Red Barron Freschetta 0   270
+## 271 Red Barron Freschetta 0   271
+## 272 Red Barron Freschetta 0   272
+## 273 Red Barron Freschetta 0   273
+## 274 Red Barron Freschetta 0   274
+## 275 Red Barron Freschetta 0   275
+## 276 Red Barron Freschetta 0   276
+## 277 Red Barron Freschetta 0   277
+## 278 Red Barron Freschetta 0   278
+## 279 Red Barron Freschetta 0   279
+## 280 Red Barron Freschetta 0   280
+## 281 Red Barron Freschetta 0   281
+## 282 Red Barron Freschetta 0   282
+## 283 Red Barron Freschetta 0   283
+## 284 Red Barron Freschetta 0   284
+## 285 Red Barron Freschetta 0   285
+## 286 Red Barron Freschetta 0   286
+## 287 Red Barron Freschetta 1   287
+## 288 Red Barron Freschetta 1   288
+## 289 Red Barron Freschetta 1   289
+## 290 Red Barron Freschetta 1   290
+## 291 Red Barron Freschetta 1   291
+## 292 Red Barron Freschetta 1   292
+## 293 Red Barron Freschetta 1   293
+## 294 Red Barron Freschetta 1   294
+## 295 Red Barron Freschetta 1   295
+## 296 Red Barron Freschetta 1   296
+## 297 Red Barron Freschetta 1   297
+## 298 Red Barron Freschetta 1   298
+## 299 Red Barron Freschetta 1   299
+## 300 Red Barron Freschetta 1   300
+## 301 Red Barron Freschetta 1   301
+## 302 Red Barron Freschetta 1   302
+## 303 Red Barron Freschetta 1   303
+## 304    aKroger  Tombstone 0   304
+## 305    aKroger  Tombstone 0   305
+## 306    aKroger  Tombstone 0   306
+## 307    aKroger  Tombstone 0   307
+## 308    aKroger  Tombstone 0   308
+## 309    aKroger  Tombstone 0   309
+## 310    aKroger  Tombstone 0   310
+## 311    aKroger  Tombstone 0   311
+## 312    aKroger  Tombstone 0   312
+## 313    aKroger  Tombstone 0   313
+## 314    aKroger  Tombstone 0   314
+## 315    aKroger  Tombstone 0   315
+## 316    aKroger  Tombstone 0   316
+## 317    aKroger  Tombstone 0   317
+## 318    aKroger  Tombstone 0   318
+## 319    aKroger  Tombstone 0   319
+## 320    aKroger  Tombstone 0   320
+## 321    aKroger  Tombstone 1   321
+## 322    aKroger  Tombstone 1   322
+## 323    aKroger  Tombstone 1   323
+## 324    aKroger  Tombstone 1   324
+## 325    aKroger  Tombstone 1   325
+## 326    aKroger  Tombstone 1   326
+## 327    aKroger  Tombstone 1   327
+## 328    aKroger  Tombstone 1   328
+## 329    aKroger  Tombstone 1   329
+## 330    aKroger  Tombstone 1   330
+## 331    aKroger  Tombstone 1   331
+## 332    aKroger  Tombstone 1   332
+## 333    aKroger  Tombstone 1   333
+## 334    aKroger  Tombstone 1   334
+## 335    aKroger  Tombstone 1   335
+## 336    aKroger  Tombstone 1   336
+## 337    aKroger  Tombstone 1   337
+## 338    aKroger  Tombstone 1   338
+## 339    aKroger  Tombstone 1   339
+## 340    aKroger  Tombstone 1   340
+## 341    aKroger  Tombstone 1   341
+## 342    aKroger  Tombstone 1   342
+## 343    aKroger  Tombstone 1   343
+## 344    aKroger Red Barron 0   344
+## 345    aKroger Red Barron 0   345
+## 346    aKroger Red Barron 0   346
+## 347    aKroger Red Barron 0   347
+## 348    aKroger Red Barron 0   348
+## 349    aKroger Red Barron 0   349
+## 350    aKroger Red Barron 0   350
+## 351    aKroger Red Barron 0   351
+## 352    aKroger Red Barron 0   352
+## 353    aKroger Red Barron 0   353
+## 354    aKroger Red Barron 0   354
+## 355    aKroger Red Barron 0   355
+## 356    aKroger Red Barron 0   356
+## 357    aKroger Red Barron 0   357
+## 358    aKroger Red Barron 1   358
+## 359    aKroger Red Barron 1   359
+## 360    aKroger Red Barron 1   360
+## 361    aKroger Red Barron 1   361
+## 362    aKroger Red Barron 1   362
+## 363    aKroger Red Barron 1   363
+## 364    aKroger Red Barron 1   364
+## 365    aKroger Red Barron 1   365
+## 366    aKroger Red Barron 1   366
+## 367    aKroger Red Barron 1   367
+## 368    aKroger Red Barron 1   368
+## 369    aKroger Red Barron 1   369
+## 370    aKroger Red Barron 1   370
+## 371    aKroger Red Barron 1   371
+## 372    aKroger Red Barron 1   372
+## 373    aKroger Red Barron 1   373
+## 374    aKroger Red Barron 1   374
+## 375    aKroger Red Barron 1   375
+## 376    aKroger Red Barron 1   376
+## 377    aKroger Red Barron 1   377
+## 378    aKroger Red Barron 1   378
+## 379    aKroger Red Barron 1   379
+## 380    aKroger Red Barron 1   380</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="basics.html#cb10-1"></a><span class="co"># renaming the columns</span></span>
+<span id="cb10-2"><a href="basics.html#cb10-2"></a><span class="kw">colnames</span>(dpizza) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Prod0&#39;</span>,<span class="st">&#39;Prod1&#39;</span>, <span class="st">&#39;y&#39;</span>, <span class="st">&#39;contest_id&#39;</span>)</span>
+<span id="cb10-3"><a href="basics.html#cb10-3"></a><span class="co"># creating a short table to exemplify</span></span>
+<span id="cb10-4"><a href="basics.html#cb10-4"></a><span class="kw">sample_n</span>(dpizza, <span class="dt">size =</span> <span class="dv">10</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-5"><a href="basics.html#cb10-5"></a><span class="st">  </span><span class="kw">kable</span>(<span class="dt">caption =</span> <span class="st">&#39;Sample of the expanded pizza data set&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-6"><a href="basics.html#cb10-6"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="kw">c</span>(<span class="st">&quot;striped&quot;</span>, <span class="st">&quot;hover&quot;</span>, <span class="st">&quot;condensed&quot;</span>, <span class="st">&quot;responsive&quot;</span>))</span></code></pre></div>
+<table class="table table-striped table-hover table-condensed table-responsive" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-8">Table 2.2: </span>Sample of the expanded pizza data set
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Prod0
+</th>
+<th style="text-align:left;">
+Prod1
+</th>
+<th style="text-align:right;">
+y
+</th>
+<th style="text-align:right;">
+contest_id
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+aKroger
+</td>
+<td style="text-align:left;">
+Red Barron
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+362
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Freschetta
+</td>
+<td style="text-align:left;">
+DiGiorno
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+226
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DiGiorno
+</td>
+<td style="text-align:left;">
+Red Barron
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+128
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+aKroger
+</td>
+<td style="text-align:left;">
+Red Barron
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+358
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Red Barron
+</td>
+<td style="text-align:left;">
+Freschetta
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+269
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tombstone
+</td>
+<td style="text-align:left;">
+Red Barron
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DiGiorno
+</td>
+<td style="text-align:left;">
+Tombstone
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+68
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Freschetta
+</td>
+<td style="text-align:left;">
+aKroger
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+265
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Freschetta
+</td>
+<td style="text-align:left;">
+DiGiorno
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+210
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DiGiorno
+</td>
+<td style="text-align:left;">
+aKroger
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+88
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="the-bayesian-bradley-terry-analysis" class="section level2">
+<h2><span class="header-section-number">2.2</span> The Bayesian Bradley-Terry analysis</h2>
+<p>Now that we have the data in the correct format we can use bpcs package to model the Bayesian Bradley-Terry Model. It is a good practice to save the result fitted model in a file right after sampling. Some models might take several minutes to fit and you probably don’t want to keep re-fitting the model always. After saving you can just read the model and continue your analysis instead of re-fitting. The <code>save_bpc_model</code> is a wrapper function around the <code>saveRDS</code> function with a few smaller checks. Few free to use any. To read you can use the <code>load_bpc_model</code> or the <code>readRDS</code> functions.</p>
+<p>Let’s run the simplest Bayesian Bradley-Terry model:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="basics.html#cb11-1"></a>m &lt;-<span class="st"> </span><span class="kw">bpc</span>(<span class="dt">data =</span> dpizza,</span>
+<span id="cb11-2"><a href="basics.html#cb11-2"></a>         <span class="dt">player0 =</span> <span class="st">&#39;Prod0&#39;</span>,</span>
+<span id="cb11-3"><a href="basics.html#cb11-3"></a>         <span class="dt">player1 =</span> <span class="st">&#39;Prod1&#39;</span>,</span>
+<span id="cb11-4"><a href="basics.html#cb11-4"></a>         <span class="dt">result_column =</span> <span class="st">&#39;y&#39;</span>,</span>
+<span id="cb11-5"><a href="basics.html#cb11-5"></a>         <span class="dt">solve_ties =</span> <span class="st">&#39;none&#39;</span>,</span>
+<span id="cb11-6"><a href="basics.html#cb11-6"></a>         <span class="dt">model_type =</span> <span class="st">&#39;bt&#39;</span>,</span>
+<span id="cb11-7"><a href="basics.html#cb11-7"></a>         <span class="dt">iter=</span><span class="dv">3000</span>)</span>
+<span id="cb11-8"><a href="basics.html#cb11-8"></a><span class="kw">save_bpc_model</span>(m, <span class="st">&#39;pizza&#39;</span>,<span class="st">&#39;fittedmodels&#39;</span>)</span></code></pre></div>
+<p>To load:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="basics.html#cb12-1"></a>m &lt;-<span class="st"> </span><span class="kw">load_bpc_model</span>(<span class="st">&#39;fittedmodels/pizza.RDS&#39;</span>)</span></code></pre></div>
+<div id="diagnostics" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Diagnostics</h3>
+<p>After sampling, we can investigate the convergence of the model and the predictive posterior with shinystan.
+Convergence checks are already available in the fitted model, but for the posterior checks we need to first calculate the posterior predictive values with the <code>posterior_predictive</code> function. This function returns a list with two values, the <code>y</code> (original fitted values) and the <code>y_pred</code> (posterior predictve). Both are in the correct format to use with shinystan.</p>
+<p>We save them to the global environment and then we load it in shinystan directly (through the GUI).</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="basics.html#cb13-1"></a><span class="co">#posterior predictive check </span></span>
+<span id="cb13-2"><a href="basics.html#cb13-2"></a>y_pp &lt;-<span class="st"> </span><span class="kw">posterior_predictive</span>(m)</span>
+<span id="cb13-3"><a href="basics.html#cb13-3"></a>y &lt;-<span class="st"> </span>y_pp<span class="op">$</span>y</span>
+<span id="cb13-4"><a href="basics.html#cb13-4"></a>y_pred &lt;-<span class="st"> </span>y_pp<span class="op">$</span>y_pred</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="basics.html#cb14-1"></a><span class="kw">launch_shinystan</span>(m)</span></code></pre></div>
+<p>Since everything looks fine we can proceed with the analysis.</p>
+</div>
+<div id="summary-information" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Summary information</h3>
+<p>The <code>summary</code> function in the command line provides some tables that help understand the model, such as the summary of the parameters, the probability of winning, and the ranking table.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="basics.html#cb15-1"></a><span class="kw">summary</span>(m)</span></code></pre></div>
+<pre><code>## Estimated baseline parameters with HPD intervals:
+## 
+## 
+## Table: (\#tab:unnamed-chunk-13)Parameters estimates
+## 
+## Parameter              Mean   HPD_lower   HPD_higher
+## -------------------  ------  ----------  -----------
+## lambda[Tombstone]     -0.20       -3.02         2.37
+## lambda[DiGiorno]       0.26       -2.39         2.99
+## lambda[Freschetta]     0.16       -2.54         2.82
+## lambda[Red Barron]     0.18       -2.50         2.84
+## lambda[aKroger]       -0.41       -3.11         2.24
+## NOTES:
+## * A higher lambda indicates a higher team ability
+## 
+## Posterior probabilities:
+## These probabilities are calculated from the predictive posterior distribution
+## for all player combinations
+## 
+## 
+## Table: (\#tab:unnamed-chunk-13)Estimated posterior probabilites
+## 
+## i            j             i_beats_j   j_beats_i
+## -----------  -----------  ----------  ----------
+## aKroger      DiGiorno           0.62        0.38
+## aKroger      Freschetta         0.70        0.30
+## aKroger      Red Barron         0.69        0.31
+## aKroger      Tombstone          0.62        0.38
+## DiGiorno     Freschetta         0.48        0.52
+## DiGiorno     Red Barron         0.57        0.43
+## DiGiorno     Tombstone          0.44        0.56
+## Freschetta   Red Barron         0.53        0.47
+## Freschetta   Tombstone          0.44        0.56
+## Red Barron   Tombstone          0.36        0.64
+## 
+## Rank of the players&#39; abilities:
+## The rank is based on the posterior rank distribution of the lambda parameter
+## 
+## 
+## Table: (\#tab:unnamed-chunk-13)Estimated posterior ranks
+## 
+## Parameter             MedianRank   MeanRank   StdRank
+## -------------------  -----------  ---------  --------
+## lambda[DiGiorno]               1       1.63      0.80
+## lambda[Freschetta]             2       2.28      0.84
+## lambda[Red Barron]             2       2.19      0.83
+## lambda[Tombstone]              4       4.05      0.52
+## lambda[aKroger]                5       4.84      0.37</code></pre>
+<p>The presented tables can also be obtained individually as data frame. Additionally, for all of them it is possible to obtain the posterior distribution.</p>
+<p>The package has some publication-ready functions to create plots and tables. The format option can set it to latex, html, pandoc etc.</p>
+<p>Parameters with HPDI</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="basics.html#cb17-1"></a><span class="kw">get_parameters_table</span>(m, <span class="dt">format=</span><span class="st">&#39;html&#39;</span>, <span class="dt">caption =</span> <span class="st">&#39;Parameter estimates with HPDI&#39;</span>, <span class="dt">digits =</span> <span class="dv">3</span>)</span></code></pre></div>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-14">Table 2.3: </span>Parameter estimates with HPDI
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Parameter
+</th>
+<th style="text-align:right;">
+Mean
+</th>
+<th style="text-align:right;">
+HPD_lower
+</th>
+<th style="text-align:right;">
+HPD_higher
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+lambda[Tombstone]
+</td>
+<td style="text-align:right;">
+-0.199
+</td>
+<td style="text-align:right;">
+-3.023
+</td>
+<td style="text-align:right;">
+2.373
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lambda[DiGiorno]
+</td>
+<td style="text-align:right;">
+0.264
+</td>
+<td style="text-align:right;">
+-2.388
+</td>
+<td style="text-align:right;">
+2.994
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lambda[Freschetta]
+</td>
+<td style="text-align:right;">
+0.158
+</td>
+<td style="text-align:right;">
+-2.541
+</td>
+<td style="text-align:right;">
+2.821
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lambda[Red Barron]
+</td>
+<td style="text-align:right;">
+0.175
+</td>
+<td style="text-align:right;">
+-2.502
+</td>
+<td style="text-align:right;">
+2.836
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lambda[aKroger]
+</td>
+<td style="text-align:right;">
+-0.414
+</td>
+<td style="text-align:right;">
+-3.111
+</td>
+<td style="text-align:right;">
+2.241
+</td>
+</tr>
+</tbody>
+</table>
+<p>Probabilities</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="basics.html#cb18-1"></a><span class="kw">get_probabilities_table</span>(m, <span class="dt">format=</span><span class="st">&#39;html&#39;</span>, <span class="dt">caption=</span><span class="st">&#39;Probability of selectiig a brand of pizza over the other&#39;</span>)</span></code></pre></div>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-15">Table 2.4: </span>Probability of selectiig a brand of pizza over the other
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+i
+</th>
+<th style="text-align:left;">
+j
+</th>
+<th style="text-align:right;">
+i_beats_j
+</th>
+<th style="text-align:right;">
+j_beats_i
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+aKroger
+</td>
+<td style="text-align:left;">
+DiGiorno
+</td>
+<td style="text-align:right;">
+0.64
+</td>
+<td style="text-align:right;">
+0.36
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+aKroger
+</td>
+<td style="text-align:left;">
+Freschetta
+</td>
+<td style="text-align:right;">
+0.58
+</td>
+<td style="text-align:right;">
+0.42
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+aKroger
+</td>
+<td style="text-align:left;">
+Red Barron
+</td>
+<td style="text-align:right;">
+0.63
+</td>
+<td style="text-align:right;">
+0.37
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+aKroger
+</td>
+<td style="text-align:left;">
+Tombstone
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+<td style="text-align:right;">
+0.50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DiGiorno
+</td>
+<td style="text-align:left;">
+Freschetta
+</td>
+<td style="text-align:right;">
+0.43
+</td>
+<td style="text-align:right;">
+0.57
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DiGiorno
+</td>
+<td style="text-align:left;">
+Red Barron
+</td>
+<td style="text-align:right;">
+0.43
+</td>
+<td style="text-align:right;">
+0.57
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+DiGiorno
+</td>
+<td style="text-align:left;">
+Tombstone
+</td>
+<td style="text-align:right;">
+0.37
+</td>
+<td style="text-align:right;">
+0.63
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Freschetta
+</td>
+<td style="text-align:left;">
+Red Barron
+</td>
+<td style="text-align:right;">
+0.46
+</td>
+<td style="text-align:right;">
+0.54
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Freschetta
+</td>
+<td style="text-align:left;">
+Tombstone
+</td>
+<td style="text-align:right;">
+0.34
+</td>
+<td style="text-align:right;">
+0.66
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Red Barron
+</td>
+<td style="text-align:left;">
+Tombstone
+</td>
+<td style="text-align:right;">
+0.31
+</td>
+<td style="text-align:right;">
+0.69
+</td>
+</tr>
+</tbody>
+</table>
+<p>Rank</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="basics.html#cb19-1"></a><span class="kw">get_rank_of_players_table</span>(m, <span class="dt">caption=</span><span class="st">&#39;Rank of Pizza&#39;</span>, <span class="dt">format=</span><span class="st">&#39;html&#39;</span>)</span></code></pre></div>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-16">Table 2.5: </span>Rank of Pizza
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Parameter
+</th>
+<th style="text-align:right;">
+MedianRank
+</th>
+<th style="text-align:right;">
+MeanRank
+</th>
+<th style="text-align:right;">
+StdRank
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+lambda[DiGiorno]
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1.630
+</td>
+<td style="text-align:right;">
+0.776
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lambda[Freschetta]
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2.260
+</td>
+<td style="text-align:right;">
+0.839
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lambda[Red Barron]
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2.209
+</td>
+<td style="text-align:right;">
+0.847
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lambda[Tombstone]
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4.062
+</td>
+<td style="text-align:right;">
+0.524
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+lambda[aKroger]
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+4.839
+</td>
+<td style="text-align:right;">
+0.381
+</td>
+</tr>
+</tbody>
+</table>
+<p>Plot</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="basics.html#cb20-1"></a><span class="kw">plot</span>(m, <span class="dt">rotate_x_labels=</span>T)</span></code></pre></div>
+<p><img src="bpcs-appendix_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p>We can also obtain information criteria to compare different models that fit the same data.</p>
+<p>Below we show how to obtain the WAIC</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="basics.html#cb21-1"></a><span class="kw">get_waic</span>(m)</span></code></pre></div>
+<pre><code>## 
+## Computed from 8000 by 380 log-likelihood matrix
+## 
+##           Estimate  SE
+## elpd_waic   -259.8 3.9
+## p_waic         4.0 0.1
+## waic         519.6 7.8</code></pre>
+<p>This chapter show some basic functionality of the package. The next chapters will show how to apply these functions to solve more interesting and complex problems. We also recommend checking the package documentation at: <a href="https://davidissamattos.github.io/bpcs/index.html" class="uri">https://davidissamattos.github.io/bpcs/index.html</a></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="studyI.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bpcs-appendix.pdf", "bpcs-appendix.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
