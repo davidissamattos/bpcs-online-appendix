@@ -25,11 +25,12 @@ d <- readxl::read_xlsx('data/moisture.xlsx', sheet = 'Exp02_BTmodel')
 Below we show a sample of how the original data looks like:
 ```{r}
 sample_n(d, size = 5) %>% 
-  kable(caption = 'Sample of the original data')
+  kable(caption = 'Sample of the original data') %>% 
+  kableExtra::scroll_box(width = "100%")
 ```
 
 The data is in the aggregated format. So let's expand it to the long format 
-```{r cache=T}
+```{r expand_data1, cache=T}
 d_moisture <- expand_aggregated_data(d, player0 = 'player1', player1='player2', wins0 = 'win1', wins1='win2')
 ```
 
@@ -37,7 +38,8 @@ Now the data looks like this:
 
 ```{r} 
 sample_n(d_moisture, size = 20) %>% 
-  kable(caption = 'The data in the long format')
+  kable(caption = 'The data in the long format') %>% 
+  kableExtra::scroll_box(width = "100%")
 ```
 
 

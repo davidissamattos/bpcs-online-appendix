@@ -36,14 +36,15 @@ To use with the bpcs package, we need to expand it to a single contest per row, 
 
 This leads to a data frame with 380 rows (same number of wins for 1 and 2). This function adds an id column to the data, so each row is uniquely represented (important if you will do some transformations later). Below we examplify how the expanded data looks like
 
-```{r}
+```{r expand_data2}
 dpizza <- expand_aggregated_data(d = d, player0 = 'Prod1', player1 = 'Prod2', wins0 = 'Win1', wins1 = 'Win2', keep=NULL)
 # renaming the columns
 colnames(dpizza) <- c('Prod0','Prod1', 'y', 'contest_id')
 # creating a short table to exemplify
 sample_n(dpizza, size = 10) %>% 
   kable(caption = 'Sample of the expanded pizza data set') %>% 
-  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>% 
+  kableExtra::scroll_box(width = "100%")
 ```
 
 ## The Bayesian Bradley-Terry analysis
@@ -75,7 +76,7 @@ Convergence checks are already available in the fitted model, but for the poster
 
 We save them to the global environment and then we load it in shinystan directly (through the GUI).
 
-```{r}
+```{r pp_check_pizza, results='hide'}
 #posterior predictive check 
 y_pp <- posterior_predictive(m)
 y <- y_pp$y

@@ -26,7 +26,8 @@ Previewing how the data looks like
 ```{r}
 dplyr::sample_n(d, size = 10) %>% 
   knitr::kable(caption='Sample of how the dataset looks like') %>% 
-  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>% 
+  kableExtra::scroll_box(width = "100%")
 ```
 
 Now we need to modify a bit the data frame to create a column with the results as 0 and 1.
@@ -87,19 +88,22 @@ Below we show a few lines of each dataset:
 ```{r}
 dplyr::sample_n(gor, size = 10) %>% 
   knitr::kable(caption='Sample of how the gorilla dataset looks like') %>% 
-  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>% 
+  kableExtra::scroll_box(width = "100%")
 ```
 
 ```{r}
 dplyr::sample_n(chip, size = 10) %>% 
   knitr::kable(caption='Sample of how the chimpanzees dataset looks like') %>% 
-  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>% 
+  kableExtra::scroll_box(width = "100%")
 ```
 
 ```{r}
 dplyr::sample_n(macaque, size = 10) %>% 
   knitr::kable(caption='Sample of how the macaques dataset looks like') %>% 
-  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>% 
+  kableExtra::scroll_box(width = "100%")
 ```
 
 
@@ -283,7 +287,8 @@ kable(
   col.names = c('Specie', 'Bradley-Terry', 'Bradley-Terry with random effects')
 ) %>%
   kableExtra::add_header_above(c(" " = 1, "WAIC" = 2)) %>%
-  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>% 
+  kableExtra::scroll_box(width = "100%")
 ```
 
 
@@ -350,7 +355,8 @@ kable( caption = 'Parameters of the model with random effects', digits = 2, col.
 kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>% 
   kableExtra::pack_rows("Macaque", 1, 6) %>%
   kableExtra::pack_rows("Chimpanzees", 7, 13) %>% 
-  kableExtra::pack_rows("Gorilla", 14, 20)
+  kableExtra::pack_rows("Gorilla", 14, 20) %>% 
+  kableExtra::scroll_box(width = "100%")
 )
 ```
 
@@ -360,7 +366,7 @@ kable( format='latex', booktabs=T, caption = 'Parameters of the model with rando
 kableExtra::kable_styling() %>% 
   kableExtra::pack_rows("Macaque", 1, 6) %>%
   kableExtra::pack_rows("Chimpanzees", 7, 13) %>% 
-  kableExtra::pack_rows("Gorilla", 14, 20)
+  kableExtra::pack_rows("Gorilla", 14, 20) 
 ```
 
 
@@ -397,7 +403,8 @@ kable( caption = 'Ranking of the food preferences per specie with model with ran
 kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>% 
   kableExtra::pack_rows("Macaque", 1, 6) %>%
   kableExtra::pack_rows("Chimpanzees", 7, 12) %>% 
-  kableExtra::pack_rows("Gorilla", 13, 18)
+  kableExtra::pack_rows("Gorilla", 13, 18) %>% 
+  kableExtra::scroll_box(width = "100%")
 )
 ```
 
@@ -629,18 +636,21 @@ Now we can create the table
 ```{r}
 prob_table <- prob_table %>%
   mutate(Probability = i_beats_j,
-    OddsRatio = Probability/(1-Probability))
+         OddsRatio = Probability / (1 - Probability))
 
-prob_table %>% 
-  dplyr::select(i,j,Probability,OddsRatio) %>% 
-  kable(caption='Posterior probabilities of the novel stimuli i being selected over the trained stimuli j',
-        booktabs=T,
-        digits=2,
-        col.names = c('Item i', 'Item j', 'Probability', 'Odds Ratio')) %>% 
-    kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>%
-    kableExtra::pack_rows("Gorilla", 1, 8) %>%
-    kableExtra::pack_rows("Chimpanzee", 9, 16) %>% 
-    kableExtra::pack_rows("Macaque", 17, 24)
+prob_table %>%
+  dplyr::select(i, j, Probability, OddsRatio) %>%
+  kable(
+    caption = 'Posterior probabilities of the novel stimuli i being selected over the trained stimuli j',
+    booktabs = T,
+    digits = 2,
+    col.names = c('Item i', 'Item j', 'Probability', 'Odds Ratio')
+  ) %>%
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>%
+  kableExtra::pack_rows("Gorilla", 1, 8) %>%
+  kableExtra::pack_rows("Chimpanzee", 9, 16) %>%
+  kableExtra::pack_rows("Macaque", 17, 24) %>% 
+  kableExtra::scroll_box(width = "100%")
 ```
 
 ```{r echo=F, eval=F}

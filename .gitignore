@@ -6,3 +6,5 @@ bpcs-appendix.Rproj
 _bookdown_files/*
 .DS_store
 .Rhistory
+bpcs-appendix_cache/*
+bpcs-appendix_files/*

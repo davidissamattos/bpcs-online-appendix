@@ -25,7 +25,8 @@ d<-read.table("data/MHLC.txt", sep="\t", header=T)
 d<-as.data.frame(d)
 sample_n(d, size=5) %>% 
   kable(caption = 'Sample of rows from the original data') %>% 
-  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>% 
+  kableExtra::scroll_box(width = "100%")
 ```
 
 
@@ -53,7 +54,8 @@ The data frame now looks like this:
 ```{r}
 dplyr::sample_n(d_longer, size=10) %>% 
   kable() %>% 
-  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>% 
+  kableExtra::scroll_box(width = "100%")
 ```
 
 Now that we have setup the data frame correctly for the bpcs package, we can use it to model the problem.
@@ -91,7 +93,8 @@ The final modified dataset looks like:
 ```{r}
 sample_n(d_longer, size=10) %>% 
   kable() %>% 
-  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>% 
+  kableExtra::scroll_box(width = "100%")
 ```
 
 Now we can proceed with the analysis.
@@ -135,7 +138,7 @@ m1_waic
 
 We have different HLC that can be used as predictors for the response. Let's create a single model with all the predictors.
 
-```{r}
+```{r eval=F}
 m2 <-
   bpc(
     d_longer,
@@ -239,7 +242,8 @@ df_table %>%
   kable(caption = 'Lambda parameters of the model and the random effects standard deviation', 
         digits = 2,
         col.names = c('Parameter', 'Mean','HPD lower', 'HPD lower')) %>% 
-  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>% 
+  kableExtra::scroll_box(width = "100%")
 ```
 
 ```{r echo=F, eval=F}
@@ -274,7 +278,8 @@ S %>%
   kableExtra::pack_rows("Active-Collaborative", 5, 8) %>% 
   kableExtra::pack_rows("Collaborative", 9, 12) %>%
   kableExtra::pack_rows("Passive-Collaborative", 13, 16) %>% 
-  kableExtra::pack_rows("Passive", 17, 20)
+  kableExtra::pack_rows("Passive", 17, 20) %>% 
+  kableExtra::scroll_box(width = "100%")
 ```
 
 ```{r echo=F, eval=F}
@@ -360,7 +365,8 @@ prob_hloc %>%
       digits = 2,
       booktabs = T) %>% 
   kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>% 
-  kableExtra::add_header_above(c("Roles" = 2, "HLOC dimensions" = 4, " "=1))
+  kableExtra::add_header_above(c("Roles" = 2, "HLOC dimensions" = 4, " "=1)) %>% 
+  kableExtra::scroll_box(width = "100%")
 ```
 
 ```{r eval=F, echo=F}
