@@ -9,8 +9,8 @@ Although a large overview of the functionality of the `bpcs` is available in the
 library(bpcs)
 library(tidyverse)
 library(knitr)
-options(mc.cores = parallel::detectCores())
-rstan::rstan_options(auto_write = TRUE)
+library(posterior)
+library(bayesplot)
 set.seed(99)
 ```
 
@@ -53,20 +53,21 @@ Now that we have the data in the correct format we can use bpcs package to model
 
 Let's run the simplest Bayesian Bradley-Terry model:
 
-```{r eval=F}
+```{r introbt, eval=F}
 m <- bpc(data = dpizza,
          player0 = 'Prod0',
          player1 = 'Prod1',
          result_column = 'y',
          solve_ties = 'none',
          model_type = 'bt',
-         iter=3000)
-save_bpc_model(m, 'pizza','fittedmodels')
+         iter=3000,
+         show_chain_messages = T)
+save_bpc_model(m, 'pizza','.bpcs')
 ```
 
 To load:
 ```{r}
-m <- load_bpc_model('fittedmodels/pizza.RDS')
+m <- load_bpc_model('.bpcs/pizza.RDS')
 ```
 
 ### Diagnostics
@@ -76,7 +77,7 @@ Convergence checks are already available in the fitted model, but for the poster
 
 We save them to the global environment and then we load it in shinystan directly (through the GUI).
 
-```{r pp_check_pizza, results='hide'}
+```{r pp_check_pizza, results='hide', eval=F}
 #posterior predictive check 
 y_pp <- posterior_predictive(m)
 y <- y_pp$y
@@ -88,6 +89,21 @@ launch_shinystan(m)
 ```
 
 Since everything looks fine we can proceed with the analysis.
+
+Alternatively, as a quick check we can use:
+
+```{r}
+check_convergence_diagnostics(m)
+```
+
+Traceplots
+```{r}
+draws<- m$fit$draws(variables = c('lambda'))
+mcmc_trace(posterior::as_draws(draws)) + 
+  labs(title="Traceplots")
+```
+
+
 
 ### Summary information
 
@@ -125,10 +141,16 @@ plot(m, rotate_x_labels=T)
 
 We can also obtain information criteria to compare different models that fit the same data.
 
-Below we show how to obtain the WAIC
+Below we show how to obtain the WAIC and the LOO-CV
 ```{r}
 get_waic(m)
 ```
+
+```{r}
+get_loo(m)
+```
+
+
 
 This chapter show some basic functionality of the package. The next chapters will show how to apply these functions to solve more interesting and complex problems. We also recommend checking the package documentation at: https://davidissamattos.github.io/bpcs/index.html 
 

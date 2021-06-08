@@ -8,3 +8,5 @@ _bookdown_files/*
 .Rhistory
 bpcs-appendix_cache/*
 bpcs-appendix_files/*
+.bpcs/*
+.bpcs_csv/*

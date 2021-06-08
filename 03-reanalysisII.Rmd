@@ -9,8 +9,6 @@ This reanalysis is based on the paper:
 library(bpcs)
 library(tidyverse)
 library(knitr)
-options(mc.cores = parallel::detectCores())
-rstan::rstan_options(auto_write = TRUE)
 set.seed(99)
 ```
 
@@ -111,7 +109,7 @@ dplyr::sample_n(macaque, size = 10) %>%
 
 Now that the data is ready let's fit three simple Bayesian Bradley-Terry models
 
-```{r eval=F}
+```{r r2bt, eval=F}
 m1_macaque <-
   bpc(
     macaque,
@@ -119,10 +117,11 @@ m1_macaque <-
     player1 = 'image2',
     result_column = 'y',
     model_type = 'bt',
-    priors = list(prior_lambda_std = 1.0),
-    iter = 3000
+    priors = list(prior_lambda_std = 3.0),
+    iter = 3000,
+    show_chain_messages = T
   )
-save_bpc_model(m1_macaque, 'm1_macaque', 'fittedmodels')
+save_bpc_model(m1_macaque, 'm1_macaque', './fittedmodels')
 
 m1_chip <-
   bpc(
@@ -131,10 +130,11 @@ m1_chip <-
     player1 = 'image2',
     result_column = 'y',
     model_type = 'bt',
-    priors = list(prior_lambda_std = 1.0),
-    iter = 3000
+    priors = list(prior_lambda_std = 3.0),
+    iter = 3000,
+    show_chain_messages = T
   )
-save_bpc_model(m1_chip, 'm1_chip', 'fittedmodels')
+save_bpc_model(m1_chip, 'm1_chip', './fittedmodels')
 
 m1_gor <-
   bpc(
@@ -143,10 +143,11 @@ m1_gor <-
     player1 = 'image2',
     result_column = 'y',
     model_type = 'bt',
-    priors = list(prior_lambda_std = 1.0),
-    iter = 3000
+    priors = list(prior_lambda_std = 3.0),
+    iter = 3000,
+    show_chain_messages = T
   )
-save_bpc_model(m1_gor, 'm1_gor', 'fittedmodels')
+save_bpc_model(m1_gor, 'm1_gor', './fittedmodels')
 ```
 
 ```{r echo=F}
@@ -167,10 +168,20 @@ y_pp_m1_chip <- pp_m1_chip_gor$y
 ypred_pp_m1_chip <- pp_m1_chip$y_pred
 ```
 
-Then we launch shinystan to assess convergence and validity of the model
+
+Then we launch shinystan to assess convergence and validity of the model (e.g.)
 ```{r eval=F}
 launch_shinystan(m1_chip)
 ```
+
+We can also do some quick checks with:
+
+```{r cache=T}
+check_convergence_diagnostics(m1_chip)
+check_convergence_diagnostics(m1_macaque)
+check_convergence_diagnostics(m1_gor)
+```
+
 
 ### Getting the WAIC
 Before we start getting the parameters tables and etc let's get the WAIC so we can compare with the next model (with random effects)
@@ -190,7 +201,7 @@ get_waic(m1_gor)
 ## Bradley-Terry model with random effects for individuals
 
 Let's add the cluster SubjectCode as a random effects in our model
-```{r eval=F}
+```{r r2btU, eval=F}
 m2_macaque <-
   bpc(
     macaque,
@@ -203,9 +214,10 @@ m2_macaque <-
       prior_lambda_std = 1.0,
       prior_U1_std = 1.0
     ),
-    iter = 3000
+    iter = 3000,
+    show_chain_messages = T
   )
-save_bpc_model(m2_macaque, 'm2_macaque', 'fittedmodels')
+save_bpc_model(m2_macaque, 'm2_macaque', './fittedmodels')
 
 m2_chip <-
   bpc(
@@ -219,9 +231,10 @@ m2_chip <-
       prior_lambda_std = 1.0,
       prior_U1_std = 1.0
     ),
-    iter = 3000
+    iter = 3000,
+    show_chain_messages = T
   )
-save_bpc_model(m2_chip, 'm2_chip', 'fittedmodels')
+save_bpc_model(m2_chip, 'm2_chip', './fittedmodels')
 
 m2_gor <-
   bpc(
@@ -235,9 +248,10 @@ m2_gor <-
       prior_lambda_std = 1.0,
       prior_U1_std = 1.0
     ),
-    iter = 3000
+    iter = 3000,
+    show_chain_messages = T
   )
-save_bpc_model(m2_gor, 'm2_gor', 'fittedmodels')
+save_bpc_model(m2_gor, 'm2_gor', './fittedmodels')
 ```
 
 ```{r echo=F}
@@ -247,9 +261,18 @@ m2_chip <- load_bpc_model('fittedmodels/m2_chip.RDS')
 m2_gor <- load_bpc_model('fittedmodels/m2_gor.RDS')
 ```
 
+
 Of course we should run diagnostic analysis on the models. For the gorillas
 ```{r eval=F}
 launch_shinystan(m2_gor)
+```
+
+We can also do some quick checks with:
+
+```{r cache=T}
+check_convergence_diagnostics(m2_chip)
+check_convergence_diagnostics(m2_macaque)
+check_convergence_diagnostics(m2_gor)
 ```
 
 ### Getting the WAIC
@@ -273,8 +296,8 @@ Below I just copied the result of the WAIC into a data frame to create the table
 waic_table <-
   data.frame(
     Species = c('Macaques', 'Chimpanzees', 'Gorillas'),
-    BT = c(7101.6, 7199.5, 9767.4),
-    BTU = c(6713.2, 6719.7, 8792.2)
+    BT = c(7101.5, 7199.4, 9767.2),
+    BTU = c(6712.6, 6720.0, 8792.9)
   )
 ```
 
@@ -319,9 +342,9 @@ Creating a nice table of the parameters.
 
 First let's put all species in the same data frame
 ```{r}
-df1 <- get_parameters(m2_macaque, n_eff = F)
-df2 <- get_parameters(m2_chip, n_eff = F)
-df3 <- get_parameters(m2_gor, n_eff = F)
+df1 <- get_parameters(m2_macaque, n_eff = F, keep_par_name = F)
+df2 <- get_parameters(m2_chip, n_eff = F, keep_par_name = F)
+df3 <- get_parameters(m2_gor, n_eff = F, keep_par_name = F)
 
 df1 <- df1 %>% dplyr::mutate(Species='Macaque')
 df2 <- df2 %>% dplyr::mutate(Species='Chimpanzees')
@@ -334,24 +357,13 @@ df <- rbind(df1,df2,df3)
 df <- df %>% 
   filter(!startsWith(Parameter,'U1['))
 
-#Re-coding the parameters (removing the lambda) so it reads nicer in the table.
-df$Parameter <- dplyr::recode(df$Parameter, 'lambda[Carrot]'='Carrot')
-df$Parameter <- dplyr::recode(df$Parameter, 'lambda[Grape]'='Grape')
-df$Parameter <- dplyr::recode(df$Parameter, 'lambda[Turnip]'='Turnip')
-df$Parameter <- dplyr::recode(df$Parameter, 'lambda[Cucumber]'='Cucumber')
-df$Parameter <- dplyr::recode(df$Parameter, 'lambda[Tomato]'='Tomato')
-df$Parameter <- dplyr::recode(df$Parameter, 'lambda[Apple]'='Apple')
-df$Parameter <- dplyr::recode(df$Parameter, 'lambda[Jungle Pellet]'='Jungle Pellet')
-df$Parameter <- dplyr::recode(df$Parameter, 'lambda[Green Beans]'='Green Beans')
-df$Parameter <- dplyr::recode(df$Parameter, 'lambda[Celery]'='Celery')
-df$Parameter <- dplyr::recode(df$Parameter, 'lambda[Oats]'='Oats')
-df$Parameter <- dplyr::recode(df$Parameter, 'lambda[Peanuts]'='Peanuts')
+rownames(df) <- NULL
 ```
 
 Now let's create the table by removing the species column and adding some row Headers for the species
 ```{r}
 (df %>% select(-Species) %>% 
-kable( caption = 'Parameters of the model with random effects', digits = 2, col.names = c('Parameter', 'Mean', 'HPD lower', 'HPD upper')) %>% 
+kable( caption = 'Parameters of the model with random effects', digits = 2, col.names = c('Parameter', 'Mean', 'Median', 'HPD lower', 'HPD upper'), row.names = NA) %>% 
 kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>% 
   kableExtra::pack_rows("Macaque", 1, 6) %>%
   kableExtra::pack_rows("Chimpanzees", 7, 13) %>% 
@@ -362,7 +374,7 @@ kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed",
 
 ```{r eval=F, echo=F}
 df %>% select(-Species) %>% 
-kable( format='latex', booktabs=T, caption = 'Parameters of the model with random effects', digits = 2, col.names = c('Parameter', 'Mean', 'HPD lower', 'HPD upper')) %>% 
+kable( format='latex', booktabs=T, caption = 'Parameters of the model with random effects', digits = 2, col.names = c('Parameter', 'Mean', 'Median', 'HPD lower', 'HPD upper')) %>% 
 kableExtra::kable_styling() %>% 
   kableExtra::pack_rows("Macaque", 1, 6) %>%
   kableExtra::pack_rows("Chimpanzees", 7, 13) %>% 
@@ -379,20 +391,6 @@ rank3 <- get_rank_of_players_df(m2_gor)
 
 #appending the dataframes
 rank_all <- rbind(rank1,rank2,rank3)
-
-#Re-coding the parameters (removing the lambda) so it reads nicer in the table.
-rank_all$Parameter <- dplyr::recode(rank_all$Parameter, 'lambda[Carrot]'='Carrot')
-rank_all$Parameter <- dplyr::recode(rank_all$Parameter, 'lambda[Grape]'='Grape')
-rank_all$Parameter <- dplyr::recode(rank_all$Parameter, 'lambda[Turnip]'='Turnip')
-rank_all$Parameter <- dplyr::recode(rank_all$Parameter, 'lambda[Cucumber]'='Cucumber')
-rank_all$Parameter <- dplyr::recode(rank_all$Parameter, 'lambda[Tomato]'='Tomato')
-rank_all$Parameter <- dplyr::recode(rank_all$Parameter, 'lambda[Apple]'='Apple')
-rank_all$Parameter <- dplyr::recode(rank_all$Parameter, 'lambda[Jungle Pellet]'='Jungle Pellet')
-rank_all$Parameter <- dplyr::recode(rank_all$Parameter, 'lambda[Green Beans]'='Green Beans')
-rank_all$Parameter <- dplyr::recode(rank_all$Parameter, 'lambda[Celery]'='Celery')
-rank_all$Parameter <- dplyr::recode(rank_all$Parameter, 'lambda[Oats]'='Oats')
-rank_all$Parameter <- dplyr::recode(rank_all$Parameter, 'lambda[Peanuts]'='Peanuts')
-
 ```
 
 Now let's create the rank table
@@ -424,9 +422,9 @@ Now let's use ggplot to create a plot comparing both types of model. The simple 
 
 First we need to prepare the data frames for plotting. For the simple BT model (called old)
 ```{r}
-df1_old <- get_parameters(m1_macaque, n_eff = F)
-df2_old <- get_parameters(m1_chip, n_eff = F)
-df3_old <- get_parameters(m1_gor, n_eff = F)
+df1_old <- get_parameters(m1_macaque, n_eff = F, keep_par_name = F)
+df2_old <- get_parameters(m1_chip, n_eff = F, keep_par_name = F)
+df3_old <- get_parameters(m1_gor, n_eff = F, keep_par_name = F)
 
 df1_old <- df1_old %>% dplyr::mutate(Species='Macaque', Model='Simple')
 df2_old <- df2_old %>% dplyr::mutate(Species='Chimpanzees', Model='Simple')
@@ -438,27 +436,15 @@ df_old <- rbind(df1_old,df2_old,df3_old)
 #Removing the individual random effects parameters
 df_old <- df_old %>% 
   filter(!startsWith(Parameter,'U'))
-
-#Re-coding some parameters so it reads nicer in the figure
-df_old$Parameter <- dplyr::recode(df_old$Parameter, 'lambda[Carrot]'='Carrot')
-df_old$Parameter <- dplyr::recode(df_old$Parameter, 'lambda[Grape]'='Grape')
-df_old$Parameter <- dplyr::recode(df_old$Parameter, 'lambda[Turnip]'='Turnip')
-df_old$Parameter <- dplyr::recode(df_old$Parameter, 'lambda[Cucumber]'='Cucumber')
-df_old$Parameter <- dplyr::recode(df_old$Parameter, 'lambda[Tomato]'='Tomato')
-df_old$Parameter <- dplyr::recode(df_old$Parameter, 'lambda[Apple]'='Apple')
-df_old$Parameter <- dplyr::recode(df_old$Parameter, 'lambda[Jungle Pellet]'='Jungle Pellet')
-df_old$Parameter <- dplyr::recode(df_old$Parameter, 'lambda[Green Beans]'='Green Beans')
-df_old$Parameter <- dplyr::recode(df_old$Parameter, 'lambda[Celery]'='Celery')
-df_old$Parameter <- dplyr::recode(df_old$Parameter, 'lambda[Oats]'='Oats')
-df_old$Parameter <- dplyr::recode(df_old$Parameter, 'lambda[Peanuts]'='Peanuts')
+rownames(df_old) <- NULL
 ```
 
 For the BT with random effects
 
 ```{r}
-df1 <- get_parameters(m2_macaque, n_eff = F)
-df2 <- get_parameters(m2_chip, n_eff = F)
-df3 <- get_parameters(m2_gor, n_eff = F)
+df1 <- get_parameters(m2_macaque, n_eff = F, keep_par_name = F)
+df2 <- get_parameters(m2_chip, n_eff = F, keep_par_name = F)
+df3 <- get_parameters(m2_gor, n_eff = F, keep_par_name = F)
 
 df1 <- df1 %>% dplyr::mutate(Species='Macaque', Model='RandomEffects')
 df2 <- df2 %>% dplyr::mutate(Species='Chimpanzees', Model='RandomEffects')
@@ -470,19 +456,7 @@ df <- rbind(df1,df2,df3)
 #Removing the individual random effects parameters
 df <- df %>% 
   filter(!startsWith(Parameter,'U'))
-
-#Re-coding some parameters so it reads nicer in the figure
-df$Parameter <- dplyr::recode(df$Parameter, 'lambda[Carrot]'='Carrot')
-df$Parameter <- dplyr::recode(df$Parameter, 'lambda[Grape]'='Grape')
-df$Parameter <- dplyr::recode(df$Parameter, 'lambda[Turnip]'='Turnip')
-df$Parameter <- dplyr::recode(df$Parameter, 'lambda[Cucumber]'='Cucumber')
-df$Parameter <- dplyr::recode(df$Parameter, 'lambda[Tomato]'='Tomato')
-df$Parameter <- dplyr::recode(df$Parameter, 'lambda[Apple]'='Apple')
-df$Parameter <- dplyr::recode(df$Parameter, 'lambda[Jungle Pellet]'='Jungle Pellet')
-df$Parameter <- dplyr::recode(df$Parameter, 'lambda[Green Beans]'='Green Beans')
-df$Parameter <- dplyr::recode(df$Parameter, 'lambda[Celery]'='Celery')
-df$Parameter <- dplyr::recode(df$Parameter, 'lambda[Oats]'='Oats')
-df$Parameter <- dplyr::recode(df$Parameter, 'lambda[Peanuts]'='Peanuts')
+rownames(df) <- NULL
 ```
 
 Now we can merge them in a single data frame for ggplot
@@ -530,7 +504,7 @@ We ask for the data frame instead of the table because we will assemble the tabl
 # Create a data frame with all the pairs of food that we want to calculate
 pairs_gor <-
   data.frame(
-    image1 = c(
+    image2 = c(
       'Apple',
       'Apple',
       'Apple',
@@ -540,7 +514,7 @@ pairs_gor <-
       'Tomato',
       'Tomato'
     ),
-    image2 = c(
+    image1 = c(
       'Cucumber',
       'Grape',
       'Turnip',
@@ -554,7 +528,7 @@ pairs_gor <-
 
 pairs_chip <-
   data.frame(
-    image1 = c(
+    image2 = c(
       'Apple',
       'Apple',
       'Apple',
@@ -564,7 +538,7 @@ pairs_chip <-
       'Tomato',
       'Tomato'
     ),
-    image2 = c(
+    image1 = c(
       'Cucumber',
       'Grape',
       'Turnip',
@@ -606,7 +580,7 @@ prob_chip <-
   get_probabilities_df(
     m2_chip, 
     newdata = pairs_chip,
-    model_type = 'bt') #here we are assuming zero for the random effects
+    model_type = 'bt')
 
 prob_macaque <-
   get_probabilities_df(

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Online appendix for the paper: “Bayesian Paired-Comparison with the bpcs package”</title>
   <meta name="description" content="This is the online appendix for the paper: “Bayesian Paired-Comparison with the bpcs package.”" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Online appendix for the paper: “Bayesian Paired-Comparison with the bpcs package”" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="David Issa Mattos and Érika Martins Silva Ramos" />
 
 
-<meta name="date" content="2021-01-20" />
+<meta name="date" content="2021-06-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 
 <link rel="next" href="basics.html"/>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,24 +51,24 @@
 
 
 
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -87,7 +88,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -120,6 +121,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 </head>
 
 <body>
@@ -132,43 +134,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Foreword</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Foreword</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#installation-of-the-bpcs-package"><i class="fa fa-check"></i><b>1.1</b> Installation of the bpcs package</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#session-info"><i class="fa fa-check"></i><b>1.2</b> Session info</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>2</b> Basic functionality</a><ul>
+<li class="chapter" data-level="2" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>2</b> Basic functionality</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="basics.html"><a href="basics.html#reading-and-preparing-the-data"><i class="fa fa-check"></i><b>2.1</b> Reading and preparing the data</a></li>
-<li class="chapter" data-level="2.2" data-path="basics.html"><a href="basics.html#the-bayesian-bradley-terry-analysis"><i class="fa fa-check"></i><b>2.2</b> The Bayesian Bradley-Terry analysis</a><ul>
+<li class="chapter" data-level="2.2" data-path="basics.html"><a href="basics.html#the-bayesian-bradley-terry-analysis"><i class="fa fa-check"></i><b>2.2</b> The Bayesian Bradley-Terry analysis</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="basics.html"><a href="basics.html#diagnostics"><i class="fa fa-check"></i><b>2.2.1</b> Diagnostics</a></li>
 <li class="chapter" data-level="2.2.2" data-path="basics.html"><a href="basics.html#summary-information"><i class="fa fa-check"></i><b>2.2.2</b> Summary information</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="studyI.html"><a href="studyI.html"><i class="fa fa-check"></i><b>3</b> Re-analysis 1</a><ul>
+<li class="chapter" data-level="3" data-path="studyI.html"><a href="studyI.html"><i class="fa fa-check"></i><b>3</b> Re-analysis 1</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="studyI.html"><a href="studyI.html#importing-the-data"><i class="fa fa-check"></i><b>3.1</b> Importing the data</a></li>
 <li class="chapter" data-level="3.2" data-path="studyI.html"><a href="studyI.html#analysis-with-the-bradley-terry-model-and-the-order-effect-model"><i class="fa fa-check"></i><b>3.2</b> Analysis with the Bradley-Terry model and the order effect model</a></li>
-<li class="chapter" data-level="3.3" data-path="studyI.html"><a href="studyI.html#diagnostics-1"><i class="fa fa-check"></i><b>3.3</b> Diagnostics</a><ul>
+<li class="chapter" data-level="3.3" data-path="studyI.html"><a href="studyI.html#diagnostics-1"><i class="fa fa-check"></i><b>3.3</b> Diagnostics</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="studyI.html"><a href="studyI.html#tables-and-plots"><i class="fa fa-check"></i><b>3.3.1</b> Tables and plots</a></li>
 <li class="chapter" data-level="3.3.2" data-path="studyI.html"><a href="studyI.html#waic"><i class="fa fa-check"></i><b>3.3.2</b> WAIC</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="studyII.html"><a href="studyII.html"><i class="fa fa-check"></i><b>4</b> Re-analysis 2</a><ul>
+<li class="chapter" data-level="4" data-path="studyII.html"><a href="studyII.html"><i class="fa fa-check"></i><b>4</b> Re-analysis 2</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="studyII.html"><a href="studyII.html#importing-the-data-1"><i class="fa fa-check"></i><b>4.1</b> Importing the data</a></li>
-<li class="chapter" data-level="4.2" data-path="studyII.html"><a href="studyII.html#simple-bradley-terry-model"><i class="fa fa-check"></i><b>4.2</b> Simple Bradley-Terry model</a><ul>
+<li class="chapter" data-level="4.2" data-path="studyII.html"><a href="studyII.html#simple-bradley-terry-model"><i class="fa fa-check"></i><b>4.2</b> Simple Bradley-Terry model</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="studyII.html"><a href="studyII.html#assessing-the-fitness-of-the-model"><i class="fa fa-check"></i><b>4.2.1</b> Assessing the fitness of the model</a></li>
 <li class="chapter" data-level="4.2.2" data-path="studyII.html"><a href="studyII.html#getting-the-waic"><i class="fa fa-check"></i><b>4.2.2</b> Getting the WAIC</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="studyII.html"><a href="studyII.html#bradley-terry-model-with-random-effects-for-individuals"><i class="fa fa-check"></i><b>4.3</b> Bradley-Terry model with random effects for individuals</a><ul>
+<li class="chapter" data-level="4.3" data-path="studyII.html"><a href="studyII.html#bradley-terry-model-with-random-effects-for-individuals"><i class="fa fa-check"></i><b>4.3</b> Bradley-Terry model with random effects for individuals</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="studyII.html"><a href="studyII.html#getting-the-waic-1"><i class="fa fa-check"></i><b>4.3.1</b> Getting the WAIC</a></li>
 <li class="chapter" data-level="4.3.2" data-path="studyII.html"><a href="studyII.html#parameter-tables-and-plots"><i class="fa fa-check"></i><b>4.3.2</b> Parameter tables and plots</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="studyIII.html"><a href="studyIII.html"><i class="fa fa-check"></i><b>5</b> Re-analysis 3</a><ul>
+<li class="chapter" data-level="5" data-path="studyIII.html"><a href="studyIII.html"><i class="fa fa-check"></i><b>5</b> Re-analysis 3</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="studyIII.html"><a href="studyIII.html#importing-the-data-2"><i class="fa fa-check"></i><b>5.1</b> Importing the data</a></li>
 <li class="chapter" data-level="5.2" data-path="studyIII.html"><a href="studyIII.html#simple-bradley-terry-models"><i class="fa fa-check"></i><b>5.2</b> Simple Bradley-Terry models</a></li>
 <li class="chapter" data-level="5.3" data-path="studyIII.html"><a href="studyIII.html#subject-predictors-model"><i class="fa fa-check"></i><b>5.3</b> Subject predictors model</a></li>
 <li class="chapter" data-level="5.4" data-path="studyIII.html"><a href="studyIII.html#subject-predictors-and-random-effects"><i class="fa fa-check"></i><b>5.4</b> Subject predictors and random effects</a></li>
 <li class="chapter" data-level="5.5" data-path="studyIII.html"><a href="studyIII.html#comparing-the-waic"><i class="fa fa-check"></i><b>5.5</b> Comparing the WAIC</a></li>
-<li class="chapter" data-level="5.6" data-path="studyIII.html"><a href="studyIII.html#plots-and-tables"><i class="fa fa-check"></i><b>5.6</b> Plots and tables</a><ul>
+<li class="chapter" data-level="5.6" data-path="studyIII.html"><a href="studyIII.html#plots-and-tables"><i class="fa fa-check"></i><b>5.6</b> Plots and tables</a>
+<ul>
 <li class="chapter" data-level="5.6.1" data-path="studyIII.html"><a href="studyIII.html#table-lambda-and-u"><i class="fa fa-check"></i><b>5.6.1</b> Table lambda and U</a></li>
 <li class="chapter" data-level="5.6.2" data-path="studyIII.html"><a href="studyIII.html#subject-predictors-table"><i class="fa fa-check"></i><b>5.6.2</b> Subject predictors table</a></li>
 <li class="chapter" data-level="5.6.3" data-path="studyIII.html"><a href="studyIII.html#plot-1"><i class="fa fa-check"></i><b>5.6.3</b> Plot</a></li>
@@ -195,32 +207,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Online appendix for the paper: “Bayesian Paired-Comparison with the bpcs package”</h1>
 <p class="author"><em>David Issa Mattos and Érika Martins Silva Ramos</em></p>
-<p class="date"><em>2021-01-20</em></p>
+<p class="date" style="margin-top: 1.5em;"><em>2021-06-07</em></p>
 </div>
-<div id="foreword" class="section level1">
+<div id="foreword" class="section level1" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Foreword</h1>
 <p>This is the online appendix for the paper <em>“Bayesian Paired-Comparison with the bpcs package”</em>. It contains a commented and reproducible code for all the analysis, tables and plots presented in the paper.</p>
 <p>In the beginning of each study, we show a few lines of the original datasets. These datasets are either available through a link in the paper or through asking the authors directly. Therefore we do not provide or distribute the data in this appendix (or in the code repository).</p>
-<div id="installation-of-the-bpcs-package" class="section level2">
+<div id="installation-of-the-bpcs-package" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Installation of the bpcs package</h2>
-<p>This appendix was compiled with the version 1.1.0 of the bpcs package.</p>
+<p>This appendix was compiled with the version 1.2.1 of the bpcs package.</p>
 <p>The development and latest version of the bpcs package can be installed directly from Github with:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1"></a>remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&#39;davidissamattos/bpcs&#39;</span>)</span></code></pre></div>
-<p>The latest CRAN release can be installed with:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="index.html#cb2-1"></a><span class="kw">install.packages</span>(<span class="st">&#39;bpcs&#39;</span>)</span></code></pre></div>
-<p>We emphasize here that the CRAN version might some versions behind the latest stable release in Github.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&#39;davidissamattos/bpcs&#39;</span>)</span></code></pre></div>
 </div>
-<div id="session-info" class="section level2">
+<div id="session-info" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> Session info</h2>
 <p>This appendix is compiled automatically and the following session information was used to generate this appendix:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="index.html#cb3-1"></a><span class="kw">sessionInfo</span>()</span></code></pre></div>
-<pre><code>## R version 4.0.3 (2020-10-10)
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="index.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
+<pre><code>## R version 4.1.0 (2021-05-18)
 ## Platform: x86_64-apple-darwin17.0 (64-bit)
 ## Running under: macOS Big Sur 10.16
 ## 
 ## Matrix products: default
-## BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib
-## LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib
+## BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib
 ## 
 ## locale:
 ## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
@@ -229,36 +238,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] knitr_1.30      forcats_0.5.0   stringr_1.4.0   dplyr_1.0.2    
-##  [5] purrr_0.3.4     readr_1.3.1     tidyr_1.1.2     tibble_3.0.4   
-##  [9] ggplot2_3.3.3   tidyverse_1.3.0 bpcs_1.1.0     
+##  [1] knitr_1.33      forcats_0.5.1   stringr_1.4.0   dplyr_1.0.6    
+##  [5] purrr_0.3.4     readr_1.4.0     tidyr_1.1.3     tibble_3.1.2   
+##  [9] ggplot2_3.3.3   tidyverse_1.3.1 bpcs_1.2.1     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] httr_1.4.2            jsonlite_1.7.2        modelr_0.1.8         
-##  [4] RcppParallel_5.0.2    StanHeaders_2.21.0-7  assertthat_0.2.1     
-##  [7] BiocManager_1.30.10   rvcheck_0.1.8         stats4_4.0.3         
-## [10] blob_1.2.1            cellranger_1.1.0      yaml_2.2.1           
-## [13] pillar_1.4.7          backports_1.2.1       glue_1.4.2           
-## [16] digest_0.6.27         RColorBrewer_1.1-2    rvest_0.3.6          
-## [19] colorspace_2.0-0      htmltools_0.5.1       pkgconfig_2.0.3      
-## [22] rstan_2.21.2          broom_0.7.0           haven_2.3.1          
-## [25] bookdown_0.21         scales_1.1.1          processx_3.4.5       
-## [28] generics_0.1.0        ellipsis_0.3.1        withr_2.3.0          
-## [31] cli_2.2.0             magrittr_2.0.1        crayon_1.3.4         
-## [34] readxl_1.3.1          evaluate_0.14         ps_1.5.0             
-## [37] badger_0.0.9          fs_1.5.0              fansi_0.4.1          
-## [40] xml2_1.3.2            pkgbuild_1.2.0        tools_4.0.3          
-## [43] loo_2.4.1             prettyunits_1.1.1     hms_0.5.3            
-## [46] lifecycle_0.2.0       matrixStats_0.57.0    V8_3.4.0             
-## [49] munsell_0.5.0         reprex_0.3.0          callr_3.5.1          
-## [52] compiler_4.0.3        rlang_0.4.10          grid_4.0.3           
-## [55] rstudioapi_0.13       rmarkdown_2.6         gtable_0.3.0         
-## [58] codetools_0.2-16      inline_0.3.17         DBI_1.1.0            
-## [61] curl_4.3              R6_2.5.0              gridExtra_2.3        
-## [64] rstantools_2.1.1.9000 lubridate_1.7.9       dlstats_0.1.3        
-## [67] stringi_1.5.3         parallel_4.0.3        Rcpp_1.0.5           
-## [70] vctrs_0.3.6           dbplyr_1.4.4          tidyselect_1.1.0     
-## [73] xfun_0.20</code></pre>
+##  [1] tidyselect_1.1.1  xfun_0.23         bslib_0.2.5.1     haven_2.4.1      
+##  [5] colorspace_2.0-1  vctrs_0.3.8       generics_0.1.0    htmltools_0.5.1.1
+##  [9] yaml_2.2.1        utf8_1.2.1        rlang_0.4.11      jquerylib_0.1.4  
+## [13] pillar_1.6.1      withr_2.4.2       glue_1.4.2        DBI_1.1.1        
+## [17] dbplyr_2.1.1      readxl_1.3.1      modelr_0.1.8      lifecycle_1.0.0  
+## [21] cellranger_1.1.0  munsell_0.5.0     gtable_0.3.0      rvest_1.0.0      
+## [25] evaluate_0.14     fansi_0.5.0       broom_0.7.6       Rcpp_1.0.6       
+## [29] scales_1.1.1      backports_1.2.1   jsonlite_1.7.2    fs_1.5.0         
+## [33] hms_1.1.0         digest_0.6.27     stringi_1.6.2     bookdown_0.22    
+## [37] grid_4.1.0        cli_2.5.0         tools_4.1.0       magrittr_2.0.1   
+## [41] sass_0.4.0        crayon_1.4.1      pkgconfig_2.0.3   ellipsis_0.3.2   
+## [45] xml2_1.3.2        reprex_2.0.0      lubridate_1.7.10  assertthat_0.2.1 
+## [49] rmarkdown_2.8     httr_1.4.2        rstudioapi_0.13   R6_2.5.0         
+## [53] compiler_4.1.0</code></pre>
 
 </div>
 </div>
@@ -291,6 +289,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -310,7 +309,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["bpcs-appendix.pdf", "bpcs-appendix.epub"],
+"download": null,
 "toc": {
 "collapse": "subsection"
 }

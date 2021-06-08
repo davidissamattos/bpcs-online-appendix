@@ -10,8 +10,6 @@ library(bpcs)
 library(tidyverse)
 library(knitr)
 library(loo)
-options(mc.cores = parallel::detectCores())
-rstan::rstan_options(auto_write = TRUE)
 set.seed(99)
 ```
 
@@ -103,7 +101,7 @@ Now we can proceed with the analysis.
 
 Let's start with a simple BT without considering any subject predictors. Just to evaluate the average probability of people being Active, Active-Collaborative, Collaborative, Passive-Collaborative or Passive.
 
-```{r eval=F}
+```{r r3bt, eval=F}
 m1 <-
   bpc(
     d_longer,
@@ -111,17 +109,18 @@ m1 <-
     player1 = 'choice1',
     result_column = 'y',
     model_type = 'bt',
-    priors = list(prior_lambda_std = 1.0),
-    iter = 3000
+    priors = list(prior_lambda_std = 3.0),
+    iter = 2000,
+    show_chain_messages = T
   )
-save_bpc_model(m1, 'm_hloc', 'fittedmodels')
+save_bpc_model(m1, 'm_hloc', './fittedmodels')
 ```
 
 ```{r echo=F}
-m1 <- load_bpc_model('fittedmodels/m_mhloc.RDS')
+m1 <- load_bpc_model('./fittedmodels/m_hloc.RDS')
 ```
 
-Let's investigate model convergence with shinystan. Everything seems fine.
+Let's investigate model convergence with shinystan and with check convergence function. Everything seems fine.
 
 ```{r eval=F}
 launch_shinystan(m1)
@@ -138,7 +137,7 @@ m1_waic
 
 We have different HLC that can be used as predictors for the response. Let's create a single model with all the predictors.
 
-```{r eval=F}
+```{r r3btS, eval=F}
 m2 <-
   bpc(
     d_longer,
@@ -147,11 +146,12 @@ m2 <-
     result_column = 'y',
     subject_predictors = c('Internal', 'Chance', 'Doctors', 'OtherPeople'),
     model_type = 'bt-subjectpredictors',
-    priors = list(prior_lambda_std = 1.0,
-                  prior_S_std = 1.0),
-    iter = 3000
+    priors = list(prior_lambda_std = 3.0,
+                  prior_S_std = 3.0),
+    iter = 2000,
+    show_chain_messages = T
   )
-save_bpc_model(m2, 'm_mhloc_subjectpred', 'fittedmodels')
+save_bpc_model(m2, 'm_mhloc_subjectpred', './fittedmodels')
 ```
 
 
@@ -159,7 +159,8 @@ save_bpc_model(m2, 'm_mhloc_subjectpred', 'fittedmodels')
 m2 <- load_bpc_model('fittedmodels/m_mhloc_subjectpred.RDS')
 ```
 
-Diagnostics
+Diagnostics:
+
 ```{r eval=F}
 launch_shinystan(m2)
 ```
@@ -167,6 +168,7 @@ launch_shinystan(m2)
 
 ```{r cache=T}
 m2_waic <- get_waic(m2)
+m2_waic
 ```
 
 ## Subject predictors and random effects
@@ -175,7 +177,7 @@ Now let's create a third model that also compensate for multiple judgment with a
 
 This model adds 153*4 variables, so sampling will take longer and be a bit more complex.
 
-```{r eval=F}
+```{r r3btSU, eval=F}
 m3 <-
   bpc(
     d_longer,
@@ -185,12 +187,13 @@ m3 <-
     subject_predictors = c('Internal', 'Chance', 'Doctors', 'OtherPeople'),
     cluster = c('SubjectID'),
     model_type = 'bt-subjectpredictors-U',
-    priors = list(prior_lambda_std = 1.0,
-                  prior_S_std = 1.0,
-                  prior_U1_std = 1.0),
-    iter = 3000
+    priors = list(prior_lambda_std = 3.0,
+                  prior_S_std = 3.0,
+                  prior_U1_std = 3.0),
+    iter = 2000,
+    show_chain_messages = T
   )
-save_bpc_model(m3, 'm_mhloc_subjectpred_U', 'fittedmodels')
+save_bpc_model(m3, 'm_mhloc_subjectpred_U', './fittedmodels')
 ```
 
 ```{r echo=F}
@@ -198,6 +201,12 @@ m3 <- load_bpc_model('fittedmodels/m_mhloc_subjectpred_U.RDS')
 ```
 
 Diagnostics
+
+For a quick check
+```{r cache=T}
+check_convergence_diagnostics(m3)
+```
+
 ```{r eval=F}
 launch_shinystan(m3)
 ```
@@ -205,6 +214,7 @@ launch_shinystan(m3)
 
 ```{r cache=T, message=F, warning=F}
 m3_waic <- get_waic(m3)
+m3_waic
 ```
 
 ## Comparing the WAIC
@@ -220,14 +230,13 @@ loo::loo_compare(m1_waic,m2_waic, m3_waic)
 Now that we see that all models have proper convergence and that the model m3 has a better fit we will generate some plots and tables to help understand the problem
 
 ```{r cache=T}
-lambda <- get_parameters(m3, params = 'lambda', n_eff = F)
-Spar <- get_parameters(m3, params = 'S', n_eff = F)
-U_std <- get_parameters(m3, params = 'U1_std', n_eff = F)
+lambda <- get_parameters(m3, params = 'lambda', n_eff = T,keep_par_name = F)
+Spar <- get_parameters(m3, params = 'S', n_eff = T)
+U_std <- get_parameters(m3, params = 'U1_std', n_eff = T)
 ```
 
-Let's create a custom table based on these parameters. But first we will rename the parameters a bit so the table reads a bit better. We are here removing the S and the lambda from the parameter
+Let's create a custom table based on these parameters. But first we will rename the parameters a bit so the table reads a bit better. We are here removing the S[*] from the parameter
 ```{r}
-lambda$Parameter <-  stringr::str_sub(lambda$Parameter,start = 8, end=-2)
 Spar$Parameter <- stringr::str_sub(Spar$Parameter,start = 3, end=-2)
 ```
 
@@ -237,11 +246,12 @@ Now we can create the table
 ```{r}
 #merge the datasets
 df_table <- rbind(lambda, U_std) 
+rownames(df_table)<- NULL
 #creating the table
 df_table %>% 
   kable(caption = 'Lambda parameters of the model and the random effects standard deviation', 
         digits = 2,
-        col.names = c('Parameter', 'Mean','HPD lower', 'HPD lower')) %>% 
+        col.names = c('Parameter', 'Mean','Median','HPD lower', 'HPD lower','N. Eff. Samples')) %>% 
   kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>% 
   kableExtra::scroll_box(width = "100%")
 ```
@@ -251,7 +261,7 @@ df_table %>%
   kable(format='latex',
         caption = 'Lambda parameters of the model and the random effects standard deviation', 
         digits = 2,
-        col.names = c('Parameter', 'Mean','HPD lower', 'HPD lower'),
+        col.names = c('Parameter', 'Mean','Median','HPD lower', 'HPD lower', 'N. Eff. Samples'),
         booktabs=T) %>% 
   kableExtra::kable_styling()
 ```
@@ -261,6 +271,7 @@ df_table %>%
 ```{r}
 S <- Spar %>% tidyr::separate(Parameter,c('Role','MHLOC'), sep=",")
 S$MHLOC <- recode(S$MHLOC, 'OtherPeople'= 'Other people')
+rownames(S) <- NULL
 ```
 
 
@@ -271,7 +282,7 @@ S %>%
   kable(format='html',
         caption = 'Subject predictors parameters by role', 
         digits = 2,
-        col.names = c('Parameter', 'Mean','HPD lower', 'HPD lower'),
+        col.names = c('Parameter', 'Mean', 'Median','HPD lower', 'HPD lower', 'N. Eff. Samples'),
         booktabs=T) %>% 
   kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>% 
   kableExtra::pack_rows("Active", 1, 4) %>% 
@@ -289,7 +300,7 @@ S %>%
   kable(format='latex',
         caption = 'Subject predictors parameters by role', 
         digits = 2,
-        col.names = c('Parameter', 'Mean','HPD lower', 'HPD lower'),
+        col.names = c('Parameter', 'Mean', 'Median','HPD lower', 'HPD lower', 'N. Eff. Samples'),
         booktabs=T) %>% 
   kableExtra::kable_styling() %>% 
   kableExtra::pack_rows("Active", 1, 4) %>% 

@@ -9,8 +9,7 @@ The data of this paper can be obtained from the repository: https://osf.io/5quj9
 ```{r warning=F, message=F}
 library(bpcs)
 library(tidyverse)
-options(mc.cores = parallel::detectCores())
-rstan::rstan_options(auto_write = TRUE)
+library(knitr)
 set.seed(99)
 ```
 
@@ -49,7 +48,7 @@ Although this is multiple judgment case, the dataset in the aggregated format do
 
 First, let's sample the Bradley-Terry model
 
-```{r eval=F}
+```{r r1bt, eval=F}
 m_moisture <-
   bpc(
     d_moisture,
@@ -57,9 +56,10 @@ m_moisture <-
     player1 = 'player1',
     result_column = 'y',
     model_type = 'bt',
-    iter = 3000
+    iter = 2000,
+    show_chain_messages = T
   )
-save_bpc_model(m_moisture,'m_moisture','fittedmodels')
+save_bpc_model(m_moisture,'m_moisture','./fittedmodels')
 ```
 
 Low let's sample the model with order effect.
@@ -73,7 +73,7 @@ d_moisture <- d_moisture %>%
   dplyr::mutate(z1 = 1)
 ```
 
-```{r eval=F}
+```{r r1btorder, eval=F}
 m_moisture_order <-
   bpc(
     d_moisture,
@@ -82,9 +82,10 @@ m_moisture_order <-
     result_column = 'y',
     z_player1 = 'z1',
     model_type = 'bt-ordereffect',
-    iter = 3000
+    iter = 2000,
+    show_chain_messages = T
   )
-save_bpc_model(m_moisture_order,'m_moisture_order','fittedmodels')
+save_bpc_model(m_moisture_order,'m_moisture_order','./fittedmodels')
 ```
 
 ```{r echo=FALSE}
@@ -95,8 +96,16 @@ m_moisture_order <- load_bpc_model('fittedmodels/m_moisture_order.RDS')
 
 ## Diagnostics
 
-Checking convergence of the models
+```{r}
+check_convergence_diagnostics(m_moisture)
+```
 
+```{r}
+check_convergence_diagnostics(m_moisture_order)
+```
+
+
+Checking convergence of the models with shinystan
 ```{r eval=FALSE}
 launch_shinystan(m_moisture)
 ```
@@ -104,6 +113,8 @@ launch_shinystan(m_moisture)
 ```{r eval=FALSE}
 launch_shinystan(m_moisture_order)
 ```
+
+
 
 ### Tables and plots
 
@@ -119,7 +130,9 @@ get_parameters_table(
   m_moisture_order,
   params = c('lambda', 'gm'),
   format = 'html',
-  caption = 'Parameters estimates for the Bradley-Terry model with order effect'
+  caption = 'Parameters estimates for the Bradley-Terry model with order effect',
+  keep_par_name = F,
+  n_eff = T
 )
 ```
 
@@ -129,14 +142,16 @@ We can see from the table of the order effect that the gamma parameter is very c
 get_parameters_table(
   m_moisture,
   format = 'latex',
-  caption = 'Parameters estimates for the simple Bradley-Terry model'
+  caption = 'Parameters estimates for the simple Bradley-Terry model',
+  keep_par_name = F
 )
 
 get_parameters_table(
   m_moisture_order,
   params = c('lambda', 'gm'),
   format = 'latex',
-  caption = 'Parameters estimates for the Bradley-Terry model with order effect'
+  caption = 'Parameters estimates for the Bradley-Terry model with order effect',
+  keep_par_name = F
 )
 ```
 
@@ -148,7 +163,7 @@ r <- get_rank_of_players_df(m_moisture)
 ```
 
 ```{r echo=F, eval=F, results='hide'}
-get_rank_of_players_table(m_moisture, format = 'latex', digits=2, caption = 'Rank of the images based on moisture content')
+get_rank_of_players_table(m_moisture_order, format = 'latex', digits=2, caption = 'Rank of the images based on moisture content')
 ```
 
 Generating a table with the images
@@ -168,26 +183,15 @@ r %>%
 
 Now lets get a caterpillar style plot 
 ```{r}
-get_parameters_plot(
-  m_moisture,
+plot(
+  m_moisture_order,
   HPDI = T,
   title = 'Estimates of the moisture content',
   xaxis = 'Images',
   yaxis = 'Ability',
   rotate_x_labels = F,
-  APA = F
-) + scale_x_discrete(
-  labels = c(
-    "image1",
-    "image2",
-    "image3",
-    "image4",
-    "image5",
-    "image6",
-    "image7",
-    "image8"
-  )
-) + theme_bw()
+  APA = F,
+  keep_par_names=F) + theme_bw()
 ```
 
 
