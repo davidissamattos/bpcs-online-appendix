@@ -306,7 +306,7 @@ The kableExtra package provides some nice tools to create tables from R directly
 ```{r}
 kable(
   waic_table,  booktabs=T,
-  caption = 'Comparison of the WAIC of the Bradley-Terry model and the Bradley-Terry model with random effects on the subjects for each specie',
+  caption = 'Comparison of the WAIC of the Bradley-Terry model and the Bradley-Terry model with random effects on the subjects for each specie.',
   col.names = c('Specie', 'Bradley-Terry', 'Bradley-Terry with random effects')
 ) %>%
   kableExtra::add_header_above(c(" " = 1, "WAIC" = 2)) %>%
@@ -321,7 +321,7 @@ kable(
   waic_table,
    booktabs=T,
   format='latex',
-  caption = 'Comparison of the WAIC of the Bradley-Terry model and the Bradley-Terry model with random effects on the subjects for each specie',
+  caption = 'Comparison of the WAIC of the Bradley-Terry model and the Bradley-Terry model with random effects on the subjects for each specie.',
   col.names = c('Specie', 'Bradley-Terry', 'Bradley-Terry with random effects')
 ) %>%
   kableExtra::add_header_above(c(" " = 1, "WAIC" = 2)) %>%
@@ -342,9 +342,9 @@ Creating a nice table of the parameters.
 
 First let's put all species in the same data frame
 ```{r}
-df1 <- get_parameters(m2_macaque, n_eff = F, keep_par_name = F)
-df2 <- get_parameters(m2_chip, n_eff = F, keep_par_name = F)
-df3 <- get_parameters(m2_gor, n_eff = F, keep_par_name = F)
+df1 <- get_parameters(m2_macaque, n_eff = T, keep_par_name = F)
+df2 <- get_parameters(m2_chip, n_eff = T, keep_par_name = F)
+df3 <- get_parameters(m2_gor, n_eff = T, keep_par_name = F)
 
 df1 <- df1 %>% dplyr::mutate(Species='Macaque')
 df2 <- df2 %>% dplyr::mutate(Species='Chimpanzees')
@@ -363,7 +363,7 @@ rownames(df) <- NULL
 Now let's create the table by removing the species column and adding some row Headers for the species
 ```{r}
 (df %>% select(-Species) %>% 
-kable( caption = 'Parameters of the model with random effects', digits = 2, col.names = c('Parameter', 'Mean', 'Median', 'HPD lower', 'HPD upper'), row.names = NA) %>% 
+kable( caption = 'Parameters of the random effects model with 95% HPD and the number of effective samples.', digits = 2, col.names = c('Parameter', 'Mean', 'Median', 'HPD lower', 'HPD upper', 'N. Eff. Samples'), row.names = NA) %>% 
 kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>% 
   kableExtra::pack_rows("Macaque", 1, 6) %>%
   kableExtra::pack_rows("Chimpanzees", 7, 13) %>% 
@@ -374,7 +374,7 @@ kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed",
 
 ```{r eval=F, echo=F}
 df %>% select(-Species) %>% 
-kable( format='latex', booktabs=T, caption = 'Parameters of the model with random effects', digits = 2, col.names = c('Parameter', 'Mean', 'Median', 'HPD lower', 'HPD upper')) %>% 
+kable( format='latex', booktabs=T, caption = 'Parameters of the random effects model with 95% HPD and the number of effective samples.', digits = 2, col.names = c('Parameter', 'Mean', 'Median', 'HPD lower', 'HPD upper', 'N. Eff. Samples')) %>% 
 kableExtra::kable_styling() %>% 
   kableExtra::pack_rows("Macaque", 1, 6) %>%
   kableExtra::pack_rows("Chimpanzees", 7, 13) %>% 
@@ -397,7 +397,7 @@ Now let's create the rank table
 
 ```{r}
 (rank_all %>% 
-kable( caption = 'Ranking of the food preferences per specie with model with random effects', digits = 2, col.names = c('Food', 'Median Rank', 'Mean Rank', 'Std. Rank')) %>% 
+kable( caption = 'Ranking of the food preferences per specie for the random effects model.', digits = 2, col.names = c('Food', 'Median Rank', 'Mean Rank', 'Std. Rank')) %>% 
 kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>% 
   kableExtra::pack_rows("Macaque", 1, 6) %>%
   kableExtra::pack_rows("Chimpanzees", 7, 12) %>% 
@@ -409,7 +409,7 @@ kableExtra::kable_styling(bootstrap_options = c("striped", "hover", "condensed",
 
 ```{r echo=F, eval=F}
 (rank_all %>% 
-kable( format='latex', caption = 'Ranking of the food preferences per specie with model with random effects', digits = 2, col.names = c('Food', 'Median Rank', 'Mean Rank', 'Std. Rank'), booktabs=T) %>% 
+kable( format='latex', caption = 'Ranking of the food preferences per specie for the random effects model.', digits = 2, col.names = c('Food', 'Median Rank', 'Mean Rank', 'Std. Rank'), booktabs=T) %>% 
 kableExtra::kable_styling() %>% 
   kableExtra::pack_rows("Macaque", 1, 6) %>%
   kableExtra::pack_rows("Chimpanzees", 7, 12) %>% 
@@ -479,7 +479,7 @@ ggplot(out, aes(x=Parameter))+
         group=Model, 
         color=Model),
            position=position_dodge(width=1))+ #separating the two models (so they are not plotted overlapping)
-  labs(title = 'Parameters estimates with uncertainty (HPD) interval',
+  labs(title = 'Parameters estimates with the 95% HPD interval',
        y = 'Worth value',
         x = 'Food')+
   facet_grid(~Species) + #Dividing the plot into three by species
@@ -500,7 +500,7 @@ For that, we first create a data frame of the new predictions for each species. 
 
 We ask for the data frame instead of the table because we will assemble the table manually.
 
-```{r eval=F}
+```{r}
 # Create a data frame with all the pairs of food that we want to calculate
 pairs_gor <-
   data.frame(
@@ -553,7 +553,7 @@ pairs_chip <-
 
 pairs_macaque <-
   data.frame(
-    image1 = c(
+    image2 = c(
       'Oats',
       'Oats',
       'Oats',
@@ -563,7 +563,7 @@ pairs_macaque <-
       'Green Beans',
       'Green Beans'
     ),
-    image2 = c(
+    image1 = c(
       'Celery',
       'Jungle Pellet',
       'Peanuts',
@@ -596,13 +596,6 @@ prob_gor <-
 
 #merging in a single df
 prob_table <- rbind(prob_gor, prob_chip, prob_macaque)
-
-#since this is  a time consuming table to make let's also save it
-saveRDS(prob_table, 'prob_table.RDS')
-```
-
-```{r echo=F}
-prob_table <- readRDS('prob_table.RDS')
 ```
 
 Now we can create the table

@@ -14,11 +14,11 @@ tab:unnamed-chunk-45
 tab:unnamed-chunk-60
 tab:unnamed-chunk-63
 tab:unnamed-chunk-66
-tab:unnamed-chunk-73
-tab:unnamed-chunk-76
-tab:unnamed-chunk-97
-tab:unnamed-chunk-100
-tab:unnamed-chunk-104
+tab:unnamed-chunk-72
+tab:unnamed-chunk-75
+tab:unnamed-chunk-96
+tab:unnamed-chunk-99
+tab:unnamed-chunk-103
 foreword
 installation-of-the-bpcs-package
 session-info

@@ -322,7 +322,7 @@ ggplot(S, aes(x=MHLOC))+
         y = Mean,
         group=MHLOC))+ 
   facet_wrap(~Role, nrow = 3) + #Dividing the plot into three by species
-  labs(title = 'Subject predictors estimates with uncertainty (HPD) interval',
+  labs(title = 'Subject predictors estimates with the HPD interval',
        y = 'Estimate',
         x = 'HLOC dimension')+
   theme_bw()+ # A black and white theme
@@ -342,7 +342,7 @@ Mainly we are just investigating:
 * Between the choice of Collaborative and Passive-Collaborative how does going from -2 to 2 standard deviations over the mean influences the probability in the Internal and the Doctors
 
 ```{r}
-newdata <- tibble::tribble(~choice0, ~choice1, ~Internal, ~Chance, ~Doctors, ~OtherPeople,
+newdata <- tibble::tribble(~choice1, ~choice0, ~Internal, ~Chance, ~Doctors, ~OtherPeople,
                            "Active", "Passive", 0, 0, 0, 0,
                            "Active", "Passive", -2, 0, 0, 0,
                            "Active", "Passive", 2, 0, 0, 0,

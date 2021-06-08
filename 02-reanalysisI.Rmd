@@ -143,7 +143,8 @@ get_parameters_table(
   m_moisture,
   format = 'latex',
   caption = 'Parameters estimates for the simple Bradley-Terry model',
-  keep_par_name = F
+  keep_par_name = F,
+  n_eff = T
 )
 
 get_parameters_table(
@@ -163,7 +164,7 @@ r <- get_rank_of_players_df(m_moisture)
 ```
 
 ```{r echo=F, eval=F, results='hide'}
-get_rank_of_players_table(m_moisture_order, format = 'latex', digits=2, caption = 'Rank of the images based on moisture content')
+get_rank_of_players_table(m_moisture, format = 'latex', digits=2, caption = 'Rank of the images based on moisture content')
 ```
 
 Generating a table with the images
