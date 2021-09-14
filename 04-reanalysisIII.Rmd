@@ -10,6 +10,9 @@ library(bpcs)
 library(tidyverse)
 library(knitr)
 library(loo)
+library(cmdstanr)
+PATH_TO_CMDSTAN <- paste(Sys.getenv("HOME"), '/.cmdstan/cmdstan-2.27.0', sep = '')
+set_cmdstan_path(PATH_TO_CMDSTAN)
 set.seed(99)
 ```
 
@@ -397,4 +400,48 @@ prob_hloc %>%
   kableExtra::add_header_above(c("Roles" = 2, "HLOC dimensions" = 4, " "=1))
 ```
 
+## Assessing fitness of items and judges
 
+For simplification we will be using only the median (and not the full posterior) to assess the fitness of judges
+
+```{r}
+std_judges <- U_std$Median #variance of the judges
+
+U <- get_parameters(m3, params = 'U1', n_eff = T)
+U_median <- U$Median
+U_median <- U_median[-length(U_median)]
+
+U_fit <- data.frame(U=U_median, y=rep(0,length(U_median)), q90=as.factor(as.numeric(U_median > std_judges*1.65)), q95=as.factor(as.numeric(U_median > std_judges*1.96)))
+
+ggplot(data=U_fit, aes(x=U, y=y, color=q90))+
+  geom_jitter() +
+  geom_vline(xintercept = c(-1.65*std_judges,1.65*3), linetype = "dashed", color="red")+
+  geom_vline(xintercept = c(-1.95*std_judges,1.95*3), linetype = "dashed", color="cyan")+
+  theme(legend.position="none", axis.title.y = element_blank()) #small adjustments to the theme
+
+
+```
+
+From this figure we can see that none of the judges rated a value outside the 90% and the 95% interval
+
+Comparing to the prior distribution (with std of 3.0)
+
+```{r}
+ggplot(data=U_fit, aes(x=U, y=y, color=q90))+
+  geom_jitter() +
+  geom_vline(xintercept = c(-1.65*3,1.65*3), linetype = "dashed", color="red")+
+  geom_vline(xintercept = c(-1.95*3,1.95*3), linetype = "dashed", color="cyan")+
+  theme(legend.position="none", axis.title.y = element_blank()) #small adjustments to the theme
+
+```
+
+Finally we can look also if any of the judges can be considered to be outliers
+
+Let's use a Hample filter on the median values
+```{r}
+lower_bound <- median(U_median) - 3 * mad(U_median, constant = 1)
+upper_bound <- median(U_median) + 3 * mad(U_median, constant = 1)
+which(U_median< lower_bound | U_median > upper_bound)
+```
+
+Within the values we have a few pairs of judges/items to be consider outliers, although without a misfit in terms of model

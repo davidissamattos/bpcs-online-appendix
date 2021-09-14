@@ -10,6 +10,9 @@ The data of this paper can be obtained from the repository: https://osf.io/5quj9
 library(bpcs)
 library(tidyverse)
 library(knitr)
+library(cmdstanr)
+PATH_TO_CMDSTAN <- paste(Sys.getenv("HOME"), '/.cmdstan/cmdstan-2.27.0', sep = '')
+set_cmdstan_path(PATH_TO_CMDSTAN)
 set.seed(99)
 ```
 

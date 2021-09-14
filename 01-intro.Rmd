@@ -62,12 +62,12 @@ m <- bpc(data = dpizza,
          model_type = 'bt',
          iter=3000,
          show_chain_messages = T)
-save_bpc_model(m, 'pizza','.bpcs')
+save_bpc_model(m, 'pizza','./fittedmodels')
 ```
 
 To load:
 ```{r}
-m <- load_bpc_model('.bpcs/pizza.RDS')
+m <- load_bpc_model('fittedmodels/pizza.RDS')
 ```
 
 ### Diagnostics
