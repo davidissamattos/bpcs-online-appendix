@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Re-analysis 1 | Online appendix for the paper: “Bayesian Paired-Comparison with the bpcs package”</title>
   <meta name="description" content="This is the online appendix for the paper: “Bayesian Paired-Comparison with the bpcs package.”" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Re-analysis 1 | Online appendix for the paper: “Bayesian Paired-Comparison with the bpcs package”" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="David Issa Mattos and Érika Martins Silva Ramos" />
 
 
-<meta name="date" content="2021-06-08" />
+<meta name="date" content="2021-09-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,8 @@
   
 <link rel="prev" href="basics.html"/>
 <link rel="next" href="studyII.html"/>
-<script src="libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,7 +50,7 @@
 
 
 
-
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
@@ -58,17 +58,18 @@
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -88,7 +89,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -134,58 +135,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Foreword</a>
-<ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Foreword</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#installation-of-the-bpcs-package"><i class="fa fa-check"></i><b>1.1</b> Installation of the bpcs package</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#session-info"><i class="fa fa-check"></i><b>1.2</b> Session info</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>2</b> Basic functionality</a>
-<ul>
+<li class="chapter" data-level="2" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>2</b> Basic functionality</a><ul>
 <li class="chapter" data-level="2.1" data-path="basics.html"><a href="basics.html#reading-and-preparing-the-data"><i class="fa fa-check"></i><b>2.1</b> Reading and preparing the data</a></li>
-<li class="chapter" data-level="2.2" data-path="basics.html"><a href="basics.html#the-bayesian-bradley-terry-analysis"><i class="fa fa-check"></i><b>2.2</b> The Bayesian Bradley-Terry analysis</a>
-<ul>
+<li class="chapter" data-level="2.2" data-path="basics.html"><a href="basics.html#the-bayesian-bradley-terry-analysis"><i class="fa fa-check"></i><b>2.2</b> The Bayesian Bradley-Terry analysis</a><ul>
 <li class="chapter" data-level="2.2.1" data-path="basics.html"><a href="basics.html#diagnostics"><i class="fa fa-check"></i><b>2.2.1</b> Diagnostics</a></li>
 <li class="chapter" data-level="2.2.2" data-path="basics.html"><a href="basics.html#summary-information"><i class="fa fa-check"></i><b>2.2.2</b> Summary information</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="studyI.html"><a href="studyI.html"><i class="fa fa-check"></i><b>3</b> Re-analysis 1</a>
-<ul>
+<li class="chapter" data-level="3" data-path="studyI.html"><a href="studyI.html"><i class="fa fa-check"></i><b>3</b> Re-analysis 1</a><ul>
 <li class="chapter" data-level="3.1" data-path="studyI.html"><a href="studyI.html#importing-the-data"><i class="fa fa-check"></i><b>3.1</b> Importing the data</a></li>
 <li class="chapter" data-level="3.2" data-path="studyI.html"><a href="studyI.html#analysis-with-the-bradley-terry-model-and-the-order-effect-model"><i class="fa fa-check"></i><b>3.2</b> Analysis with the Bradley-Terry model and the order effect model</a></li>
-<li class="chapter" data-level="3.3" data-path="studyI.html"><a href="studyI.html#diagnostics-1"><i class="fa fa-check"></i><b>3.3</b> Diagnostics</a>
-<ul>
+<li class="chapter" data-level="3.3" data-path="studyI.html"><a href="studyI.html#diagnostics-1"><i class="fa fa-check"></i><b>3.3</b> Diagnostics</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="studyI.html"><a href="studyI.html#tables-and-plots"><i class="fa fa-check"></i><b>3.3.1</b> Tables and plots</a></li>
 <li class="chapter" data-level="3.3.2" data-path="studyI.html"><a href="studyI.html#waic"><i class="fa fa-check"></i><b>3.3.2</b> WAIC</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="studyII.html"><a href="studyII.html"><i class="fa fa-check"></i><b>4</b> Re-analysis 2</a>
-<ul>
+<li class="chapter" data-level="4" data-path="studyII.html"><a href="studyII.html"><i class="fa fa-check"></i><b>4</b> Re-analysis 2</a><ul>
 <li class="chapter" data-level="4.1" data-path="studyII.html"><a href="studyII.html#importing-the-data-1"><i class="fa fa-check"></i><b>4.1</b> Importing the data</a></li>
-<li class="chapter" data-level="4.2" data-path="studyII.html"><a href="studyII.html#simple-bradley-terry-model"><i class="fa fa-check"></i><b>4.2</b> Simple Bradley-Terry model</a>
-<ul>
+<li class="chapter" data-level="4.2" data-path="studyII.html"><a href="studyII.html#simple-bradley-terry-model"><i class="fa fa-check"></i><b>4.2</b> Simple Bradley-Terry model</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="studyII.html"><a href="studyII.html#assessing-the-fitness-of-the-model"><i class="fa fa-check"></i><b>4.2.1</b> Assessing the fitness of the model</a></li>
 <li class="chapter" data-level="4.2.2" data-path="studyII.html"><a href="studyII.html#getting-the-waic"><i class="fa fa-check"></i><b>4.2.2</b> Getting the WAIC</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="studyII.html"><a href="studyII.html#bradley-terry-model-with-random-effects-for-individuals"><i class="fa fa-check"></i><b>4.3</b> Bradley-Terry model with random effects for individuals</a>
-<ul>
+<li class="chapter" data-level="4.3" data-path="studyII.html"><a href="studyII.html#bradley-terry-model-with-random-effects-for-individuals"><i class="fa fa-check"></i><b>4.3</b> Bradley-Terry model with random effects for individuals</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="studyII.html"><a href="studyII.html#getting-the-waic-1"><i class="fa fa-check"></i><b>4.3.1</b> Getting the WAIC</a></li>
 <li class="chapter" data-level="4.3.2" data-path="studyII.html"><a href="studyII.html#parameter-tables-and-plots"><i class="fa fa-check"></i><b>4.3.2</b> Parameter tables and plots</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="studyIII.html"><a href="studyIII.html"><i class="fa fa-check"></i><b>5</b> Re-analysis 3</a>
-<ul>
+<li class="chapter" data-level="5" data-path="studyIII.html"><a href="studyIII.html"><i class="fa fa-check"></i><b>5</b> Re-analysis 3</a><ul>
 <li class="chapter" data-level="5.1" data-path="studyIII.html"><a href="studyIII.html#importing-the-data-2"><i class="fa fa-check"></i><b>5.1</b> Importing the data</a></li>
 <li class="chapter" data-level="5.2" data-path="studyIII.html"><a href="studyIII.html#simple-bradley-terry-models"><i class="fa fa-check"></i><b>5.2</b> Simple Bradley-Terry models</a></li>
 <li class="chapter" data-level="5.3" data-path="studyIII.html"><a href="studyIII.html#subject-predictors-model"><i class="fa fa-check"></i><b>5.3</b> Subject predictors model</a></li>
 <li class="chapter" data-level="5.4" data-path="studyIII.html"><a href="studyIII.html#subject-predictors-and-random-effects"><i class="fa fa-check"></i><b>5.4</b> Subject predictors and random effects</a></li>
 <li class="chapter" data-level="5.5" data-path="studyIII.html"><a href="studyIII.html#comparing-the-waic"><i class="fa fa-check"></i><b>5.5</b> Comparing the WAIC</a></li>
-<li class="chapter" data-level="5.6" data-path="studyIII.html"><a href="studyIII.html#plots-and-tables"><i class="fa fa-check"></i><b>5.6</b> Plots and tables</a>
-<ul>
+<li class="chapter" data-level="5.6" data-path="studyIII.html"><a href="studyIII.html#plots-and-tables"><i class="fa fa-check"></i><b>5.6</b> Plots and tables</a><ul>
 <li class="chapter" data-level="5.6.1" data-path="studyIII.html"><a href="studyIII.html#table-lambda-and-u"><i class="fa fa-check"></i><b>5.6.1</b> Table lambda and U</a></li>
 <li class="chapter" data-level="5.6.2" data-path="studyIII.html"><a href="studyIII.html#subject-predictors-table"><i class="fa fa-check"></i><b>5.6.2</b> Subject predictors table</a></li>
 <li class="chapter" data-level="5.6.3" data-path="studyIII.html"><a href="studyIII.html#plot-1"><i class="fa fa-check"></i><b>5.6.3</b> Plot</a></li>
 <li class="chapter" data-level="5.6.4" data-path="studyIII.html"><a href="studyIII.html#probability-tables"><i class="fa fa-check"></i><b>5.6.4</b> Probability tables</a></li>
 </ul></li>
+<li class="chapter" data-level="5.7" data-path="studyIII.html"><a href="studyIII.html#assessing-fitness-of-items-and-judges"><i class="fa fa-check"></i><b>5.7</b> Assessing fitness of items and judges</a></li>
 </ul></li>
 </ul>
 
@@ -204,25 +196,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="studyI" class="section level1" number="3">
+<div id="studyI" class="section level1">
 <h1><span class="header-section-number">Chapter 3</span> Re-analysis 1</h1>
 <p>This reanalysis is based on the paper:</p>
 <blockquote>
 <p>Iwasa, Kazunori, et al. “Visual perception of moisture is a pathogen detection mechanism of the behavioral immune system.” Frontiers in Psychology 11 (2020): 170.</p>
 </blockquote>
 <p>The data of this paper can be obtained from the repository: <a href="https://osf.io/5quj9/" class="uri">https://osf.io/5quj9/</a></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="studyI.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bpcs)</span>
-<span id="cb25-2"><a href="studyI.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb25-3"><a href="studyI.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb25-4"><a href="studyI.html#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">99</span>)</span></code></pre></div>
-<div id="importing-the-data" class="section level2" number="3.1">
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="studyI.html#cb25-1"></a><span class="kw">library</span>(bpcs)</span>
+<span id="cb25-2"><a href="studyI.html#cb25-2"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb25-3"><a href="studyI.html#cb25-3"></a><span class="kw">library</span>(knitr)</span>
+<span id="cb25-4"><a href="studyI.html#cb25-4"></a><span class="kw">library</span>(cmdstanr)</span>
+<span id="cb25-5"><a href="studyI.html#cb25-5"></a>PATH_TO_CMDSTAN &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="kw">Sys.getenv</span>(<span class="st">&quot;HOME&quot;</span>), <span class="st">&#39;/.cmdstan/cmdstan-2.27.0&#39;</span>, <span class="dt">sep =</span> <span class="st">&#39;&#39;</span>)</span>
+<span id="cb25-6"><a href="studyI.html#cb25-6"></a><span class="kw">set_cmdstan_path</span>(PATH_TO_CMDSTAN)</span>
+<span id="cb25-7"><a href="studyI.html#cb25-7"></a><span class="kw">set.seed</span>(<span class="dv">99</span>)</span></code></pre></div>
+<div id="importing-the-data" class="section level2">
 <h2><span class="header-section-number">3.1</span> Importing the data</h2>
 <p>First let’s read the data:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="studyI.html#cb26-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">&#39;data/moisture.xlsx&#39;</span>, <span class="at">sheet =</span> <span class="st">&#39;Exp02_BTmodel&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="studyI.html#cb26-1"></a>d &lt;-<span class="st"> </span>readxl<span class="op">::</span><span class="kw">read_xlsx</span>(<span class="st">&#39;data/moisture.xlsx&#39;</span>, <span class="dt">sheet =</span> <span class="st">&#39;Exp02_BTmodel&#39;</span>)</span></code></pre></div>
 <p>Below we show a sample of how the original data looks like:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="studyI.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_n</span>(d, <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb27-2"><a href="studyI.html#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&#39;Sample of the original data&#39;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb27-3"><a href="studyI.html#cb27-3" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">&quot;100%&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="studyI.html#cb27-1"></a><span class="kw">sample_n</span>(d, <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb27-2"><a href="studyI.html#cb27-2"></a><span class="st">  </span><span class="kw">kable</span>(<span class="dt">caption =</span> <span class="st">&#39;Sample of the original data&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb27-3"><a href="studyI.html#cb27-3"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">scroll_box</span>(<span class="dt">width =</span> <span class="st">&quot;100%&quot;</span>)</span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 <table>
 <caption>
@@ -319,11 +314,11 @@ image8
 </table>
 </div>
 <p>The data is in the aggregated format. So let’s expand it to the long format</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="studyI.html#cb28-1" aria-hidden="true" tabindex="-1"></a>d_moisture <span class="ot">&lt;-</span> <span class="fu">expand_aggregated_data</span>(d, <span class="at">player0 =</span> <span class="st">&#39;player1&#39;</span>, <span class="at">player1=</span><span class="st">&#39;player2&#39;</span>, <span class="at">wins0 =</span> <span class="st">&#39;win1&#39;</span>, <span class="at">wins1=</span><span class="st">&#39;win2&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="studyI.html#cb28-1"></a>d_moisture &lt;-<span class="st"> </span><span class="kw">expand_aggregated_data</span>(d, <span class="dt">player0 =</span> <span class="st">&#39;player1&#39;</span>, <span class="dt">player1=</span><span class="st">&#39;player2&#39;</span>, <span class="dt">wins0 =</span> <span class="st">&#39;win1&#39;</span>, <span class="dt">wins1=</span><span class="st">&#39;win2&#39;</span>)</span></code></pre></div>
 <p>Now the data looks like this:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="studyI.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_n</span>(d_moisture, <span class="at">size =</span> <span class="dv">20</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb29-2"><a href="studyI.html#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&#39;The data in the long format&#39;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb29-3"><a href="studyI.html#cb29-3" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">&quot;100%&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="studyI.html#cb29-1"></a><span class="kw">sample_n</span>(d_moisture, <span class="dt">size =</span> <span class="dv">20</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb29-2"><a href="studyI.html#cb29-2"></a><span class="st">  </span><span class="kw">kable</span>(<span class="dt">caption =</span> <span class="st">&#39;The data in the long format&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb29-3"><a href="studyI.html#cb29-3"></a><span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">scroll_box</span>(<span class="dt">width =</span> <span class="st">&quot;100%&quot;</span>)</span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
 <table>
 <caption>
@@ -630,43 +625,43 @@ image5
 </table>
 </div>
 </div>
-<div id="analysis-with-the-bradley-terry-model-and-the-order-effect-model" class="section level2" number="3.2">
+<div id="analysis-with-the-bradley-terry-model-and-the-order-effect-model" class="section level2">
 <h2><span class="header-section-number">3.2</span> Analysis with the Bradley-Terry model and the order effect model</h2>
 <p>Although this is multiple judgment case, the dataset in the aggregated format does not provide information of how each individual voted, therefore we cannot compensate this effect. Therefore, we will create an analysis with only the Bradley-Terry model and the Bradley-Terry model with order effect</p>
 <p>First, let’s sample the Bradley-Terry model</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="studyI.html#cb30-1" aria-hidden="true" tabindex="-1"></a>m_moisture <span class="ot">&lt;-</span></span>
-<span id="cb30-2"><a href="studyI.html#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bpc</span>(</span>
-<span id="cb30-3"><a href="studyI.html#cb30-3" aria-hidden="true" tabindex="-1"></a>    d_moisture,</span>
-<span id="cb30-4"><a href="studyI.html#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">player0 =</span> <span class="st">&#39;player0&#39;</span>,</span>
-<span id="cb30-5"><a href="studyI.html#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">player1 =</span> <span class="st">&#39;player1&#39;</span>,</span>
-<span id="cb30-6"><a href="studyI.html#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">result_column =</span> <span class="st">&#39;y&#39;</span>,</span>
-<span id="cb30-7"><a href="studyI.html#cb30-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">model_type =</span> <span class="st">&#39;bt&#39;</span>,</span>
-<span id="cb30-8"><a href="studyI.html#cb30-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">iter =</span> <span class="dv">2000</span>,</span>
-<span id="cb30-9"><a href="studyI.html#cb30-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">show_chain_messages =</span> T</span>
-<span id="cb30-10"><a href="studyI.html#cb30-10" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb30-11"><a href="studyI.html#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="fu">save_bpc_model</span>(m_moisture,<span class="st">&#39;m_moisture&#39;</span>,<span class="st">&#39;./fittedmodels&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="studyI.html#cb30-1"></a>m_moisture &lt;-</span>
+<span id="cb30-2"><a href="studyI.html#cb30-2"></a><span class="st">  </span><span class="kw">bpc</span>(</span>
+<span id="cb30-3"><a href="studyI.html#cb30-3"></a>    d_moisture,</span>
+<span id="cb30-4"><a href="studyI.html#cb30-4"></a>    <span class="dt">player0 =</span> <span class="st">&#39;player0&#39;</span>,</span>
+<span id="cb30-5"><a href="studyI.html#cb30-5"></a>    <span class="dt">player1 =</span> <span class="st">&#39;player1&#39;</span>,</span>
+<span id="cb30-6"><a href="studyI.html#cb30-6"></a>    <span class="dt">result_column =</span> <span class="st">&#39;y&#39;</span>,</span>
+<span id="cb30-7"><a href="studyI.html#cb30-7"></a>    <span class="dt">model_type =</span> <span class="st">&#39;bt&#39;</span>,</span>
+<span id="cb30-8"><a href="studyI.html#cb30-8"></a>    <span class="dt">iter =</span> <span class="dv">2000</span>,</span>
+<span id="cb30-9"><a href="studyI.html#cb30-9"></a>    <span class="dt">show_chain_messages =</span> T</span>
+<span id="cb30-10"><a href="studyI.html#cb30-10"></a>  )</span>
+<span id="cb30-11"><a href="studyI.html#cb30-11"></a><span class="kw">save_bpc_model</span>(m_moisture,<span class="st">&#39;m_moisture&#39;</span>,<span class="st">&#39;./fittedmodels&#39;</span>)</span></code></pre></div>
 <p>Low let’s sample the model with order effect.</p>
 <p>Although the authors said that the order of the images was inverted to compensate order effect, we can still estimate if there is an order effect or not in the choice.</p>
 <p>But first we need to create a column indicating if there was order effect for that case or not. In this problem, we just indicate with a column of ones that all instances could have an order effect. Not that the package marks the order effect relative to player1. So if the values should be interpret as such.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="studyI.html#cb31-1" aria-hidden="true" tabindex="-1"></a>d_moisture <span class="ot">&lt;-</span> d_moisture <span class="sc">%&gt;%</span> </span>
-<span id="cb31-2"><a href="studyI.html#cb31-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">z1 =</span> <span class="dv">1</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="studyI.html#cb32-1" aria-hidden="true" tabindex="-1"></a>m_moisture_order <span class="ot">&lt;-</span></span>
-<span id="cb32-2"><a href="studyI.html#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bpc</span>(</span>
-<span id="cb32-3"><a href="studyI.html#cb32-3" aria-hidden="true" tabindex="-1"></a>    d_moisture,</span>
-<span id="cb32-4"><a href="studyI.html#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">player0 =</span> <span class="st">&#39;player0&#39;</span>,</span>
-<span id="cb32-5"><a href="studyI.html#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">player1 =</span> <span class="st">&#39;player1&#39;</span>,</span>
-<span id="cb32-6"><a href="studyI.html#cb32-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">result_column =</span> <span class="st">&#39;y&#39;</span>,</span>
-<span id="cb32-7"><a href="studyI.html#cb32-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">z_player1 =</span> <span class="st">&#39;z1&#39;</span>,</span>
-<span id="cb32-8"><a href="studyI.html#cb32-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">model_type =</span> <span class="st">&#39;bt-ordereffect&#39;</span>,</span>
-<span id="cb32-9"><a href="studyI.html#cb32-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">iter =</span> <span class="dv">2000</span>,</span>
-<span id="cb32-10"><a href="studyI.html#cb32-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">show_chain_messages =</span> T</span>
-<span id="cb32-11"><a href="studyI.html#cb32-11" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb32-12"><a href="studyI.html#cb32-12" aria-hidden="true" tabindex="-1"></a><span class="fu">save_bpc_model</span>(m_moisture_order,<span class="st">&#39;m_moisture_order&#39;</span>,<span class="st">&#39;./fittedmodels&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="studyI.html#cb31-1"></a>d_moisture &lt;-<span class="st"> </span>d_moisture <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb31-2"><a href="studyI.html#cb31-2"></a><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">z1 =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="studyI.html#cb32-1"></a>m_moisture_order &lt;-</span>
+<span id="cb32-2"><a href="studyI.html#cb32-2"></a><span class="st">  </span><span class="kw">bpc</span>(</span>
+<span id="cb32-3"><a href="studyI.html#cb32-3"></a>    d_moisture,</span>
+<span id="cb32-4"><a href="studyI.html#cb32-4"></a>    <span class="dt">player0 =</span> <span class="st">&#39;player0&#39;</span>,</span>
+<span id="cb32-5"><a href="studyI.html#cb32-5"></a>    <span class="dt">player1 =</span> <span class="st">&#39;player1&#39;</span>,</span>
+<span id="cb32-6"><a href="studyI.html#cb32-6"></a>    <span class="dt">result_column =</span> <span class="st">&#39;y&#39;</span>,</span>
+<span id="cb32-7"><a href="studyI.html#cb32-7"></a>    <span class="dt">z_player1 =</span> <span class="st">&#39;z1&#39;</span>,</span>
+<span id="cb32-8"><a href="studyI.html#cb32-8"></a>    <span class="dt">model_type =</span> <span class="st">&#39;bt-ordereffect&#39;</span>,</span>
+<span id="cb32-9"><a href="studyI.html#cb32-9"></a>    <span class="dt">iter =</span> <span class="dv">2000</span>,</span>
+<span id="cb32-10"><a href="studyI.html#cb32-10"></a>    <span class="dt">show_chain_messages =</span> T</span>
+<span id="cb32-11"><a href="studyI.html#cb32-11"></a>  )</span>
+<span id="cb32-12"><a href="studyI.html#cb32-12"></a><span class="kw">save_bpc_model</span>(m_moisture_order,<span class="st">&#39;m_moisture_order&#39;</span>,<span class="st">&#39;./fittedmodels&#39;</span>)</span></code></pre></div>
 </div>
-<div id="diagnostics-1" class="section level2" number="3.3">
+<div id="diagnostics-1" class="section level2">
 <h2><span class="header-section-number">3.3</span> Diagnostics</h2>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="studyI.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_convergence_diagnostics</span>(m_moisture)</span></code></pre></div>
-<pre><code>## Processing csv files: /Users/davidis/Google Drive/Studies/PhD/papers/bpcs-appendix/.bpcs/bt-202106040755-1-4da89a.csv, /Users/davidis/Google Drive/Studies/PhD/papers/bpcs-appendix/.bpcs/bt-202106040755-2-4da89a.csv, /Users/davidis/Google Drive/Studies/PhD/papers/bpcs-appendix/.bpcs/bt-202106040755-3-4da89a.csv, /Users/davidis/Google Drive/Studies/PhD/papers/bpcs-appendix/.bpcs/bt-202106040755-4-4da89a.csv
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="studyI.html#cb33-1"></a><span class="kw">check_convergence_diagnostics</span>(m_moisture)</span></code></pre></div>
+<pre><code>## Processing csv files: /Users/xramor/OneDrive/2021/bpcs-online-appendix/.bpcs/bt-202109130836-1-55f37e.csv, /Users/xramor/OneDrive/2021/bpcs-online-appendix/.bpcs/bt-202109130836-2-55f37e.csv, /Users/xramor/OneDrive/2021/bpcs-online-appendix/.bpcs/bt-202109130836-3-55f37e.csv, /Users/xramor/OneDrive/2021/bpcs-online-appendix/.bpcs/bt-202109130836-4-55f37e.csv
 ## 
 ## Checking sampler transitions treedepth.
 ## Treedepth satisfactory for all transitions.
@@ -675,15 +670,15 @@ image5
 ## No divergent transitions found.
 ## 
 ## Checking E-BFMI - sampler transitions HMC potential energy.
-## E-BFMI satisfactory for all transitions.
+## E-BFMI satisfactory.
 ## 
 ## Effective sample size satisfactory.
 ## 
 ## Split R-hat values satisfactory all parameters.
 ## 
 ## Processing complete, no problems detected.</code></pre>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="studyI.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_convergence_diagnostics</span>(m_moisture_order)</span></code></pre></div>
-<pre><code>## Processing csv files: /Users/davidis/Google Drive/Studies/PhD/papers/bpcs-appendix/.bpcs/bt-202106041018-1-160b7f.csv, /Users/davidis/Google Drive/Studies/PhD/papers/bpcs-appendix/.bpcs/bt-202106041018-2-160b7f.csv, /Users/davidis/Google Drive/Studies/PhD/papers/bpcs-appendix/.bpcs/bt-202106041018-3-160b7f.csv, /Users/davidis/Google Drive/Studies/PhD/papers/bpcs-appendix/.bpcs/bt-202106041018-4-160b7f.csv
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="studyI.html#cb35-1"></a><span class="kw">check_convergence_diagnostics</span>(m_moisture_order)</span></code></pre></div>
+<pre><code>## Processing csv files: /Users/xramor/OneDrive/2021/bpcs-online-appendix/.bpcs/bt-202109130912-1-1cedf9.csv, /Users/xramor/OneDrive/2021/bpcs-online-appendix/.bpcs/bt-202109130912-2-1cedf9.csv, /Users/xramor/OneDrive/2021/bpcs-online-appendix/.bpcs/bt-202109130912-3-1cedf9.csv, /Users/xramor/OneDrive/2021/bpcs-online-appendix/.bpcs/bt-202109130912-4-1cedf9.csv
 ## 
 ## Checking sampler transitions treedepth.
 ## Treedepth satisfactory for all transitions.
@@ -692,7 +687,7 @@ image5
 ## No divergent transitions found.
 ## 
 ## Checking E-BFMI - sampler transitions HMC potential energy.
-## E-BFMI satisfactory for all transitions.
+## E-BFMI satisfactory.
 ## 
 ## Effective sample size satisfactory.
 ## 
@@ -700,12 +695,12 @@ image5
 ## 
 ## Processing complete, no problems detected.</code></pre>
 <p>Checking convergence of the models with shinystan</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="studyI.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">launch_shinystan</span>(m_moisture)</span></code></pre></div>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="studyI.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">launch_shinystan</span>(m_moisture_order)</span></code></pre></div>
-<div id="tables-and-plots" class="section level3" number="3.3.1">
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="studyI.html#cb37-1"></a><span class="kw">launch_shinystan</span>(m_moisture)</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="studyI.html#cb38-1"></a><span class="kw">launch_shinystan</span>(m_moisture_order)</span></code></pre></div>
+<div id="tables-and-plots" class="section level3">
 <h3><span class="header-section-number">3.3.1</span> Tables and plots</h3>
 <p>First, lets get a table for the parameters (to export it to Latex just utilize the format option)</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="studyI.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_parameters_table</span>(m_moisture, <span class="at">format =</span> <span class="st">&#39;html&#39;</span>, <span class="at">caption =</span> <span class="st">&#39;Parameters estimates for the simple Bradley-Terry model&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="studyI.html#cb39-1"></a><span class="kw">get_parameters_table</span>(m_moisture, <span class="dt">format =</span> <span class="st">&#39;html&#39;</span>, <span class="dt">caption =</span> <span class="st">&#39;Parameters estimates for the simple Bradley-Terry model&#39;</span>)</span></code></pre></div>
 <table>
 <caption>
 <span id="tab:unnamed-chunk-28">Table 3.3: </span>Parameters estimates for the simple Bradley-Terry model
@@ -735,16 +730,16 @@ HPD_higher
 lambda[image1]
 </td>
 <td style="text-align:right;">
--4.577
+-4.476
 </td>
 <td style="text-align:right;">
--4.554
+-4.492
 </td>
 <td style="text-align:right;">
--6.533
+-6.800
 </td>
 <td style="text-align:right;">
--2.489
+-2.407
 </td>
 </tr>
 <tr>
@@ -752,16 +747,16 @@ lambda[image1]
 lambda[image2]
 </td>
 <td style="text-align:right;">
--2.465
+-2.362
 </td>
 <td style="text-align:right;">
--2.436
+-2.379
 </td>
 <td style="text-align:right;">
--4.503
+-4.680
 </td>
 <td style="text-align:right;">
--0.461
+-0.298
 </td>
 </tr>
 <tr>
@@ -769,16 +764,16 @@ lambda[image2]
 lambda[image3]
 </td>
 <td style="text-align:right;">
--0.154
+-0.049
 </td>
 <td style="text-align:right;">
--0.120
+-0.067
 </td>
 <td style="text-align:right;">
--2.221
+-2.408
 </td>
 <td style="text-align:right;">
-1.830
+1.986
 </td>
 </tr>
 <tr>
@@ -786,16 +781,16 @@ lambda[image3]
 lambda[image4]
 </td>
 <td style="text-align:right;">
-0.038
+0.144
 </td>
 <td style="text-align:right;">
-0.069
+0.126
 </td>
 <td style="text-align:right;">
--2.065
+-2.095
 </td>
 <td style="text-align:right;">
-1.977
+2.302
 </td>
 </tr>
 <tr>
@@ -803,16 +798,16 @@ lambda[image4]
 lambda[image5]
 </td>
 <td style="text-align:right;">
-0.197
+0.303
 </td>
 <td style="text-align:right;">
-0.227
+0.283
 </td>
 <td style="text-align:right;">
--1.874
+-1.916
 </td>
 <td style="text-align:right;">
-2.175
+2.476
 </td>
 </tr>
 <tr>
@@ -820,16 +815,16 @@ lambda[image5]
 lambda[image6]
 </td>
 <td style="text-align:right;">
-1.742
+1.848
 </td>
 <td style="text-align:right;">
-1.770
+1.826
 </td>
 <td style="text-align:right;">
--0.349
+-0.409
 </td>
 <td style="text-align:right;">
-3.668
+3.980
 </td>
 </tr>
 <tr>
@@ -837,16 +832,16 @@ lambda[image6]
 lambda[image7]
 </td>
 <td style="text-align:right;">
-1.917
+2.023
 </td>
 <td style="text-align:right;">
-1.947
+2.002
 </td>
 <td style="text-align:right;">
--0.188
+-0.210
 </td>
 <td style="text-align:right;">
-3.842
+4.193
 </td>
 </tr>
 <tr>
@@ -854,28 +849,28 @@ lambda[image7]
 lambda[image8]
 </td>
 <td style="text-align:right;">
-2.930
+3.038
 </td>
 <td style="text-align:right;">
-2.967
+3.014
 </td>
 <td style="text-align:right;">
-0.879
+0.642
 </td>
 <td style="text-align:right;">
-4.920
+5.052
 </td>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="studyI.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_parameters_table</span>(</span>
-<span id="cb40-2"><a href="studyI.html#cb40-2" aria-hidden="true" tabindex="-1"></a>  m_moisture_order,</span>
-<span id="cb40-3"><a href="studyI.html#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">params =</span> <span class="fu">c</span>(<span class="st">&#39;lambda&#39;</span>, <span class="st">&#39;gm&#39;</span>),</span>
-<span id="cb40-4"><a href="studyI.html#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">format =</span> <span class="st">&#39;html&#39;</span>,</span>
-<span id="cb40-5"><a href="studyI.html#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">&#39;Parameters estimates for the Bradley-Terry model with order effect&#39;</span>,</span>
-<span id="cb40-6"><a href="studyI.html#cb40-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">keep_par_name =</span> F,</span>
-<span id="cb40-7"><a href="studyI.html#cb40-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">n_eff =</span> T</span>
-<span id="cb40-8"><a href="studyI.html#cb40-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="studyI.html#cb40-1"></a><span class="kw">get_parameters_table</span>(</span>
+<span id="cb40-2"><a href="studyI.html#cb40-2"></a>  m_moisture_order,</span>
+<span id="cb40-3"><a href="studyI.html#cb40-3"></a>  <span class="dt">params =</span> <span class="kw">c</span>(<span class="st">&#39;lambda&#39;</span>, <span class="st">&#39;gm&#39;</span>),</span>
+<span id="cb40-4"><a href="studyI.html#cb40-4"></a>  <span class="dt">format =</span> <span class="st">&#39;html&#39;</span>,</span>
+<span id="cb40-5"><a href="studyI.html#cb40-5"></a>  <span class="dt">caption =</span> <span class="st">&#39;Parameters estimates for the Bradley-Terry model with order effect&#39;</span>,</span>
+<span id="cb40-6"><a href="studyI.html#cb40-6"></a>  <span class="dt">keep_par_name =</span> F,</span>
+<span id="cb40-7"><a href="studyI.html#cb40-7"></a>  <span class="dt">n_eff =</span> T</span>
+<span id="cb40-8"><a href="studyI.html#cb40-8"></a>)</span></code></pre></div>
 <table>
 <caption>
 <span id="tab:unnamed-chunk-29">Table 3.4: </span>Parameters estimates for the Bradley-Terry model with order effect
@@ -897,7 +892,7 @@ HPD_lower
 <th style="text-align:right;">
 HPD_higher
 </th>
-<th style="text-align:left;">
+<th style="text-align:right;">
 n_eff
 </th>
 </tr>
@@ -908,19 +903,19 @@ n_eff
 image1
 </td>
 <td style="text-align:right;">
+-4.525
+</td>
+<td style="text-align:right;">
 -4.560
 </td>
 <td style="text-align:right;">
--4.527
+-6.616
 </td>
 <td style="text-align:right;">
--6.490
+-2.522
 </td>
 <td style="text-align:right;">
--2.425
-</td>
-<td style="text-align:left;">
-894.5013
+843
 </td>
 </tr>
 <tr>
@@ -928,19 +923,19 @@ image1
 image2
 </td>
 <td style="text-align:right;">
--2.445
+-2.413
 </td>
 <td style="text-align:right;">
--2.414
+-2.453
 </td>
 <td style="text-align:right;">
--4.489
+-4.513
 </td>
 <td style="text-align:right;">
--0.463
+-0.424
 </td>
-<td style="text-align:left;">
-883.5518
+<td style="text-align:right;">
+842
 </td>
 </tr>
 <tr>
@@ -948,19 +943,19 @@ image2
 image3
 </td>
 <td style="text-align:right;">
--0.133
+-0.101
 </td>
 <td style="text-align:right;">
--0.095
+-0.141
 </td>
 <td style="text-align:right;">
--2.137
+-2.152
 </td>
 <td style="text-align:right;">
-1.876
+1.924
 </td>
-<td style="text-align:left;">
-880.3234
+<td style="text-align:right;">
+842
 </td>
 </tr>
 <tr>
@@ -968,19 +963,19 @@ image3
 image4
 </td>
 <td style="text-align:right;">
-0.059
+0.091
 </td>
 <td style="text-align:right;">
-0.094
+0.048
 </td>
 <td style="text-align:right;">
--1.966
+-2.009
 </td>
 <td style="text-align:right;">
-2.050
+2.080
 </td>
-<td style="text-align:left;">
-880.4426
+<td style="text-align:right;">
+841
 </td>
 </tr>
 <tr>
@@ -988,19 +983,19 @@ image4
 image5
 </td>
 <td style="text-align:right;">
-0.218
+0.251
 </td>
 <td style="text-align:right;">
-0.255
+0.216
 </td>
 <td style="text-align:right;">
--1.795
+-1.797
 </td>
 <td style="text-align:right;">
-2.220
+2.287
 </td>
-<td style="text-align:left;">
-879.9749
+<td style="text-align:right;">
+841
 </td>
 </tr>
 <tr>
@@ -1008,19 +1003,19 @@ image5
 image6
 </td>
 <td style="text-align:right;">
-1.761
+1.795
 </td>
 <td style="text-align:right;">
-1.793
+1.755
 </td>
 <td style="text-align:right;">
--0.230
+-0.289
 </td>
 <td style="text-align:right;">
-3.772
+3.798
 </td>
-<td style="text-align:left;">
-881.7298
+<td style="text-align:right;">
+838
 </td>
 </tr>
 <tr>
@@ -1028,19 +1023,19 @@ image6
 image7
 </td>
 <td style="text-align:right;">
-1.938
+1.970
 </td>
 <td style="text-align:right;">
-1.975
+1.931
 </td>
 <td style="text-align:right;">
--0.023
+-0.146
 </td>
 <td style="text-align:right;">
-3.986
+3.940
 </td>
-<td style="text-align:left;">
-882.7975
+<td style="text-align:right;">
+836
 </td>
 </tr>
 <tr>
@@ -1048,19 +1043,19 @@ image7
 image8
 </td>
 <td style="text-align:right;">
-2.951
+2.984
 </td>
 <td style="text-align:right;">
-2.989
+2.952
 </td>
 <td style="text-align:right;">
-0.971
+0.943
 </td>
 <td style="text-align:right;">
-4.987
+5.035
 </td>
-<td style="text-align:left;">
-881.5544
+<td style="text-align:right;">
+841
 </td>
 </tr>
 <tr>
@@ -1068,37 +1063,37 @@ image8
 gm
 </td>
 <td style="text-align:right;">
--0.001
+0.001
 </td>
 <td style="text-align:right;">
-0.000
+0.001
 </td>
 <td style="text-align:right;">
 -0.054
 </td>
 <td style="text-align:right;">
-0.056
+0.058
 </td>
-<td style="text-align:left;">
-2422.1624
+<td style="text-align:right;">
+1825
 </td>
 </tr>
 </tbody>
 </table>
 <p>We can see from the table of the order effect that the gamma parameter is very close to zero, indicating that there is no order effect</p>
 <p>Now lets compute the posterior ranks of the images based on the first BT model</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="studyI.html#cb41-1" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">get_rank_of_players_df</span>(m_moisture) </span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="studyI.html#cb41-1"></a>r &lt;-<span class="st"> </span><span class="kw">get_rank_of_players_df</span>(m_moisture) </span></code></pre></div>
 <p>Generating a table with the images</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="studyI.html#cb42-1" aria-hidden="true" tabindex="-1"></a>r <span class="sc">%&gt;%</span> </span>
-<span id="cb42-2"><a href="studyI.html#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Image =</span> <span class="fu">c</span>(<span class="st">&quot;data/moisture/Stimuli/image08.jpg&quot;</span>,</span>
-<span id="cb42-3"><a href="studyI.html#cb42-3" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;data/moisture/Stimuli/image07.jpg&quot;</span>,</span>
-<span id="cb42-4"><a href="studyI.html#cb42-4" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;data/moisture/Stimuli/image06.jpg&quot;</span>,</span>
-<span id="cb42-5"><a href="studyI.html#cb42-5" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;data/moisture/Stimuli/image05.jpg&quot;</span>,</span>
-<span id="cb42-6"><a href="studyI.html#cb42-6" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;data/moisture/Stimuli/image04.jpg&quot;</span>,</span>
-<span id="cb42-7"><a href="studyI.html#cb42-7" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;data/moisture/Stimuli/image03.jpg&quot;</span>,</span>
-<span id="cb42-8"><a href="studyI.html#cb42-8" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;data/moisture/Stimuli/image02.jpg&quot;</span>,</span>
-<span id="cb42-9"><a href="studyI.html#cb42-9" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;data/moisture/Stimuli/image01.jpg&quot;</span>) <span class="sc">%&gt;%</span> pander<span class="sc">::</span><span class="fu">pandoc.image.return</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb42-10"><a href="studyI.html#cb42-10" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">&quot;Rank of the images based on moisture content&quot;</span>, <span class="at">format=</span><span class="st">&#39;html&#39;</span>, <span class="at">booktabs=</span>T)</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="studyI.html#cb42-1"></a>r <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb42-2"><a href="studyI.html#cb42-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Image =</span> <span class="kw">c</span>(<span class="st">&quot;data/moisture/Stimuli/image08.jpg&quot;</span>,</span>
+<span id="cb42-3"><a href="studyI.html#cb42-3"></a>                   <span class="st">&quot;data/moisture/Stimuli/image07.jpg&quot;</span>,</span>
+<span id="cb42-4"><a href="studyI.html#cb42-4"></a>                   <span class="st">&quot;data/moisture/Stimuli/image06.jpg&quot;</span>,</span>
+<span id="cb42-5"><a href="studyI.html#cb42-5"></a>                   <span class="st">&quot;data/moisture/Stimuli/image05.jpg&quot;</span>,</span>
+<span id="cb42-6"><a href="studyI.html#cb42-6"></a>                   <span class="st">&quot;data/moisture/Stimuli/image04.jpg&quot;</span>,</span>
+<span id="cb42-7"><a href="studyI.html#cb42-7"></a>                   <span class="st">&quot;data/moisture/Stimuli/image03.jpg&quot;</span>,</span>
+<span id="cb42-8"><a href="studyI.html#cb42-8"></a>                   <span class="st">&quot;data/moisture/Stimuli/image02.jpg&quot;</span>,</span>
+<span id="cb42-9"><a href="studyI.html#cb42-9"></a>                   <span class="st">&quot;data/moisture/Stimuli/image01.jpg&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>pander<span class="op">::</span><span class="kw">pandoc.image.return</span>()) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb42-10"><a href="studyI.html#cb42-10"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">caption =</span> <span class="st">&quot;Rank of the images based on moisture content&quot;</span>, <span class="dt">format=</span><span class="st">&#39;html&#39;</span>, <span class="dt">booktabs=</span>T)</span></code></pre></div>
 <table>
 <caption>
 <span id="tab:unnamed-chunk-33">Table 3.5: </span>Rank of the images based on moisture content
@@ -1148,10 +1143,10 @@ image7
 2
 </td>
 <td style="text-align:right;">
-2.003
+2.002
 </td>
 <td style="text-align:right;">
-0.0547174
+0.0446990
 </td>
 <td style="text-align:left;">
 <img src="data/moisture/Stimuli/image07.jpg" />
@@ -1165,10 +1160,10 @@ image6
 3
 </td>
 <td style="text-align:right;">
-2.997
+2.998
 </td>
 <td style="text-align:right;">
-0.0547174
+0.0446990
 </td>
 <td style="text-align:left;">
 <img src="data/moisture/Stimuli/image06.jpg" />
@@ -1182,10 +1177,10 @@ image5
 4
 </td>
 <td style="text-align:right;">
-4.005
+4.006
 </td>
 <td style="text-align:right;">
-0.0705690
+0.0772656
 </td>
 <td style="text-align:left;">
 <img src="data/moisture/Stimuli/image05.jpg" />
@@ -1199,10 +1194,10 @@ image4
 5
 </td>
 <td style="text-align:right;">
-4.996
+4.995
 </td>
 <td style="text-align:right;">
-0.0773950
+0.0835583
 </td>
 <td style="text-align:left;">
 <img src="data/moisture/Stimuli/image04.jpg" />
@@ -1262,36 +1257,36 @@ image1
 </tbody>
 </table>
 <p>Now lets get a caterpillar style plot</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="studyI.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(</span>
-<span id="cb43-2"><a href="studyI.html#cb43-2" aria-hidden="true" tabindex="-1"></a>  m_moisture_order,</span>
-<span id="cb43-3"><a href="studyI.html#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">HPDI =</span> T,</span>
-<span id="cb43-4"><a href="studyI.html#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&#39;Estimates of the moisture content&#39;</span>,</span>
-<span id="cb43-5"><a href="studyI.html#cb43-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">xaxis =</span> <span class="st">&#39;Images&#39;</span>,</span>
-<span id="cb43-6"><a href="studyI.html#cb43-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">yaxis =</span> <span class="st">&#39;Ability&#39;</span>,</span>
-<span id="cb43-7"><a href="studyI.html#cb43-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">rotate_x_labels =</span> F,</span>
-<span id="cb43-8"><a href="studyI.html#cb43-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">APA =</span> F,</span>
-<span id="cb43-9"><a href="studyI.html#cb43-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">keep_par_names=</span>F) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="studyI.html#cb43-1"></a><span class="kw">plot</span>(</span>
+<span id="cb43-2"><a href="studyI.html#cb43-2"></a>  m_moisture_order,</span>
+<span id="cb43-3"><a href="studyI.html#cb43-3"></a>  <span class="dt">HPDI =</span> T,</span>
+<span id="cb43-4"><a href="studyI.html#cb43-4"></a>  <span class="dt">title =</span> <span class="st">&#39;Estimates of the moisture content&#39;</span>,</span>
+<span id="cb43-5"><a href="studyI.html#cb43-5"></a>  <span class="dt">xaxis =</span> <span class="st">&#39;Images&#39;</span>,</span>
+<span id="cb43-6"><a href="studyI.html#cb43-6"></a>  <span class="dt">yaxis =</span> <span class="st">&#39;Ability&#39;</span>,</span>
+<span id="cb43-7"><a href="studyI.html#cb43-7"></a>  <span class="dt">rotate_x_labels =</span> F,</span>
+<span id="cb43-8"><a href="studyI.html#cb43-8"></a>  <span class="dt">APA =</span> F,</span>
+<span id="cb43-9"><a href="studyI.html#cb43-9"></a>  <span class="dt">keep_par_names=</span>F) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>()</span></code></pre></div>
 <p><img src="bpcs-appendix_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
 </div>
-<div id="waic" class="section level3" number="3.3.2">
+<div id="waic" class="section level3">
 <h3><span class="header-section-number">3.3.2</span> WAIC</h3>
 <p>Calculating the WAIC of both models</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="studyI.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_waic</span>(m_moisture)</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="studyI.html#cb44-1"></a><span class="kw">get_waic</span>(m_moisture)</span></code></pre></div>
 <pre><code>## 
 ## Computed from 8000 by 13440 log-likelihood matrix
 ## 
 ##           Estimate    SE
-## elpd_waic  -4066.1  78.8
-## p_waic         6.9   0.2
-## waic        8132.2 157.6</code></pre>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="studyI.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_waic</span>(m_moisture_order)</span></code></pre></div>
+## elpd_waic  -4066.2  78.9
+## p_waic         7.0   0.2
+## waic        8132.4 157.7</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="studyI.html#cb46-1"></a><span class="kw">get_waic</span>(m_moisture_order)</span></code></pre></div>
 <pre><code>## 
 ## Computed from 8000 by 13440 log-likelihood matrix
 ## 
 ##           Estimate    SE
-## elpd_waic  -4067.0  78.8
-## p_waic         7.8   0.2
-## waic        8134.1 157.7</code></pre>
+## elpd_waic  -4067.2  78.8
+## p_waic         7.9   0.2
+## waic        8134.3 157.7</code></pre>
 <p>We can see that the WAIC of the models are quite similar and that the model without the order effect has a slightly smaller WAIC and less parameters. Therefore we will select it.</p>
 
 </div>
@@ -1307,7 +1302,6 @@ image1
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1347,6 +1341,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
